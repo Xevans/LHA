@@ -1,0 +1,10 @@
+7/24
+Create A model for the news papers and upload your first news paper.
+- Things to consider:
+    How to I specicfy that I want Newspaper documents in the GrossePointeNews collection to go in the Newspaper collection under the Local History Archives collection?
+    See tree in MongoDB
+
+    Is it possible to put a pdf in a request or will it need to be hosted somewhere else?
+
+
+^Resolution: Since the PDF files are already hosted on the webserver, you only need to add the url to the pdf as part of the document data.
