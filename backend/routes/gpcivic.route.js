@@ -1,5 +1,5 @@
 import express, { request } from 'express';
-import { GPnews } from '../models/newspapers/gpnews.js';
+import { GPcivic } from '../models/newspapers/gpcivic.model.js';
 
 const router = express.Router();
 
@@ -10,14 +10,14 @@ router.post('/', async (request, response) => {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
-        const newGPnewspaper = {
+        const new_gp_civic = {
             title: request.body.title,
             fileURL: request.body.fileURL,
         };
 
-        const gpnewspaper = await GPnews.create(newGPnewspaper);
+        const gp_civic = await GPcivic.create(new_gp_civic);
 
-        return response.status(201).send(gpnewspaper);
+        return response.status(201).send(gp_civic);
         
     } catch (error) {
         console.log(error.message);
@@ -26,15 +26,15 @@ router.post('/', async (request, response) => {
 });
 
 
-// Route for getting a new Grosse Pointe News publication
+// Route for retreiving all Grosse Pointe News publications
 router.get('/', async (request, response) => {
     try {
 
-        const gpnewspapers = await GPnews.find({});
+        const gp_civics = await GPcivic.find({});
 
         return response.status(200).json({
-            count: gpnewspapers.length,
-            data: gpnewspapers,
+            count: gp_civics.length,
+            data: gp_civics,
         });
         
     } catch (error) {
@@ -44,15 +44,36 @@ router.get('/', async (request, response) => {
 });
 
 
+// Route for retreiving a specified Grosse Pointe News publication
+router.get('/:id', async (request, response) => {
+    try {
+
+        const { id } = request.params;
+
+        const gp_civic = await GPcivic.findById(id);
+
+        if (!gp_civic) {
+            return response.status(404).send({message: "This publication does not exist."})
+        }
+
+        return response.status(200).json(gp_civic);
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
+
 // Route for updating a GrossePointeNews publication
-router.put('/', async (request, response) => {
+router.put('/:id', async (request, response) => {
     try {
         if (!request.body.title || !request.body.fileURL) {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
         const { id } = request.params; // destructure ID from req params
-        const result = await GPnews.findByIdAndUpdate(id, request.body); // find document and update it. Returns the data
+        const result = await GPcivic.findByIdAndUpdate(id, request.body); // find document and update it. Returns the data
 
 
         if (!result) { // if no result returned
@@ -75,7 +96,7 @@ router.delete('/:id', async (request, response) => {
 
         const { id } = request.params;
 
-        const gpnewspaper = await GPnews.findByIdAndDelete(id);
+        const result = await GPcivic.findByIdAndDelete(id);
 
         if (!result) {
             return response.status(404).json({ message: 'Publication not found.'});

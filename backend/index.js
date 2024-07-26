@@ -1,7 +1,9 @@
 import express from "express";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import GPnewsRouter from "./routes/gpnewsRoute.js";
+import GPnewsRouter from "./routes/gpnews.route.js";
+import GPreviewRouter from "./routes/gpreview.route.js";
+import GPcivicRouter from "./routes/gpcivic.route.js"
 
 const app = express();
 // middleware for parsing request body
@@ -28,6 +30,8 @@ app.get('/', (request, response) => {
 
 // routes
 app.use('/gpnews', GPnewsRouter);
+app.use('/gp_review', GPreviewRouter);
+app.use('/gp_civic', GPcivicRouter);
 
 
 // mongo DB connection

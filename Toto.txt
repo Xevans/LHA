@@ -1,3 +1,7 @@
+This Node Express server will serve as a RESTful API for the Local History Archives.
+Will accept incoming requests from the client application and serve data as needed.
+Full CRUD features will only be available to admins.
+
 7/24
 Create A model for the news papers and upload your first news paper.
 - Things to consider:
@@ -8,3 +12,11 @@ Create A model for the news papers and upload your first news paper.
 
 
 ^Resolution: Since the PDF files are already hosted on the webserver, you only need to add the url to the pdf as part of the document data.
+    Secondly, the collection is specified as the third argument in the model creation.
+
+
+7/24
+GP news route has the needed functionalities for incoming requests: POST(create), GET (read), PUT(update), DELETE(delete) [CRUD]
+Need to build these functionalities for the other outlets.
+
+Do I specify where documents go in the model? Or do I have to instantiate multiple DB connections? Probably the former. Research needed.
