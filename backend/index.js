@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import GPnewsRouter from "./routes/gpnews.route.js";
 import GPreviewRouter from "./routes/gpreview.route.js";
-import GPcivicRouter from "./routes/gpcivic.route.js"
+import GPcivicRouter from "./routes/gpcivic.route.js";
+import GPheritageRouter from "./routes/gpheritage.route.js";
+import GPmagazineRouter from "./routes/gpmagazine.route.js"
 
 const app = express();
 // middleware for parsing request body
@@ -29,9 +31,11 @@ app.get('/', (request, response) => {
 
 
 // routes
-app.use('/gpnews', GPnewsRouter);
+app.use('/gp_news', GPnewsRouter);
 app.use('/gp_review', GPreviewRouter);
 app.use('/gp_civic', GPcivicRouter);
+app.use('/gp_heritage', GPheritageRouter);
+app.use('/gp_magazine', GPmagazineRouter);
 
 
 // mongo DB connection

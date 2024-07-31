@@ -6,13 +6,15 @@ const router = express.Router();
 // Route for creating/saving a new Grosse Pointe News publication
 router.post('/', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL) {
+        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !publishYear) {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
         const new_gp_civic = {
             title: request.body.title,
             fileURL: request.body.fileURL,
+            publishMonth: request.body.publishMonth,
+            publishYear: request.body.publishYear,
         };
 
         const gp_civic = await GPcivic.create(new_gp_civic);
@@ -26,7 +28,7 @@ router.post('/', async (request, response) => {
 });
 
 
-// Route for retreiving all Grosse Pointe News publications
+// Route for retreiving all Grosse Pointe civic publications
 router.get('/', async (request, response) => {
     try {
 
@@ -44,7 +46,7 @@ router.get('/', async (request, response) => {
 });
 
 
-// Route for retreiving a specified Grosse Pointe News publication
+// Route for retreiving a specified Grosse Pointe civic publication
 router.get('/:id', async (request, response) => {
     try {
 
@@ -65,10 +67,10 @@ router.get('/:id', async (request, response) => {
 });
 
 
-// Route for updating a GrossePointeNews publication
+// Route for updating a GrossePointeCivic publication
 router.put('/:id', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL) {
+        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !publishYear) {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
@@ -90,7 +92,7 @@ router.put('/:id', async (request, response) => {
 
 
 
-// Route for deleting a new Grosse Pointe News publication
+// Route for deleting a new Grosse Pointe civic publication
 router.delete('/:id', async (request, response) => {
     try {
 

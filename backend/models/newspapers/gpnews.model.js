@@ -10,6 +10,18 @@ const gpnewsSchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        publishMonth: {
+            type: Number,
+            required: true,
+        },
+        publishYear: {
+            type: Number,
+            required: true,
+        },
+        publishDay: {
+            type: Number,
+            required: true,
+        }
     },
     {
         timestamps: true,

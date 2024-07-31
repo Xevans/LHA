@@ -20,3 +20,17 @@ GP news route has the needed functionalities for incoming requests: POST(create)
 Need to build these functionalities for the other outlets.
 
 Do I specify where documents go in the model? Or do I have to instantiate multiple DB connections? Probably the former. Research needed.
+
+
+7/30
+Add publish year as a field value for some collections. Need to be able to fetch data by a field besides ID.
+    -Create endpoints for getting data by year.
+        - For GP mag (and gp civic, gp heritage), add month and year fields.
+        - For GP news (and gp review), add month, year and day fields
+
+Begin work on the front end App.
+
+
+7/31
+Updated models and routes to accomodate the above schema changes.
+Tested a newspaper model with the changes and results were successful.

@@ -6,13 +6,16 @@ const router = express.Router();
 // Route for creating/saving a new Grosse Pointe Review publication
 router.post('/', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL) {
+        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !request.body.publishYear || !request.body.publishDay) {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
         const new_gp_review = {
             title: request.body.title,
             fileURL: request.body.fileURL,
+            publishMonth: request.body.publishMonth,
+            publishYear: request.body.publishYear,
+            publishDay: request.body.publishDay,
         };
 
         const gp_review = await GPreview.create(new_gp_review);
@@ -68,7 +71,7 @@ router.get('/:id', async (request, response) => {
 // Route for updating a Grosse Pointe Review publication
 router.put('/:id', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL) {
+        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !request.body.publishYear || !request.body.publishDay) {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 

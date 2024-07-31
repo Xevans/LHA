@@ -1,26 +1,25 @@
 import express, { request } from 'express';
-import { GPnews } from '../models/newspapers/gpnews.model.js';
+import { GPheritage } from '../models/magazines/gpheritage.model.js';
 
 const router = express.Router();
 
-// Route for creating/saving a new Grosse Pointe News publication
+// Route for creating/saving a new Grosse Pointe heritage publication
 router.post('/', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !request.body.publishYear || !request.body.publishDay) {
-            return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishYear, publishMonth, publishDay).'});
+        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !publishYear) {
+            return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
-        const new_gp_newspaper = {
+        const new_gp_heritage = {
             title: request.body.title,
             fileURL: request.body.fileURL,
             publishMonth: request.body.publishMonth,
             publishYear: request.body.publishYear,
-            publishDay: request.body.publishDay,
         };
 
-        const gp_newspaper = await GPnews.create(new_gp_newspaper);
+        const gp_heritage = await GPheritage.create(new_gp_heritage);
 
-        return response.status(201).send(gp_newspaper);
+        return response.status(201).send(gp_heritage);
         
     } catch (error) {
         console.log(error.message);
@@ -29,15 +28,15 @@ router.post('/', async (request, response) => {
 });
 
 
-// Route for retreiving all Grosse Pointe News publications
+// Route for retreiving all Grosse Pointe heritage publications
 router.get('/', async (request, response) => {
     try {
 
-        const gp_newspapers = await GPnews.find({});
+        const gp_heritage_mags = await GPheritage.find({});
 
         return response.status(200).json({
-            count: gp_newspapers.length,
-            data: gp_newspapers,
+            count: gp_heritage_mags.length,
+            data: gp_heritage_mags,
         });
         
     } catch (error) {
@@ -47,19 +46,19 @@ router.get('/', async (request, response) => {
 });
 
 
-// Route for retreiving a specified Grosse Pointe News publication
+// Route for retreiving a specified Grosse Pointe heritage publication
 router.get('/:id', async (request, response) => {
     try {
 
         const { id } = request.params;
 
-        const gp_newspaper = await GPnews.findById(id);
+        const gp_heritage = await GPheritage.findById(id);
 
-        if (!gp_newspaper) {
+        if (!gp_heritage) {
             return response.status(404).send({message: "This publication does not exist."})
         }
 
-        return response.status(200).json(gp_newspaper);
+        return response.status(200).json(gp_heritage);
         
     } catch (error) {
         console.log(error.message);
@@ -68,15 +67,15 @@ router.get('/:id', async (request, response) => {
 });
 
 
-// Route for updating a GrossePointeNews publication
+// Route for updating a GrossePointeHeritage publication
 router.put('/:id', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !request.body.publishYear || request.body.publishDay) {
+        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !publishYear) {
             return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
         }
 
         const { id } = request.params; // destructure ID from req params
-        const result = await GPnews.findByIdAndUpdate(id, request.body); // find document and update it. Returns the data
+        const result = await GPheritage.findByIdAndUpdate(id, request.body); // find document and update it. Returns the data
 
 
         if (!result) { // if no result returned
@@ -93,13 +92,13 @@ router.put('/:id', async (request, response) => {
 
 
 
-// Route for deleting a new Grosse Pointe News publication
+// Route for deleting a new Grosse Pointe heritage publication
 router.delete('/:id', async (request, response) => {
     try {
 
         const { id } = request.params;
 
-        const result = await GPnews.findByIdAndDelete(id);
+        const result = await GPheritage.findByIdAndDelete(id);
 
         if (!result) {
             return response.status(404).json({ message: 'Publication not found.'});
