@@ -34,3 +34,14 @@ Begin work on the front end App.
 7/31
 Updated models and routes to accomodate the above schema changes.
 Tested a newspaper model with the changes and results were successful.
+
+Next:
+Test the other routes to verify that requests come in with the new schema changes.
+Create react app and begin crafing the now archives site. Refer to diagram and notes for design.
+
+
+8/2
+
+Find out why home component is not rendring (resolved [needed outlet in parent route (Navigation)])
+
+Attempt to make a call to the API end point to retrive grosse pointe news data.
