@@ -44,4 +44,23 @@ Create react app and begin crafing the now archives site. Refer to diagram and n
 
 Find out why home component is not rendring (resolved [needed outlet in parent route (Navigation)])
 
-Attempt to make a call to the API end point to retrive grosse pointe news data.
+Attempt to make a call to the API end point to retrive grosse pointe news data. (success)
+    -   Remember to modify CORS policy before deployment
+
+
+Create Table component for loading mapped values
+When we go to gpnews in React, we put the user in 2024 by default.
+When a user goes to a year page within gpnews, a get request is sent to the gpnews backend end-point.
+This request contains a single argument that is the year.
+mongoose will filter and return gpnews publications from the requested year.
+
+
+
+Create a context for grosse pointe news (and eventually, each publication to fetch and store the issues). Avoid having to drill down props
+
+For now, you can fetch the data from the backend in the context.
+Ideally you should create functionality for talking to the backend in the utils folder and make async calls to server functions in the context's useEffect.
+
+8/4
+In gp_news routes, added a new route to handle a query 
+where publications from a certain year are requested

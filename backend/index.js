@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import GPnewsRouter from "./routes/gpnews.route.js";
 import GPreviewRouter from "./routes/gpreview.route.js";
 import GPcivicRouter from "./routes/gpcivic.route.js";
@@ -19,7 +20,7 @@ dotenv.config(); // access the .env file
 // Cors is needed to 1: allow acess to the db from another domain and 2: prevent clients from doing whatever operations they want from anywhere
 
 // Method 1: allow all origins with default of cors(*)
-//app.use(cors());
+app.use(cors());
 
 
 

@@ -1,5 +1,6 @@
 import express, { request } from 'express';
 import { GPnews } from '../models/newspapers/gpnews.model.js';
+import { query } from 'express';
 
 const router = express.Router();
 
@@ -32,8 +33,31 @@ router.post('/', async (request, response) => {
 // Route for retreiving all Grosse Pointe News publications
 router.get('/', async (request, response) => {
     try {
-
+        
         const gp_newspapers = await GPnews.find({});
+
+        return response.status(200).json({
+            count: gp_newspapers.length,
+            data: gp_newspapers,
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
+// Route for retreiving all Grosse Pointe News publications
+router.get('/issues', async (request, response) => {
+    try {
+        
+        let query = request.query;
+
+        const gp_newspapers = await GPnews.find(query);
+
+        if (!gp_newspapers) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
 
         return response.status(200).json({
             count: gp_newspapers.length,
@@ -91,7 +115,32 @@ router.put('/:id', async (request, response) => {
     }
 });
 
+/*
 
+// Route for finding publications by a certain year
+router.get('/:publishYear', async (request, response) => {
+    console.log("test");
+    try {
+
+        const { year } = request.params;
+
+        const gp_newspapers = await GPnews.find({ publishYear: year.toString() });
+
+        if (!gp_newspapers) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
+
+        return response.status(200).json({
+            count: gp_newspapers.length,
+            data: gp_newspapers,
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+*/
 
 // Route for deleting a new Grosse Pointe News publication
 router.delete('/:id', async (request, response) => {
