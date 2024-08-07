@@ -12,17 +12,7 @@ import './App.css';
 
 function App() {
 
-  const [newspapers, setNewspapers] = useState([]);
-
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:5555/gp_news')
-    .then((response) => response.json())
-    .then((issues) => setNewspapers(issues));
-  }, []);
-
-
-  console.log(newspapers);
+  
 
   return (
     <Routes>

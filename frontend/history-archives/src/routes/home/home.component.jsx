@@ -1,7 +1,10 @@
 import { Outlet } from "react-router-dom";
 import './home.styles.scss'
+import { useContext } from "react";
 
 const Home = () => {
+
+    
 
     console.log("Home page.");
     return (

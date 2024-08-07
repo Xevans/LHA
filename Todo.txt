@@ -64,3 +64,35 @@ Ideally you should create functionality for talking to the backend in the utils 
 8/4
 In gp_news routes, added a new route to handle a query 
 where publications from a certain year are requested
+
+-A context called publisher will be added.
+    This context will help the offcanvas navigation component determine what to show as far as years and ranges
+    A state value in publisher context called currentPublisher will default to empty string.
+    currentPublisher will be updated when the route of a publisher is mounted.
+        (e.g.) I navigate to grosse pointe news. The gpnews route component runs and accesses currentPublisher. Ultimately switching the context to gpnews.
+        This will tell observer components like offcanvas navigation to read the fetched data and render the year ranges.
+
+
+8/7
+Remark
+Had some trouble accessing the publisher context once it was created. I forgot to wrap the provider around the App in the Index.js files
+The components wrapped inside a provider will have access to the contexts they provide.
+So by wrapping it around App, all child components get access too.
+----
+Task
+Need to have the side navigation show a list of year ranges.
+This can either be hard coded or determinant.
+------
+Task
+So when you go to gpnews home, you get a landing page for gpnews
+the publisher state is set to gpnews
+the newspaper context is set to an empty string.
+when the user accesses the nav and clicks a year
+
+The newspaper context's 'year' state changes to the requested year (e.g. currentYear = 2001)
+When a useEffect in gpnews detects a change in the 'year' state value, it will fetch the relevant publications
+from the backend by creating a concatenated query.
+
+When the state of 'year' in newspaper context is not and empty string
+the table will be rendered.
+-----
