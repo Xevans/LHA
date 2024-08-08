@@ -1,12 +1,28 @@
-import { PublisherContext, PublisherProvider } from "../../contexts/publisher.context";
-import { Fragment, useContext } from "react";
+import { PublisherContext } from "../../contexts/publisher.context";
+import { Fragment, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import GPnewsSideNav from "./gpnews/gpnewsSideNav.component";
 
 const SideNavigation = () => {
 
     const { currentPublisher } = useContext(PublisherContext);
 
     //console.log(currentPublisher);
+
+    // whenever currentPublisher changes, determine what component to render in the side nav
+    // "" = home page side nav
+    // "gpnews" = grosse pointe news side nav 
+    const renderSwitch = () => {
+        switch (currentPublisher) {
+            case "gpnews":
+                return ( 
+                    <GPnewsSideNav />
+                );
+        
+            default:
+                break;
+        }
+    }
 
     return (
         <Fragment>
@@ -21,23 +37,7 @@ const SideNavigation = () => {
                 </div>
                 
                 <div className="offcanvas-body">
-                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to='/'>Home</Link>
-                        </li>
-
-                        <li className="nav-item">
-                            <Link className="nav-link" to='/'>Link</Link>
-                        </li>
-
-                        <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to='/' role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</Link>
-                            <ul>
-                                <li> <Link className="dropdown-item" to='/'>Action</Link> </li>
-                                <li> <Link className="dropdown-item" to='/'>Another action</Link> </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    {renderSwitch()}
                 </div>
             </div>
         </Fragment>

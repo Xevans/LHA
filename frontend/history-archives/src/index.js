@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { PublisherProvider } from './contexts/publisher.context';
+import { NewspaperProvider } from './contexts/gpnews.context';
 
 import './index.css';
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <PublisherProvider>
-        <App />
+        <NewspaperProvider>
+          <App />
+        </NewspaperProvider>
       </PublisherProvider>
     </BrowserRouter>
   </React.StrictMode>

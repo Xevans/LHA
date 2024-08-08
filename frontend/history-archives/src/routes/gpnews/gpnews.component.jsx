@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
+import { NewspaperContext } from "../../contexts/gpnews.context";
 
 import './gpnews.styles.scss';
 
@@ -76,15 +77,17 @@ const GPnews = () => {
     const this_publisher = "gpnews";
     const { updatePublisher, currentPublisher } = useContext(PublisherContext);    
 
+
+    const { currentYear } = useContext(NewspaperContext);
+
+
     const sortIssues = (issues) => {
         return issues.sort((a, b) => (a.publishDay > b.publishDay) ? 1 : -1); 
     } 
 
-
-
-
     useEffect(() => {
-        fetch('http://127.0.0.1:5555/gp_news/issues?publishYear=2000')
+        const url_to_fetch = `http://127.0.0.1:5555/gp_news/issues?publishYear=${currentYear}`
+        fetch(url_to_fetch)
         .then((response) => response.json())
         .then((issues) => setNewspapers(issues));
 
@@ -182,7 +185,7 @@ const GPnews = () => {
 
     
     console.log(newspapers);
-    console.log(currentPublisher);    
+    console.log(currentPublisher);
 
 
     
