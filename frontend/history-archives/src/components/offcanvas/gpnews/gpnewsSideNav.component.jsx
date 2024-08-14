@@ -6,8 +6,6 @@ import Dropdown from "./dropdown/dropdown.component";
 const GPnewsSideNav = () => {
     const { currentYear, updateYear } = useContext(NewspaperContext);
 
-    console.log(currentYear);
-
     // Get the current year using real time library.
     const getDecades = () => {
         const d = new Date();
@@ -15,17 +13,6 @@ const GPnewsSideNav = () => {
         return Number(years_since.toString()[0]) + 1;
         
     }
-    
-    
-
-    /*const renderLists = () => { // decide how to render this...
-        for (let i = 1940; i < n; i++) {
-            // if last digit is 0, new dropdown
-            return;
-        }
-    */
-
-    
 
 
     /*Have Each of the child list elements update the 'currentYear' with its year passed in. */

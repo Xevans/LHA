@@ -11,7 +11,7 @@ const SideNavigation = () => {
 
     // whenever currentPublisher changes, determine what component to render in the side nav
     // "" = home page side nav
-    // "gpnews" = grosse pointe news side nav 
+    // "gpnews" = grosse pointe news side nav... 
     const renderSwitch = () => {
         switch (currentPublisher) {
             case "gpnews":

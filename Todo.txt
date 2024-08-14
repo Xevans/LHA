@@ -107,17 +107,54 @@ Consideration:
         Render based on the year of the latest issue from the outlet
 ------
 Update:
-SideNavigation component uses a switch case to determine which parent component to render within the nav
-Grosse Pointe news side bar is more or less finished.
-Each link updates the currentYear state in the newspaper context.
+- SideNavigation component uses a switch case to determine which parent component to render within the nav.
 
-Task:
-- Need to test clicking on year links in sideNavigation for grosse pointe news.
-    Clicking on a link should update the newspaper context
+- Grosse Pointe news side bar is more or less finished.
+    Each link updates the currentYear state in the newspaper context.
+------
+Tasks:
+- Need to test clicking on year links in sideNavigation for grosse pointe news. (done)
+    Clicking on a link should update the newspaper context (currentYear)
     causing the useEffect in the gpnews route (listening to current year)
-    to send an updated get request with the current year in its query.
+    to send an updated GET request with the current year in its query.
         This should return and render the data in the table.
 
 - Will need to add more publications to DB
-- Will need to enclose fetch in a try catch block (to avoid crash [do this for all outgoing requests]).
-- Will need to set fetched data into state array instead of test data
+- Will need to enclose fetch in a try-catch block to avoid crashes (do this for all outgoing requests). (done)
+- Will need to set fetched data into state array instead of test data (done)
+
+- In the nav bar add a child component that conditionally renders similar to navigation.
+    When in gpnews, it should not only show "Grosse Pointe News", but the 'currentYear' as well.
+
+- In the GPnews route, it should render GPnews home if currentYear is 0 (done)
+    If not, it should fetch with the current year and render the table component.
+
+- When a user clicks the Grosse Pointe News link in the top nav or side nav, have that button clear the publisher or set year to 0 (either one will set the year to 0)
+
+8/9
+
+Update:
+Still working on the tasks from the previous log.
+Curent issue: clicking on a year link will update the current year and the table will render *sometimes*
+    Need to find out why sometimes the data is retried and some times it is not.
+    The issue is not the filter method. React is complaining that newspaper is undefined/empty.
+    So why isn't react successfully getting the data it requests...? Async? Promises? Axios?
+
+8/14
+    After some testing, I found out why the data does get set into setNewspaper. (nothing to do with fetching)
+    accessing newspaper in useEffect immediately after calling setNewspaper leaves us with an empty array.
+    It did, however, show a populate newspaper object in console log when accessed outside of useEffect.
+    This leads me to believe nothing was set until useEffect completes its code block.
+
+    My workaround is to render a filtered and mapped newspaper dierectly into the component html with injected jsx.
+    This significantly reduced the amount of useStates and got rid of a length function (almost 100 lines less!).
+    This seems more optimal and readable.
+
+- Add a child to the nav that conditionally renders "Grosse Pointe News | <year>"
+
+- Add more publications across more years for additional testing
+
+- Work on styling of table component
+
+- Add button components beneath the table for updating (incrementing/decrementing) the year
+

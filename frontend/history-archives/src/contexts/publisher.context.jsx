@@ -1,18 +1,45 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import { NewspaperContext } from "./gpnews.context";
 
 export const PublisherContext = createContext({
     currentPublisher: "",
     setCurrentPublisher: () => "",
+    publisherName: "",
+    setPublisherName: () => "",
 });
 
+const updatePublisherName = (publisher_code) => {
+
+    switch (publisher_code) {
+        case "gpnews":
+            return "Grosse Pointe News";
+        
+        case "gpmagazine":
+            return "Grosse Pointe Magazine";
+        
+        case "gpcivic":
+            return "Grosse Pointe Civic";
+
+        case "gpheritage":
+            return "Grosse Pointe Heritage";
+
+        case "gpreview":
+            return "Grosse Pointe Review";
+    
+        default:
+            return ""
+    }
+
+} 
 
 
 export const PublisherProvider = ({ children }) => {
-    const [currentPublisher, setCurrentPublisher] = useState("testing...");
+    const [currentPublisher, setCurrentPublisher] = useState("");
+    const [publisherName, setPublisherName] = useState("");
 
-
-    const updatePublisher = (publisher_name) => {
-        setCurrentPublisher(publisher_name);
+    const updatePublisher = (publisher_code) => {
+        setCurrentPublisher(publisher_code);
+        setPublisherName(updatePublisherName(publisher_code));
     };
 
 
@@ -20,7 +47,15 @@ export const PublisherProvider = ({ children }) => {
     const value = {
         currentPublisher,
         updatePublisher,
+        publisherName,
     };
+
+    // original idea to update newspaper context in publisher
+    // redatacted because this apprach introduces considerable overhead and coupling between contexts
+    /*const { updateYear} = useContext(NewspaperContext);
+    useEffect(() => {
+        updateYear(0);
+    }, [currentPublisher])*/
 
 
     return (

@@ -60,7 +60,6 @@ router.get('/issues', async (request, response) => {
         }
 
         return response.status(200).json({
-            count: gp_newspapers.length,
             data: gp_newspapers,
         });
         
