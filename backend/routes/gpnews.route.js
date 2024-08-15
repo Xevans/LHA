@@ -7,21 +7,36 @@ const router = express.Router();
 // Route for creating/saving a new Grosse Pointe News publication
 router.post('/', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !request.body.publishYear || !request.body.publishDay) {
-            return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishYear, publishMonth, publishDay).'});
-        }
 
-        const new_gp_newspaper = {
-            title: request.body.title,
-            fileURL: request.body.fileURL,
-            publishMonth: request.body.publishMonth,
-            publishYear: request.body.publishYear,
-            publishDay: request.body.publishDay,
-        };
+        const data = request.body;
 
-        const gp_newspaper = await GPnews.create(new_gp_newspaper);
+        //console.log(data);
 
-        return response.status(201).send(gp_newspaper);
+        data.forEach(async (element) => {
+
+           // console.log(element);
+
+            
+
+            if (!element.title || !element.fileURL || !element.publishMonth || !element.publishYear || !element.publishDay) {
+                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishYear, publishMonth, publishDay).'});
+            }
+    
+            const new_gp_newspaper = {
+                title: element.title,
+                fileURL: element.fileURL,
+                publishMonth: element.publishMonth,
+                publishYear: element.publishYear,
+                publishDay: element.publishDay,
+            };
+    
+            const gp_newspaper = await GPnews.create(new_gp_newspaper);
+            
+        });
+
+        return response.status(201).send(data);
+
+        
         
     } catch (error) {
         console.log(error.message);

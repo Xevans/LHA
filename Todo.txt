@@ -158,3 +158,22 @@ Curent issue: clicking on a year link will update the current year and the table
 
 - Add button components beneath the table for updating (incrementing/decrementing) the year
 
+
+8/15
+
+BE AWARE pre 1940 issues on the old gpnews site currently being hosted are actually grosse pointe review.
+
+Note: remember there are arrorws in mongoDB for seeing the next page of a collection.
+
+------------------
+Ongoing Tasks:
+
+- Add a child to the nav that conditionally renders "Grosse Pointe News | <year>"
+
+- Add more publications across more years for additional testing
+
+- Work on styling of table component
+
+- Add button components beneath the table for updating (incrementing/decrementing) the year
+
+
