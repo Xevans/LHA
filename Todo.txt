@@ -168,6 +168,9 @@ Note: remember there are arrorws in mongoDB for seeing the next page of a collec
 ------------------
 Ongoing Tasks:
 
+Updated the gpnews route to accept an array of objects (do for other routes).
+Table now conditionally renders each month row depending on if there is data to show or not.
+
 - Add a child to the nav that conditionally renders "Grosse Pointe News | <year>"
 
 - Add more publications across more years for additional testing
