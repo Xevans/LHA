@@ -9,7 +9,7 @@ const GPnewsSideNav = () => {
     // Get the current year using real time library.
     const getDecades = () => {
         const d = new Date();
-        let years_since = d.getFullYear() - 1940; // decades since 1940
+        let years_since = d.getFullYear() - 1940; // years since 1940
         return Number(years_since.toString()[0]) + 1;
         
     }

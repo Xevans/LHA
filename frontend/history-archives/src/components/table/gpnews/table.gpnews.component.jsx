@@ -2,12 +2,16 @@ import { useState, useEffect, useContext } from 'react';
 import { NewspaperContext } from '../../../contexts/gpnews.context';
 import './table.gpnews.styles.scss'
 import axios from 'axios'
+import Button from '../../buttons/table_button.component';
 
 
 const TableGPnews = () => {
 
-    const { currentYear } = useContext(NewspaperContext);
+    const { currentYear, updateYear } = useContext(NewspaperContext);
     const [newspapers, setNewspapers] = useState([]);
+
+    //const [nextYear, setNextYear] = useState(currentYear + 1);
+    //const [previousYear, setPreviousYear] = useState(currentYear - 1)
 
     useEffect(() => {
         try {
@@ -15,8 +19,6 @@ const TableGPnews = () => {
             async function getIssues() {
                 try {
                     const response = await axios.get(`http://127.0.0.1:5555/gp_news/issues?publishYear=${currentYear}`)
-                    console.log('test');
-                    console.log(response);
                     const issues = response.data.data;
                     setNewspapers(issues);
                 } catch (error) {
@@ -32,8 +34,33 @@ const TableGPnews = () => {
             
     }, [currentYear]);
 
+
+    const handleClick = (year) => {
+        updateYear(year);
+    }
+
+    const determineButtonRenderNext = () => {
+        const d = new Date();
+        let real_time_current_year = d.getFullYear()
+        if (currentYear + 1 < real_time_current_year + 1) {
+            return currentYear + 1;
+        }
+        else {
+            return currentYear;
+        }
+    }
+
+    const determineButtonRenderPrev = () => {
+        if (currentYear - 1 > 1940 - 1) {
+            return currentYear - 1;
+        }
+        else {
+            return currentYear;
+        }
+    }
+
     return (
-        <div className="table-container">
+        <div className="container table-container">
             {/* Build a table here to test, then make it into a reusable component. */}
             <table className="table">
                 <tbody>
@@ -216,11 +243,20 @@ const TableGPnews = () => {
                             })}          
                         </tr>
                     }
-
-
-                    
                 </tbody>
             </table>
+
+            <div className='container text-center table-navigator'>
+                {/*Handle lowerbound: 1940 and upper bound: current Real time year */}
+                <div className='row'>
+                    <div className='col-auto me-auto' onClick={() => handleClick(determineButtonRenderPrev())}>
+                        <Button destination={determineButtonRenderPrev()} />
+                    </div>
+                    <div className='col-auto' onClick={() => handleClick(determineButtonRenderNext())}>
+                        <Button destination={determineButtonRenderNext()} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

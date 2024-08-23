@@ -8,69 +8,16 @@ import './gpnews.styles.scss';
 
 const GPnews = () => {
 
-    const test_data = [
-        { 
-            title: "2000-01-13",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-01-13.pdf",
-            publishMonth: 1,
-            publishYear: 2000,
-            publishDay: 13
-        },
-        { 
-            title: "2000-01-20",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-01-20.pdf",
-            publishMonth: 1,
-            publishYear: 2000,
-            publishDay: 20
-        },
-        { 
-            title: "2000-01-06",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-01-06.pdf",
-            publishMonth: 1,
-            publishYear: 2000,
-            publishDay: 6
-        },
-        { 
-            title: "2000-02-03",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-02-03.pdf",
-            publishMonth: 2,
-            publishYear: 2000,
-            publishDay: 3
-        },
-        { 
-            title: "2000-03-02",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-03-02.pdf",
-            publishMonth: 3,
-            publishYear: 2000,
-            publishDay: 2
-        },
-        { 
-            title: "2000-04-13",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-04-13.pdf",
-            publishMonth: 4,
-            publishYear: 2000,
-            publishDay: 13
-        },
-        { 
-            title: "2000-04-06",  
-            fileURL: "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/2000s/2000/pdf/2000-04-06.pdf",
-            publishMonth: 4,
-            publishYear: 2000,
-            publishDay: 6
-        },
-    ]
-
-    
-
-
-
     const this_publisher = "gpnews";
-    const { updatePublisher } = useContext(PublisherContext);    
+    const { updatePublisher, currentPublisher } = useContext(PublisherContext);    
     const { currentYear } = useContext(NewspaperContext); // need this to determine if home or table should render
 
     useEffect(() => {
         updatePublisher(this_publisher);
+        
     }, []);
+
+    console.log(currentPublisher);
 
 
     const determineRender = () => {

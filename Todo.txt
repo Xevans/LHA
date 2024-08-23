@@ -172,11 +172,33 @@ Updated the gpnews route to accept an array of objects (do for other routes).
 Table now conditionally renders each month row depending on if there is data to show or not.
 
 - Add a child to the nav that conditionally renders "Grosse Pointe News | <year>"
+    Make this its own component (Nav title) before doing so (Done)
 
-- Add more publications across more years for additional testing
+- Add more publications across more years for additional testing (ongoing)
 
-- Work on styling of table component
+- Work on styling of table component (done with primary goals)
 
-- Add button components beneath the table for updating (incrementing/decrementing) the year
+- Add button components beneath the table for updating (incrementing/decrementing) the year (done)
+
+- Update other routes in Express to accept & validate 1 or more objects at a time.
+
+(Planning to do after wrapping up GPnews)
+To make table more modular as a parent component, try condtional fetching by first determining the currentPublisher
+    - from there you can check the contexts relevant to that publisher for rendering rows in child components
 
 
+Navigation does not have access to the newspaper context.
+Possibilities? -> solved -> was using useState instead of useContext
+
+8/23
+Navigation Title feature added & resolved
+Navigation button feature added
+
+Future Tasks:
+- Refactor components to be neater.
+- look for potential parts of existing components that can be further broken down.
+- Begin work on grosse pointe magazine.
+
+Ongoing tasks:
+- Update other routes in Express to accept & validate 1 or more objects at a time.
+- Add more publications across more years for additional testing (ongoing)

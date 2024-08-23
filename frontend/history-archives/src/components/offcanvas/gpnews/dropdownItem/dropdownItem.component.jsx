@@ -11,7 +11,7 @@ const DropdownItem = (props) => {
 
     const { currentYear, updateYear } = useContext(NewspaperContext);
 
-
+    //console.log(currentYear);
 
     return (
         <li onClick={() => updateYear(decade + year_index)} className="dropdown-item">{decade + year_index}</li>

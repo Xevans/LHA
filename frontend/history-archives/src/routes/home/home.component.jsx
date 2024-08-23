@@ -3,15 +3,17 @@ import './home.styles.scss'
 import { useContext, useEffect } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
 
+
 const Home = () => {
 
-    const { updatePublisher } = useContext(PublisherContext);
+    const { updatePublisher, currentPublisher } = useContext(PublisherContext);
 
     useEffect(() => {
-        updatePublisher("");
+        updatePublisher("1");
     }, []);
 
-    console.log("Home page.");
+    console.log(currentPublisher);
+
     return (
         <div className="home-body container text-center bg-light p-3 rounded-2">
             <h4>Local History Archives</h4>

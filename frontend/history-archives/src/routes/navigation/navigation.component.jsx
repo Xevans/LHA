@@ -1,15 +1,32 @@
-import { Fragment } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import SideNavigation from "../../components/offcanvas/sideNavigation.component";
+import NavbarTitle from "../../components/navbarTitle/navbarTitle.component";
+import { PublisherContext } from "../../contexts/publisher.context";
+import { NewspaperContext } from "../../contexts/gpnews.context";
 
 
 const Navigation = () => {
+
+    const { currentPublisher } = useContext(PublisherContext);
+    const { currentYear } = useContext(NewspaperContext);
+
+    const [publisher_code, setPublisherCode] = useState("");
+    const [title_year, setTitleYear] = useState("");
+
+    console.log(currentPublisher); // got publisher, now not getting year
+    console.log(currentYear);
+
+    useEffect(() => {
+        setPublisherCode(currentPublisher);
+        setTitleYear(currentYear);
+    }, [currentPublisher, currentYear]);
     
     return(
         <Fragment>
             <nav className="navbar bg-body-tertiary fixed-top">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to='/'>Local History Archives</Link>
+                    <NavbarTitle publisher_code={publisher_code} title_year={title_year} />
                     <li className="nav-item dropdown">
                         <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             News Outlets

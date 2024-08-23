@@ -12,13 +12,13 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <PublisherProvider>
-        <NewspaperProvider>
+    <PublisherProvider>
+      <NewspaperProvider>
+        <BrowserRouter>         
           <App />
-        </NewspaperProvider>
-      </PublisherProvider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </NewspaperProvider>
+    </PublisherProvider>
   </React.StrictMode>
 );
 

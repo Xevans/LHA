@@ -1,426 +1,410 @@
 [
     {
-        "title": "01-02-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-01-02.pdf",
+        "title": "01-04-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-01-04.pdf",
         "publishMonth": 1,
-        "publishYear": 1941,
-        "publishDay": 2
-
-    },
-    {
-        "title": "01-09-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-01-09.pdf",
-        "publishMonth": 1,
-        "publishYear": 1941,
-        "publishDay": 9
-
-    },
-    {
-        "title": "01-16-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-01-16.pdf",
-        "publishMonth": 1,
-        "publishYear": 1941,
-        "publishDay": 16
-
-    },
-    {
-        "title": "01-23-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-01-23.pdf",
-        "publishMonth": 1,
-        "publishYear": 1941,
-        "publishDay": 23
-
-    },
-    {
-        "title": "01-30-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-01-30.pdf",
-        "publishMonth": 1,
-        "publishYear": 1941,
-        "publishDay": 30
-
-    },
-    {
-        "title": "02-06-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-02-06.pdf",
-        "publishMonth": 2,
-        "publishYear": 1941,
-        "publishDay": 6
-
-    },
-    {
-        "title": "02-13-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-02-13.pdf",
-        "publishMonth": 2,
-        "publishYear": 1941,
-        "publishDay": 13
-
-    },
-    {
-        "title": "02-20-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-02-20.pdf",
-        "publishMonth": 2,
-        "publishYear": 1941,
-        "publishDay": 20
-
-    },
-    {
-        "title": "02-27-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-02-27.pdf",
-        "publishMonth": 2,
-        "publishYear": 1941,
-        "publishDay": 27
-
-    },
-    {
-        "title": "03-06-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-03-06.pdf",
-        "publishMonth": 3,
-        "publishYear": 1941,
-        "publishDay": 6
-
-    },
-    {
-        "title": "03-12-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-03-12.pdf",
-        "publishMonth": 3,
-        "publishYear": 1941,
-        "publishDay": 12
-
-    },
-    {
-        "title": "03-20-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-03-20.pdf",
-        "publishMonth": 3,
-        "publishYear": 1941,
-        "publishDay": 20
-
-    },
-    {
-        "title": "03-27-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-03-27.pdf",
-        "publishMonth": 3,
-        "publishYear": 1941,
-        "publishDay": 27
-
-    },
-    {
-        "title": "04-03-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-04-03.pdf",
-        "publishMonth": 4,
-        "publishYear": 1941,
-        "publishDay": 3
-
-    },
-    {
-        "title": "04-10-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-04-10.pdf",
-        "publishMonth": 4,
-        "publishYear": 1941,
-        "publishDay": 10
-
-    },
-    {
-        "title": "04-17-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-04-17.pdf",
-        "publishMonth": 4,
-        "publishYear": 1941,
-        "publishDay": 17
-
-    },
-    {
-        "title": "04-24-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-04-24.pdf",
-        "publishMonth": 4,
-        "publishYear": 1941,
-        "publishDay": 24
-
-    },
-    {
-        "title": "05-01-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-05-01.pdf",
-        "publishMonth": 5,
-        "publishYear": 1941,
-        "publishDay": 1
-
-    },
-    {
-        "title": "05-08-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-05-08.pdf",
-        "publishMonth": 5,
-        "publishYear": 1941,
-        "publishDay": 8
-
-    },
-    {
-        "title": "05-15-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-05-15.pdf",
-        "publishMonth": 5,
-        "publishYear": 1941,
-        "publishDay": 15
-
-    },
-    {
-        "title": "05-22-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-05-22.pdf",
-        "publishMonth": 5,
-        "publishYear": 1941,
-        "publishDay": 22
-
-    },
-    {
-        "title": "05-29-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-05-29.pdf",
-        "publishMonth": 5,
-        "publishYear": 1941,
-        "publishDay": 29
-
-    },
-    {
-        "title": "06-05-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-06-05.pdf",
-        "publishMonth": 6,
-        "publishYear": 1941,
-        "publishDay": 5
-
-    },
-    {
-        "title": "06-12-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-06-12.pdf",
-        "publishMonth": 6,
-        "publishYear": 1941,
-        "publishDay": 12
-
-    },
-    {
-        "title": "06-19-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-06-19.pdf",
-        "publishMonth": 6,
-        "publishYear": 1941,
-        "publishDay": 19
-
-    },
-    {
-        "title": "06-26-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-06-26.pdf",
-        "publishMonth": 6,
-        "publishYear": 1941,
-        "publishDay": 26
-
-    },
-    {
-        "title": "07-03-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-07-03.pdf",
-        "publishMonth": 7,
-        "publishYear": 1941,
-        "publishDay": 3
-
-    },
-    {
-        "title": "07-10-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-07-10.pdf",
-        "publishMonth": 7,
-        "publishYear": 1941,
-        "publishDay": 10
-
-    },
-    {
-        "title": "07-17-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-07-17.pdf",
-        "publishMonth": 7,
-        "publishYear": 1941,
-        "publishDay": 17
-
-    },
-    {
-        "title": "07-24-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-07-24.pdf",
-        "publishMonth": 7,
-        "publishYear": 1941,
-        "publishDay": 24
-
-    },
-    {
-        "title": "08-01-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-08-01.pdf",
-        "publishMonth": 8,
-        "publishYear": 1941,
-        "publishDay": 1
-
-    },
-    {
-        "title": "08-07-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-08-07.pdf",
-        "publishMonth": 8,
-        "publishYear": 1941,
-        "publishDay": 7
-
-    },
-    {
-        "title": "08-14-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-08-14.pdf",
-        "publishMonth": 8,
-        "publishYear": 1941,
-        "publishDay": 14
-
-    },
-    {
-        "title": "08-21-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-08-21.pdf",
-        "publishMonth": 8,
-        "publishYear": 1941,
-        "publishDay": 21
-
-    },
-    {
-        "title": "08-28-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-08-28.pdf",
-        "publishMonth": 8,
-        "publishYear": 1941,
-        "publishDay": 28
-
-    },
-    {
-        "title": "09-04-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-09-04.pdf",
-        "publishMonth": 9,
-        "publishYear": 1941,
+        "publishYear": 1945,
         "publishDay": 4
 
     },
     {
-        "title": "09-11-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-09-11.pdf",
-        "publishMonth": 9,
-        "publishYear": 1941,
+        "title": "01-11-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-01-11.pdf",
+        "publishMonth": 1,
+        "publishYear": 1945,
         "publishDay": 11
 
     },
     {
-        "title": "09-18-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-09-18.pdf",
-        "publishMonth": 9,
-        "publishYear": 1941,
+        "title": "01-18-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-01-18.pdf",
+        "publishMonth": 1,
+        "publishYear": 1945,
         "publishDay": 18
 
     },
     {
-        "title": "09-25-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-09-25.pdf",
-        "publishMonth": 9,
-        "publishYear": 1941,
+        "title": "01-25-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-01-25.pdf",
+        "publishMonth": 1,
+        "publishYear": 1945,
         "publishDay": 25
 
     },
     {
-        "title": "10-02-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-10-02.pdf",
-        "publishMonth": 10,
-        "publishYear": 1941,
+        "title": "02-01-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-02-01.pdf",
+        "publishMonth": 2,
+        "publishYear": 1945,
+        "publishDay": 1
+
+    },
+    {
+        "title": "02-08-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-02-08.pdf",
+        "publishMonth": 2,
+        "publishYear": 1945,
+        "publishDay": 8
+
+    },
+    {
+        "title": "02-15-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-02-15.pdf",
+        "publishMonth": 2,
+        "publishYear": 1945,
+        "publishDay": 15
+
+    },
+    {
+        "title": "02-22-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-02-22.pdf",
+        "publishMonth": 2,
+        "publishYear": 1945,
+        "publishDay": 22
+
+    },
+    {
+        "title": "03-01-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-03-01.pdf",
+        "publishMonth": 3,
+        "publishYear": 1945,
+        "publishDay": 1
+
+    },
+    {
+        "title": "03-08-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-03-08.pdf",
+        "publishMonth": 3,
+        "publishYear": 1945,
+        "publishDay": 8
+
+    },
+    {
+        "title": "03-15-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-03-15.pdf",
+        "publishMonth": 3,
+        "publishYear": 1945,
+        "publishDay": 15
+
+    },
+    {
+        "title": "03-22-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-03-22.pdf",
+        "publishMonth": 3,
+        "publishYear": 1945,
+        "publishDay": 22
+
+    },
+    {
+        "title": "03-29-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-03-29.pdf",
+        "publishMonth": 3,
+        "publishYear": 1945,
+        "publishDay": 29
+
+    },
+    {
+        "title": "04-05-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-04-05.pdf",
+        "publishMonth": 4,
+        "publishYear": 1945,
+        "publishDay": 5
+
+    },
+    {
+        "title": "04-12-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-04-12.pdf",
+        "publishMonth": 4,
+        "publishYear": 1945,
+        "publishDay": 12
+
+    },
+    {
+        "title": "04-19-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-04-19.pdf",
+        "publishMonth": 4,
+        "publishYear": 1945,
+        "publishDay": 19
+
+    },
+    {
+        "title": "04-26-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-04-26.pdf",
+        "publishMonth": 4,
+        "publishYear": 1945,
+        "publishDay": 26
+
+    },
+    {
+        "title": "05-03-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-05-03.pdf",
+        "publishMonth": 5,
+        "publishYear": 1945,
+        "publishDay": 3
+
+    },
+    {
+        "title": "05-10-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-05-10.pdf",
+        "publishMonth": 5,
+        "publishYear": 1945,
+        "publishDay": 10
+
+    },
+    {
+        "title": "05-17-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-05-17.pdf",
+        "publishMonth": 5,
+        "publishYear": 1945,
+        "publishDay": 17
+
+    },
+    {
+        "title": "05-24-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-05-24.pdf",
+        "publishMonth": 5,
+        "publishYear": 1945,
+        "publishDay": 24
+
+    },
+    {
+        "title": "05-31-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-05-31.pdf",
+        "publishMonth": 5,
+        "publishYear": 1945,
+        "publishDay": 31
+
+    },
+    {
+        "title": "06-07-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-06-07.pdf",
+        "publishMonth": 6,
+        "publishYear": 1945,
+        "publishDay": 7
+
+    },
+    {
+        "title": "06-14-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-06-14.pdf",
+        "publishMonth": 6,
+        "publishYear": 1945,
+        "publishDay": 14
+
+    },
+    {
+        "title": "06-21-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-06-21.pdf",
+        "publishMonth": 6,
+        "publishYear": 1945,
+        "publishDay": 21
+
+    },
+    {
+        "title": "06-28-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-06-28.pdf",
+        "publishMonth": 6,
+        "publishYear": 1945,
+        "publishDay": 28
+
+    },
+    {
+        "title": "07-05-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-07-05.pdf",
+        "publishMonth": 7,
+        "publishYear": 1945,
+        "publishDay": 5
+
+    },
+    {
+        "title": "07-12-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-07-12.pdf",
+        "publishMonth": 7,
+        "publishYear": 1945,
+        "publishDay": 12
+
+    },
+    {
+        "title": "07-19-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-07-19.pdf",
+        "publishMonth": 7,
+        "publishYear": 1945,
+        "publishDay": 19
+
+    },
+    {
+        "title": "07-26-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-07-26.pdf",
+        "publishMonth": 7,
+        "publishYear": 1945,
+        "publishDay": 26
+
+    },
+    {
+        "title": "08-02-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-08-02.pdf",
+        "publishMonth": 8,
+        "publishYear": 1945,
         "publishDay": 2
 
     },
     {
-        "title": "10-09-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-10-09.pdf",
-        "publishMonth": 10,
-        "publishYear": 1941,
+        "title": "08-09-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-08-09.pdf",
+        "publishMonth": 8,
+        "publishYear": 1945,
         "publishDay": 9
 
     },
     {
-        "title": "10-16-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-10-16.pdf",
-        "publishMonth": 10,
-        "publishYear": 1941,
+        "title": "08-16-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-08-16.pdf",
+        "publishMonth": 8,
+        "publishYear": 1945,
         "publishDay": 16
 
     },
     {
-        "title": "10-23-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-10-23.pdf",
-        "publishMonth": 10,
-        "publishYear": 1941,
+        "title": "08-23-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-08-23.pdf",
+        "publishMonth": 8,
+        "publishYear": 1945,
         "publishDay": 23
 
     },
     {
-        "title": "10-30-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-10-30.pdf",
-        "publishMonth": 10,
-        "publishYear": 1941,
-        "publishDay": 30
-
-    },
-    {
-        "title": "11-06-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-11-06.pdf",
-        "publishMonth": 11,
-        "publishYear": 1941,
+        "title": "09-06-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-09-06.pdf",
+        "publishMonth": 9,
+        "publishYear": 1945,
         "publishDay": 6
 
     },
     {
-        "title": "11-13-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-11-13.pdf",
-        "publishMonth": 11,
-        "publishYear": 1941,
+        "title": "09-13-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-09-13.pdf",
+        "publishMonth": 9,
+        "publishYear": 1945,
         "publishDay": 13
 
     },
     {
-        "title": "11-20-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-11-20.pdf",
-        "publishMonth": 11,
-        "publishYear": 1941,
+        "title": "09-20-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-09-20.pdf",
+        "publishMonth": 9,
+        "publishYear": 1945,
         "publishDay": 20
 
     },
     {
-        "title": "11-27-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-11-27.pdf",
-        "publishMonth": 11,
-        "publishYear": 1941,
+        "title": "09-27-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-09-27.pdf",
+        "publishMonth": 9,
+        "publishYear": 1945,
         "publishDay": 27
 
     },
     {
-        "title": "12-04-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-12-04.pdf",
-        "publishMonth": 12,
-        "publishYear": 1941,
+        "title": "10-04-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-10-04.pdf",
+        "publishMonth": 10,
+        "publishYear": 1945,
         "publishDay": 4
 
     },
     {
-        "title": "12-11-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-12-11.pdf",
-        "publishMonth": 12,
-        "publishYear": 1941,
+        "title": "10-11-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-10-11.pdf",
+        "publishMonth": 10,
+        "publishYear": 1945,
         "publishDay": 11
 
     },
     {
-        "title": "12-18-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-12-18.pdf",
-        "publishMonth": 12,
-        "publishYear": 1941,
+        "title": "10-18-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-10-18.pdf",
+        "publishMonth": 10,
+        "publishYear": 1945,
         "publishDay": 18
 
     },
     {
-        "title": "12-23-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-12-23.pdf",
-        "publishMonth": 12,
-        "publishYear": 1941,
-        "publishDay": 23
+        "title": "10-25-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-10-25.pdf",
+        "publishMonth": 10,
+        "publishYear": 1945,
+        "publishDay": 25
 
     },
     {
-        "title": "12-30-1941",
-        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1941/pdf/1941-12-30.pdf",
-        "publishMonth": 12,
-        "publishYear": 1941,
-        "publishDay": 30
+        "title": "11-01-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-11-01.pdf",
+        "publishMonth": 11,
+        "publishYear": 1945,
+        "publishDay": 1
 
     },
+    {
+        "title": "11-08-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-11-08.pdf",
+        "publishMonth": 11,
+        "publishYear": 1945,
+        "publishDay": 8
+
+    },
+    {
+        "title": "11-15-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-11-15.pdf",
+        "publishMonth": 11,
+        "publishYear": 1945,
+        "publishDay": 15
+
+    },
+    {
+        "title": "11-22-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-11-22.pdf",
+        "publishMonth": 11,
+        "publishYear": 1945,
+        "publishDay": 22
+
+    },
+    {
+        "title": "11-29-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-11-29.pdf",
+        "publishMonth": 11,
+        "publishYear": 1945,
+        "publishDay": 29
+
+    },
+    {
+        "title": "12-06-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-12-06.pdf",
+        "publishMonth": 12,
+        "publishYear": 1945,
+        "publishDay": 6
+
+    },
+    {
+        "title": "12-13-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-12-13.pdf",
+        "publishMonth": 12,
+        "publishYear": 1945,
+        "publishDay": 13
+
+    },
+    {
+        "title": "12-20-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-12-20.pdf",
+        "publishMonth": 12,
+        "publishYear": 1945,
+        "publishDay": 20
+
+    },
+    {
+        "title": "12-27-1945",
+        "fileURL": "http://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/1940s/1945/pdf/1945-12-27.pdf",
+        "publishMonth": 12,
+        "publishYear": 1945,
+        "publishDay": 27
+
+    }
 ]
