@@ -14,7 +14,7 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
     } 
 
     // if the current decade is the current real time decade, stop rendering dropdown items at current year.
-
+    // this is to avoid overshooting the current year in the last dropdown.
     const checkCurrentDecadeAndRender = () => {
         let current_real_time_decade = Number(d.getFullYear().toString()[2]) ;
         let current_dropdown_decade = Number(determineDecade().toString()[2])

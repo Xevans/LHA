@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { NewspaperContext } from '../../../contexts/gpnews.context';
 import './table.gpnews.styles.scss'
 import axios from 'axios'
-import Button from '../../buttons/table_button.component';
+import TableButton from '../../buttons/table_button/table_button.component';
 
 
 const TableGPnews = () => {
@@ -250,10 +250,10 @@ const TableGPnews = () => {
                 {/*Handle lowerbound: 1940 and upper bound: current Real time year */}
                 <div className='row'>
                     <div className='col-auto me-auto' onClick={() => handleClick(determineButtonRenderPrev())}>
-                        <Button destination={determineButtonRenderPrev()} />
+                        <TableButton destination={determineButtonRenderPrev()} />
                     </div>
                     <div className='col-auto' onClick={() => handleClick(determineButtonRenderNext())}>
-                        <Button destination={determineButtonRenderNext()} />
+                        <TableButton destination={determineButtonRenderNext()} />
                     </div>
                 </div>
             </div>

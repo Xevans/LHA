@@ -195,10 +195,20 @@ Navigation Title feature added & resolved
 Navigation button feature added
 
 Future Tasks:
-- Refactor components to be neater.
+- Refactor components to follow planned component structure.
 - look for potential parts of existing components that can be further broken down.
+- Improve look of nav bar. (Done. Moved items to side bar)
 - Begin work on grosse pointe magazine.
+    - Create a context for magazine.
+    - Make gpmagazine route.
+    - Set up gpmagazine side nav.
+    - Begin work on table for gpmagazine.
 
 Ongoing tasks:
 - Update other routes in Express to accept & validate 1 or more objects at a time.
 - Add more publications across more years for additional testing (ongoing)
+
+
+8/28
+
+Put news and magazine outlet dropdowns in the side bar at the top.

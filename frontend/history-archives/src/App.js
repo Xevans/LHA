@@ -7,6 +7,7 @@ import GPnews from './routes/gpnews/gpnews.component';
 import { useState, useEffect } from 'react';
 
 import './App.css';
+import GPMagazine from './routes/gpmagazine/gpmagazine.component';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         
         <Route index element={<Home />} />
         <Route path='gpnews' element = {<GPnews />} />
+        <Route path='gpmagazine' element = {<GPMagazine />} />
         
 
       </Route>

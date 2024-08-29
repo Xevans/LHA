@@ -1,7 +1,7 @@
 
 import './button.styles.scss';
 
-const Button = (props) => {
+const TableButton = (props) => {
 
     const { destination } = props;
 
@@ -10,4 +10,4 @@ const Button = (props) => {
     )
 }
 
-export default Button;
+export default TableButton;

@@ -1,7 +1,7 @@
 import { Fragment, useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import { NewspaperContext } from "../../../contexts/gpnews.context";
-import Dropdown from "./dropdown/dropdown.component";
+import { NewspaperContext } from "../../../../contexts/gpnews.context";
+import Dropdown from "../dropdown/dropdown.component";
 
 const GPnewsSideNav = () => {
     const { currentYear, updateYear } = useContext(NewspaperContext);
@@ -19,16 +19,8 @@ const GPnewsSideNav = () => {
     return (
         <Fragment>
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
-                    <Link className="nav-link active" aria-current="page" to='/'>Home</Link>
-                </li>
-
-                <li className="nav-item">
-                    <Link className="nav-link" to='/'>Link</Link>
-                </li>
-
                 {
-                    /* For loop conditional render */
+                    /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
                     [...Array(getDecades())].map((e, i) => <Dropdown key={i} year_index={i} />)
                 }
 
