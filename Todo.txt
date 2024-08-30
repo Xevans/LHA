@@ -180,7 +180,7 @@ Table now conditionally renders each month row depending on if there is data to 
 
 - Add button components beneath the table for updating (incrementing/decrementing) the year (done)
 
-- Update other routes in Express to accept & validate 1 or more objects at a time.
+- Update other routes in Express to accept & validate 1 or more objects at a time. (onging)
 
 (Planning to do after wrapping up GPnews)
 To make table more modular as a parent component, try condtional fetching by first determining the currentPublisher
@@ -197,8 +197,8 @@ Navigation button feature added
 Future Tasks:
 - Refactor components to follow planned component structure.
 - look for potential parts of existing components that can be further broken down.
-- Improve look of nav bar. (Done. Moved items to side bar)
-- Begin work on grosse pointe magazine.
+- Improve look of nav bar. (Done. Moved items to side bar) 
+- Begin work on grosse pointe magazine. (Done)
     - Create a context for magazine.
     - Make gpmagazine route.
     - Set up gpmagazine side nav.
@@ -210,5 +210,18 @@ Ongoing tasks:
 
 
 8/28
-
 Put news and magazine outlet dropdowns in the side bar at the top.
+
+
+8/30
+Added the route, table and sidenav components for grosse pointe magazine.
+Modified Express route and model for gp magazine to accept an array of json objects for validation and upload.
+gp magagine model now has a publishDecade field. gp magazine table requests files from a cerain decade using the query functionality in its get req.
+
+
+Remaining routes:
+civic, heritage, review
+
+Ongoing tasks:
+- Update other routes in Express to accept & validate 1 or more objects at a time. 
+- Add more publications across more years for additional testing (gpnews).

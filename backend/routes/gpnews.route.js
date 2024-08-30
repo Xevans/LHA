@@ -12,6 +12,7 @@ router.post('/', async (request, response) => {
 
         //console.log(data);
 
+        //validate all of the data
         data.forEach(async (element) => {
 
            // console.log(element);
@@ -34,6 +35,7 @@ router.post('/', async (request, response) => {
             
         });
 
+        // send data to db
         return response.status(201).send(data);
 
         
@@ -62,7 +64,7 @@ router.get('/', async (request, response) => {
     }
 });
 
-// Route for retreiving all Grosse Pointe News publications
+// Route for retreiving all Grosse Pointe News publications from a certain year
 router.get('/issues', async (request, response) => {
     try {
         

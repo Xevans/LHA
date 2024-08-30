@@ -18,6 +18,10 @@ const gpmagazineSchema = mongoose.Schema(
             type: Number,
             required: true,
         },
+        publishDecade: {
+            type: Number,
+            required: true,
+        },
     },
     {
         timestamps: true,

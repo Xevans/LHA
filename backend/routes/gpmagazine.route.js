@@ -6,21 +6,31 @@ const router = express.Router();
 // Route for creating/saving a new Grosse Pointe magazine publication
 router.post('/', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !publishYear) {
-            return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
-        }
 
-        const new_gp_magazine = {
-            title: request.body.title,
-            fileURL: request.body.fileURL,
-            publishMonth: request.body.publishMonth,
-            publishYear: request.body.publishYear,
-        };
+        const data = request.body;
 
-        const gp_magazine = await GPmagazine.create(new_gp_magazine);
+        //validate all of the data
+        data.forEach(async (element) => {
 
-        return response.status(201).send(gp_magazine);
-        
+            if (!element.title || !element.fileURL || !element.publishMonth || !element.publishYear, !element.publishDecade) {
+                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishMonth, publishYear).'});
+            }
+    
+            const new_gp_magazine = {
+                title: element.title,
+                fileURL: element.fileURL,
+                publishMonth: element.publishMonth,
+                publishYear: element.publishYear,
+                publishDecade: element.publishDecade,
+            };
+    
+            const gp_magazine = await GPmagazine.create(new_gp_magazine);
+            
+        });
+
+        // send data to db
+        return response.status(201).send(data);
+
     } catch (error) {
         console.log(error.message);
         response.status(500).send({message: error.message});
@@ -44,6 +54,31 @@ router.get('/', async (request, response) => {
         response.status(500).send({message: error.message});
     }
 });
+
+
+
+// Route for retreiving all Grosse Pointe News publications from a certain decade
+router.get('/issues', async (request, response) => {
+    try {
+        
+        let query = request.query;
+
+        const gp_magazines = await GPmagazine.find(query);
+
+        if (!gp_magazines) {
+            return response.status(404).send({message: `There are no publications from ${decade.toString()}.`})
+        }
+
+        return response.status(200).json({
+            data: gp_magazines,
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
 
 
 // Route for retreiving a specified Grosse Pointe magazine publication

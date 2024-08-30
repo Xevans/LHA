@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { GPMagazineContext } from "../../../../contexts/gpmagazine.context";
+import { Link } from "react-router-dom";
 
 
 const SideNavItem = (props) => {
@@ -17,7 +18,9 @@ const SideNavItem = (props) => {
 
     return (
         <li className="nav-item" onClick={() => updateDecade((decade))}>
-            {decade}s
+            <Link className="nav-link">
+                {decade}s
+            </Link>
         </li>
     )
 

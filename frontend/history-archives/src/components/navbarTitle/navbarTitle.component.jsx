@@ -16,7 +16,11 @@ const NavbarTitle = (props) => {
     useEffect(() => {
         switch (publisher_code) {
             case "gpnews":
-                setTitle("Grosse Pointe News");
+                setTitle("Grosse Pointe News Archives");
+                break;
+
+            case "gpmagazine":
+                setTitle("Grosse Pointe Magazine Archives");
                 break;
         
             default:
