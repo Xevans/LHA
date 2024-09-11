@@ -6,20 +6,32 @@ const router = express.Router();
 // Route for creating/saving a new Grosse Pointe News publication
 router.post('/', async (request, response) => {
     try {
-        if (!request.body.title || !request.body.fileURL || !request.body.publishMonth || !publishYear) {
-            return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
-        }
 
-        const new_gp_civic = {
-            title: request.body.title,
-            fileURL: request.body.fileURL,
-            publishMonth: request.body.publishMonth,
-            publishYear: request.body.publishYear,
-        };
+        const data = request.body;
 
-        const gp_civic = await GPcivic.create(new_gp_civic);
+        data.forEach(async (element) => {
+            if (!element.title || 
+                !element.fileURL || 
+                !element.publishMonth || 
+                !element.publishYear || 
+                !element.publishDecade) {
+                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishMonth...).'});
+            }
+    
+            const new_gp_civic = {
+                title: element.title,
+                fileURL: element.fileURL,
+                publishMonth: element.publishMonth,
+                publishYear: element.publishYear,
+                publishDecade: element.publishDecade,
+            };
 
-        return response.status(201).send(gp_civic);
+            const gp_civic = await GPcivic.create(new_gp_civic);
+
+        })
+
+        // sed data to db
+        return response.status(201).send(data);
         
     } catch (error) {
         console.log(error.message);
@@ -44,6 +56,70 @@ router.get('/', async (request, response) => {
         response.status(500).send({message: error.message});
     }
 });
+
+
+// Route for retreiving all Grosse Pointe civic publications given a query (decade)
+router.get('/issues', async (request, response) => {
+    try {
+        
+        let query = request.query;
+
+        const gp_civics = await GPcivic.find(query);
+
+        if (!gp_civics) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
+
+        return response.status(200).json({
+            data: gp_civics,
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
+
+
+router.get('/low', async (request, response) => {
+    try {
+        const gp_civic_low = await GPcivic.find({}).sort({publishYear : 1}).limit(1); // grabs obj with lowest year value
+
+
+        if (!gp_civic_low) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
+
+        return response.status(200).json({
+            data: gp_civic_low
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
+router.get('/high', async (request, response) => {
+    try {
+        const gp_civic_high = await GPcivic.find({}).sort({publishYear : -1}).limit(1); // grabs obj with largest year value
+
+
+        if (!gp_civic_high) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
+
+        return response.status(200).json({
+            data: gp_civic_high
+        });
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
 
 
 // Route for retreiving a specified Grosse Pointe civic publication

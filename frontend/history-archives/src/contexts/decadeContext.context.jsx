@@ -2,13 +2,13 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { PublisherContext } from "./publisher.context";
 
 
-export const GPMagazineContext = createContext({
+export const DecadeContext = createContext({
     currentDecade: Number,
     setCurrentDecade: () => Number,
 });
 
 
-export const GPMagazineProvider = ({ children }) => {
+export const DecadeProvider = ({ children }) => {
     const [currentDecade, setCurrentDecade] = useState(0);
 
     const updateDecade = (decade) => {
@@ -26,6 +26,6 @@ export const GPMagazineProvider = ({ children }) => {
     };
 
     return (
-        <GPMagazineContext.Provider value={value}> {children} </GPMagazineContext.Provider>
+        <DecadeContext.Provider value={value}> {children} </DecadeContext.Provider>
     );
 };

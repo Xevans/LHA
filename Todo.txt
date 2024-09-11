@@ -225,3 +225,39 @@ civic, heritage, review
 Ongoing tasks:
 - Update other routes in Express to accept & validate 1 or more objects at a time. 
 - Add more publications across more years for additional testing (gpnews).
+
+
+
+9/5/24
+!!!Idea for rending date ranges in side bar!!!
+Find the lowest value for year/decade and the highest in the current route.
+Let those be your upper and lower bounds. No real time needed. No issue were apended years/decades dont show up.
+This initial fetch and process would occur when you go to the home page for a particular route.
+
+Ex: arrive at gpnews. Fetch at an endpoint that returns an two ojects. 1 with the lowest and 1 with the highest year value.
+
+
+9/11/24
+Solution implemented in gp civic.
+Next task is integrating it into gpmagazine.
+
+Civic and magazine are using similar implementations to render decades in the side nav.
+They are both sharing what was formerly the magazine context for accessing its decade member.
+
+magazineContext is now decadeContext
+
+Civic's table is now implemented. Much faster now that essential components are built.
+
+Next Steps...
+Next up is heritage. Heritage does not span multiple tables.
+It consists of issues from 1984 to 1990.
+With flexibility and consistency in mind, I will implement it similarly to the outlets using the decades context.
+
+
+Lastly would be the Grosse Pointe Review.
+This outlet is structured similarly to Grosse Pointe News.
+Before Working on this. I would like to revise the sideNave decade rendering.
+
+
+
+

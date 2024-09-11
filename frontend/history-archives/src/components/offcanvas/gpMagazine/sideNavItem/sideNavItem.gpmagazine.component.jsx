@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { GPMagazineContext } from "../../../../contexts/gpmagazine.context";
+import { DecadeContext } from "../../../../contexts/decadeContext.context";
 import { Link } from "react-router-dom";
 
 
@@ -7,7 +7,7 @@ const SideNavItem = (props) => {
 
     const { decade } = props;
 
-    const { currentDecade, updateDecade } = useContext(GPMagazineContext);
+    const { currentDecade, updateDecade } = useContext(DecadeContext);
 
     const d = new Date();
 

@@ -16,11 +16,23 @@ const NavbarTitle = (props) => {
     useEffect(() => {
         switch (publisher_code) {
             case "gpnews":
-                setTitle("Grosse Pointe News Archives");
+                setTitle("Grosse Pointe News Archival");
                 break;
 
             case "gpmagazine":
-                setTitle("Grosse Pointe Magazine Archives");
+                setTitle("Grosse Pointe Magazine Archival");
+                break;
+
+            case "gpcivic":
+                setTitle("Grosse Pointe Civic Archival");
+                break;
+
+            case "gpheritage":
+                setTitle("Grosse Pointe Heritage Archival");
+                break;
+
+            case "gpreview":
+                setTitle("Grosse Pointe Review Archival");
                 break;
         
             default:
