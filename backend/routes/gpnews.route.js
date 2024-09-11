@@ -15,7 +15,7 @@ router.post('/', async (request, response) => {
         //validate all of the data
         data.forEach(async (element) => {
 
-           // console.log(element);
+           // console.log(element)
 
             
 
@@ -85,6 +85,47 @@ router.get('/issues', async (request, response) => {
         response.status(500).send({message: error.message});
     }
 });
+
+
+
+router.get('/low', async (request, response) => {
+    try {
+        const gp_news_low = await GPnews.find({}).sort({publishYear : 1}).limit(1); // grabs obj with lowest year value
+
+        if (!gp_news_low) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
+
+        return response.status(200).json({
+            data: gp_news_low
+        });
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
+
+
+router.get('/high', async (request, response) => {
+    try {
+        const gp_news_high = await GPnews.find({}).sort({publishYear : -1}).limit(1); // grabs obj with highest year value
+
+        if (!gp_news_high) {
+            return response.status(404).send({message: `There are no publications from ${year.toString()}.`})
+        }
+
+        return response.status(200).json({
+            data: gp_news_high
+        });
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+})
+
 
 
 // Route for retreiving a specified Grosse Pointe News publication

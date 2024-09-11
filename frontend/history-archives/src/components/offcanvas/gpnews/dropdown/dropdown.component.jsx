@@ -3,20 +3,18 @@ import DropdownItem from "../dropdownItem/dropdownItem.component";
 
 const Dropdown = (props) => { // i you pass an object, add curly braces, otherwise dont.
 
-    const { year_index } = props;
+    const { year_index, lower_bound, upper_bound } = props;
 
-    const d = new Date();
-    //console.log(props);
 
     // determine year using index
     const determineDecade = () => {
-        return 1940 + (10 * year_index)
+        return lower_bound + (10 * year_index)
     } 
 
     // if the current decade is the current real time decade, stop rendering dropdown items at current year.
     // this is to avoid overshooting the current year in the last dropdown.
     const checkCurrentDecadeAndRender = () => {
-        let current_real_time_decade = Number(d.getFullYear().toString()[2]) ;
+        let current_real_time_decade = Number(upper_bound.toString()[2]) ;
         let current_dropdown_decade = Number(determineDecade().toString()[2])
 
         if (current_real_time_decade === current_dropdown_decade) {
@@ -32,7 +30,7 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
     }
 
     const getYearsToRender = () => {
-        return Number(d.getFullYear().toString()[3]) + 1;
+        return Number(upper_bound.toString()[3]) + 1;
     }
 
     return (

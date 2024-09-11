@@ -9,7 +9,7 @@ router.post('/', async (request, response) => {
 
         const data = request.body;
 
-        //validate all of the data
+        //for each object in body, validate and create a document in mongodb
         data.forEach(async (element) => {
 
             if (!element.title || 
@@ -32,7 +32,7 @@ router.post('/', async (request, response) => {
             
         });
 
-        // send data to db
+        // send data back to client and comfirm reciept
         return response.status(201).send(data);
 
     } catch (error) {
@@ -100,7 +100,7 @@ router.get('/low', async (request, response) => {
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
-})
+});
 
 
 

@@ -1,6 +1,6 @@
-import { useContext, useEffect } from "react";
 import { DecadeContext } from "../../../../contexts/decadeContext.context";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 
 const SideNavItem = (props) => {
@@ -9,10 +9,6 @@ const SideNavItem = (props) => {
 
     const { currentDecade, updateDecade } = useContext(DecadeContext);
 
-    /*useEffect(() => {
-        console.log(currentDecade)
-    }, [currentDecade]);
-    */
 
     return (
         <li className="nav-item" onClick={() => updateDecade((decade))}>
@@ -21,7 +17,6 @@ const SideNavItem = (props) => {
             </Link>
         </li>
     )
-
 }
 
 export default SideNavItem;

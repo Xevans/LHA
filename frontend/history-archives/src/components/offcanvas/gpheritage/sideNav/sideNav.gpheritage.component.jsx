@@ -1,8 +1,9 @@
-import { Fragment, useEffect, useState } from "react"
+import { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-import Dropdown from "../dropdown/dropdown.component";
+import SideNavItem from "../sideNavItem/sideNavItem.gpheritage.component";
 
-const GPnewsSideNav = () => {
+
+const GPHeritageSideNav = () => {
 
     const [upper_bound, setUpperBound] = useState(0);
     const [lower_bound, setLowerBound] = useState(0);
@@ -12,12 +13,12 @@ const GPnewsSideNav = () => {
         try {
             async function getHighAndLow() {
                 try {
-                    let response_high = await axios.get('http://127.0.0.1:5555/gp_news/high');
+                    let response_high = await axios.get('http://127.0.0.1:5555/gp_heritage/high');
                     const high = response_high.data.data;
                     //console.log(high[0].publishYear);
                     setUpperBound(high[0].publishYear);
 
-                    let response_low = await axios.get('http://127.0.0.1:5555/gp_news/low');
+                    let response_low = await axios.get('http://127.0.0.1:5555/gp_heritage/low');
                     const low = response_low.data.data;
                     //console.log(low[0].publishYear);
                     
@@ -40,12 +41,8 @@ const GPnewsSideNav = () => {
         }
     }, []);
 
-
-    // Determine how many times to iterate.
     const getDecades = () => {
         let x = lower_bound;
-        console.log(lower_bound);
-        console.log(upper_bound);
         let count = 0;
         // inc x by 10 every time a decade is rendered until x is larger than upper bound
         while (x <= upper_bound) {
@@ -53,16 +50,22 @@ const GPnewsSideNav = () => {
             x = x + 10;
         } 
         return count;
-        
     }
 
-    /*Have Each of the child list elements update the 'currentYear' with its year passed in. */
+    const determineDecade = (year_index) => {
+        return lower_bound + (10 * year_index);
+    }
+
+
     return (
         <Fragment>
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 {
                     /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
-                    [...Array(getDecades())].map((e, i) => <Dropdown key={i} year_index={i} lower_bound={lower_bound} upper_bound={upper_bound} />)
+                    [...Array(getDecades())].map((e, i) => {
+                        let decade = determineDecade(i);    
+                        return <SideNavItem key={i} decade={decade} />
+                    })
                 }
 
             </ul>
@@ -70,4 +73,4 @@ const GPnewsSideNav = () => {
     )
 }
 
-export default GPnewsSideNav;
+export default GPHeritageSideNav;

@@ -60,7 +60,7 @@ const GPMagazineSideNav = () => {
     }
 
     const determineDecade = (year_index) => {
-        return 2010 + (10 * year_index)
+        return lower_bound + (10 * year_index)
     } 
 
     return (

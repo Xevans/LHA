@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import GPnewsSideNav from "../gpnews/sideNav/gpnewsSideNav.component";
 import GPMagazineSideNav from "../gpMagazine/sideNav/sideNav.gpmagazine.component";
 import GPCivicSideNav from "../gpcivic/sideNav/sideNav.gpcivic.component";
+import GPHeritageSideNav from "../gpheritage/sideNav/sideNav.gpheritage.component";
 
 const SideNavigation = () => {
 
@@ -23,6 +24,9 @@ const SideNavigation = () => {
 
             case 'gpcivic':
                 return <GPCivicSideNav />
+        
+            case 'gpheritage':
+                return <GPHeritageSideNav />
         
             default:
                 break;
@@ -55,7 +59,7 @@ const SideNavigation = () => {
                                 </Link>
                                 <ul className="dropdown-menu">
                                     <Link className="dropdown-item" to='/gpnews'>Grosse Pointe News</Link>
-                                    <Link className="dropdown-item" to='/'>Grosse Pointe Heritage</Link>
+                                    <Link className="dropdown-item" to='/gpheritage'>Grosse Pointe Heritage</Link>
                                     <Link className="dropdown-item" to='/gpcivic'>Grosse Pointe Civic</Link>
                                 </ul>
                             </li>
