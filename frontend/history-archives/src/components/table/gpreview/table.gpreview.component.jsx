@@ -1,15 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import { YearContext } from '../../../contexts/yearContext.context';
-import './table.gpnews.styles.scss'
-import axios from 'axios'
+import axios from 'axios';
 import TableButton from '../../buttons/table_button/table_button.component';
 
-
-const TableGPnews = () => {
+const GPReviewTable = () => {
 
     const { currentYear, updateYear } = useContext(YearContext);
     const [newspapers, setNewspapers] = useState([]);
-    const [isloading, setIsLoading] = useState(false);
 
     //const [nextYear, setNextYear] = useState(currentYear + 1);
     //const [previousYear, setPreviousYear] = useState(currentYear - 1)
@@ -19,7 +16,7 @@ const TableGPnews = () => {
 
             async function getIssues() {
                 try {
-                    const response = await axios.get(`http://127.0.0.1:5555/gp_news/issues?publishYear=${currentYear}`)
+                    const response = await axios.get(`http://127.0.0.1:5555/gp_review/issues?publishYear=${currentYear}`)
                     const issues = response.data.data;
                     setNewspapers(issues);
                 } catch (error) {
@@ -61,7 +58,6 @@ const TableGPnews = () => {
     }
 
     return (
-        
         <div className="container table-container">
             {/* Build a table here to test, then make it into a reusable component. */}
             <table className="table">
@@ -260,7 +256,7 @@ const TableGPnews = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default TableGPnews;
+export default GPReviewTable;

@@ -5,6 +5,7 @@ import GPnewsSideNav from "../gpnews/sideNav/gpnewsSideNav.component";
 import GPMagazineSideNav from "../gpMagazine/sideNav/sideNav.gpmagazine.component";
 import GPCivicSideNav from "../gpcivic/sideNav/sideNav.gpcivic.component";
 import GPHeritageSideNav from "../gpheritage/sideNav/sideNav.gpheritage.component";
+import GPReviewSideNav from "../gpreview/sideNav/GPReviewSideNav.component";
 
 const SideNavigation = () => {
 
@@ -27,6 +28,9 @@ const SideNavigation = () => {
         
             case 'gpheritage':
                 return <GPHeritageSideNav />
+            
+            case 'gpreview':
+                return <GPReviewSideNav />
         
             default:
                 break;
@@ -59,7 +63,7 @@ const SideNavigation = () => {
                                 </Link>
                                 <ul className="dropdown-menu">
                                     <Link className="dropdown-item" to='/gpnews'>Grosse Pointe News</Link>
-                                    <Link className="dropdown-item" to='/gpheritage'>Grosse Pointe Heritage</Link>
+                                    <Link className="dropdown-item" to='/gpreview'>Grosse Pointe Review</Link>
                                     <Link className="dropdown-item" to='/gpcivic'>Grosse Pointe Civic</Link>
                                 </ul>
                             </li>
@@ -70,7 +74,7 @@ const SideNavigation = () => {
                                 </Link>
                                 <ul className="dropdown-menu">
                                     <Link className="dropdown-item" to='/gpmagazine'>Grosse Pointe Magazine</Link>
-                                    <Link className="dropdown-item" to='/'>Grosse Pointe Review</Link>
+                                    <Link className="dropdown-item" to='/gpheritage'>Grosse Pointe Heritage</Link>
                                 </ul>
                             </li>
                         </ul>

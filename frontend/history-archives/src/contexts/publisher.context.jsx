@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from "react";
-import { NewspaperContext } from "./gpnews.context";
+import { NewspaperContext } from "./yearContext.context";
 
 export const PublisherContext = createContext({
     currentPublisher: "",

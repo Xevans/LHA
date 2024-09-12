@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { PublisherProvider } from './contexts/publisher.context';
-import { NewspaperProvider } from './contexts/gpnews.context';
+import { YearProvider } from './contexts/yearContext.context';
 import { DecadeProvider } from './contexts/decadeContext.context';
 
 import './index.css';
@@ -14,13 +14,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <PublisherProvider>
-      <NewspaperProvider>
+      <YearProvider>
         <DecadeProvider>
           <BrowserRouter>         
             <App />
           </BrowserRouter>
         </DecadeProvider>
-      </NewspaperProvider>
+      </YearProvider>
     </PublisherProvider>
   </React.StrictMode>
 );

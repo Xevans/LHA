@@ -256,7 +256,21 @@ With flexibility and consistency in mind, I will implement it similarly to the o
 
 Lastly would be the Grosse Pointe Review.
 This outlet is structured similarly to Grosse Pointe News.
-Before Working on this. I would like to revise the sideNave decade rendering.
+Before Working on this. I would like to revise the sideNave decade rendering. 
+
+Update:
+
+gp heritage is added.
+
+Next Steps...
+Add gp review (see above notes). Update its backend route.
+Beware: This outlet starts with a decade that has only 3 years. How to account for that and not overshoot?
+
+- continue adding publications
+- clean up code
+    - unused imports
+    - check for generalization opportunities
+    - rename files as needed
 
 
 

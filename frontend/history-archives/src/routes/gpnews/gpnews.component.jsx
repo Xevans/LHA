@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
-import { NewspaperContext } from "../../contexts/gpnews.context";
+import { YearContext } from "../../contexts/yearContext.context";
 import TableGPnews from "../../components/table/gpnews/table.gpnews.component";
 import Welcome from "../../components/welcome/welcome.component";
 
@@ -10,7 +10,7 @@ const GPnews = () => {
 
     const this_publisher = "gpnews";
     const { updatePublisher, currentPublisher } = useContext(PublisherContext);    
-    const { currentYear } = useContext(NewspaperContext); // need this to determine if home or table should render
+    const { currentYear } = useContext(YearContext); // need this to determine if home or table should render
 
     useEffect(() => {
         updatePublisher(this_publisher);

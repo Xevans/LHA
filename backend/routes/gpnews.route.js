@@ -124,7 +124,7 @@ router.get('/high', async (request, response) => {
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
-})
+});
 
 
 

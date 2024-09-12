@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { PublisherContext } from "./publisher.context";
 
-export const NewspaperContext = createContext({
+export const YearContext = createContext({
     currentYear: Number,
     setCurrentYear: () => Number,
 });
 
 
-export const NewspaperProvider = ({ children }) => {
+export const YearProvider = ({ children }) => {
     const [currentYear, setCurrentYear] = useState(0);
 
     const updateYear = (year) => {
@@ -30,6 +30,6 @@ export const NewspaperProvider = ({ children }) => {
     };
 
     return (
-        <NewspaperContext.Provider value={value}> {children} </NewspaperContext.Provider>
+        <YearContext.Provider value={value}> {children} </YearContext.Provider>
     );
 };

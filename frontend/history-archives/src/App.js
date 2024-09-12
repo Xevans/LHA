@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import GPMagazine from './routes/gpmagazine/gpmagazine.component';
 import GPHeritage from './routes/gpheritage/gpheritage.component';
+import GPreview from './routes/gpreview/gpreview.component';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='gpmagazine' element={<GPMagazine />} />
         <Route path='gpcivic' element={<GPCivic />} />
         <Route path='gpheritage' element={<GPHeritage />} />
+        <Route path='gpreview' element={<GPreview />} />
 
       </Route>
     </Routes>

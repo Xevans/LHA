@@ -3,13 +3,13 @@ import { Outlet, Link } from "react-router-dom";
 import SideNavigation from "../../components/offcanvas/sideNavigation/sideNavigation.component";
 import NavbarTitle from "../../components/navbarTitle/navbarTitle.component";
 import { PublisherContext } from "../../contexts/publisher.context";
-import { NewspaperContext } from "../../contexts/gpnews.context";
+import { YearContext } from "../../contexts/yearContext.context";
 
 
 const Navigation = () => {
 
     const { currentPublisher } = useContext(PublisherContext);
-    const { currentYear } = useContext(NewspaperContext);
+    const { currentYear } = useContext(YearContext);
 
     const [publisher_code, setPublisherCode] = useState("");
     const [title_year, setTitleYear] = useState("");
