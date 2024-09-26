@@ -270,7 +270,13 @@ Beware: This outlet starts with a decade that has only 3 years. How to account f
 - clean up code
     - unused imports
     - check for generalization opportunities
-    - rename files as needed
+- rename files as needed
+- add loading screens for slower devices/conntections to hidie content calculation/placement.
+- consider user facing error messages.
+    - If no response from server -> "server unreachable".
+    - send custom server messages and check for them to front end app for appropriate action.
+        - Code 461: DB unavailable or failed to connect.
+            - 
 
 
 

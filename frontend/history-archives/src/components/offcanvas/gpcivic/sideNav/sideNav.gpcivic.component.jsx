@@ -6,11 +6,14 @@ const GPCivicSideNav = () => {
 
     const [upper_bound, setUpperBound] = useState(0);
     const [lower_bound, setLowerBound] = useState(0);
+    const [isloading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
         // make call to low and high end points and store the lowest and largest year values returned. Will be used to determine render range.
         try {
             async function getHighAndLow() {
+                setIsLoading(true);
                 try {
                     let response_high = await axios.get('http://127.0.0.1:5555/gp_civic/high');
                     const high = response_high.data.data;
@@ -31,6 +34,7 @@ const GPCivicSideNav = () => {
                 } catch (error) {
                     console.log(error);
                 }
+                setIsLoading(false);
             }
 
             getHighAndLow();
@@ -54,20 +58,40 @@ const GPCivicSideNav = () => {
     const determineDecade = (year_index) => {
         return lower_bound + (10 * year_index);
     }
+
+
+    const loadingSwitch = () => {
+        if (isloading) {
+            return (
+                <Fragment>
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </Fragment>
+            );
+        }
+        else {
+            return (
+                <Fragment>
+                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        {
+                            /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
+                            [...Array(getDecades())].map((e, i) => {
+                                let decade = determineDecade(i);    
+                                return <SideNavItem key={i} decade={decade} />
+                            })
+                        }
+
+                    </ul>
+                </Fragment>
+            )
+        }
+    }
     
 
     return (
         <Fragment>
-            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                {
-                    /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
-                    [...Array(getDecades())].map((e, i) => {
-                        let decade = determineDecade(i);    
-                        return <SideNavItem key={i} decade={decade} />
-                    })
-                }
-
-            </ul>
+            {loadingSwitch()}
         </Fragment>
     )
 }
