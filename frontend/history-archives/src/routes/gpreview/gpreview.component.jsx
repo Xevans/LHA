@@ -9,7 +9,7 @@ import GPReviewTable from "../../components/table/gpreview/table.gpreview.compon
 const GPreview = () => {
 
     const this_publisher = "gpreview";
-    const { updatePublisher, currentPublisher } = useContext(PublisherContext);    
+    const { updatePublisher } = useContext(PublisherContext);    
     const { currentYear } = useContext(YearContext); // need this to determine if home or table should render
 
     useEffect(() => {

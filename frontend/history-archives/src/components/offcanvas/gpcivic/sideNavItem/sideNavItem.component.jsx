@@ -6,7 +6,7 @@ const SideNavItem = (props) => {
 
     const { decade } = props;
     // context: current Decade and Update Decade
-    const { updateDecade, currentDecade } = useContext(DecadeContext);
+    const { updateDecade } = useContext(DecadeContext);
 
     const handleClick = () => {
         updateDecade(decade);

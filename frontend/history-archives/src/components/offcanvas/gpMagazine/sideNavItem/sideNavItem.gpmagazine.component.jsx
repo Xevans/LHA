@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { DecadeContext } from "../../../../contexts/decadeContext.context";
 import { Link } from "react-router-dom";
 
@@ -7,12 +7,7 @@ const SideNavItem = (props) => {
 
     const { decade } = props;
 
-    const { currentDecade, updateDecade } = useContext(DecadeContext);
-
-    /*useEffect(() => {
-        console.log(currentDecade)
-    }, [currentDecade]);
-    */
+    const { updateDecade } = useContext(DecadeContext);
 
     return (
         <li className="nav-item" onClick={() => updateDecade((decade))}>

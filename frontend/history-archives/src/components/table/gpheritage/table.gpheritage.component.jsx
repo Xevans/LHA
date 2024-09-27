@@ -4,7 +4,7 @@ import axios from "axios";
 
 const TableGPHeritage = () => {
 
-    const { currentDecade, updateDecade } = useContext(DecadeContext);
+    const { currentDecade } = useContext(DecadeContext);
     const [newspapers, setNewspapers] = useState([]);
 
     useEffect(() => {

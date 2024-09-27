@@ -7,6 +7,8 @@ const GPCivicSideNav = () => {
     const [upper_bound, setUpperBound] = useState(0);
     const [lower_bound, setLowerBound] = useState(0);
     const [isloading, setIsLoading] = useState(false);
+    const [hasFailed, setHasFailed] = useState(false);
+
 
 
     useEffect(() => {
@@ -30,8 +32,10 @@ const GPCivicSideNav = () => {
                     charArr[3] = "0";
                     floored_lower = charArr.join("");
                     setLowerBound(Number(floored_lower));
+                    setHasFailed(false);
                     
                 } catch (error) {
+                    setHasFailed(true);
                     console.log(error);
                 }
                 setIsLoading(false);
@@ -61,30 +65,41 @@ const GPCivicSideNav = () => {
 
 
     const loadingSwitch = () => {
-        if (isloading) {
-            return (
-                <Fragment>
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                </Fragment>
-            );
+        if (!hasFailed) {
+            if (isloading) {
+                return (
+                    <Fragment>
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </Fragment>
+                );
+            }
+            else {
+                return (
+                    <Fragment>
+                        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            {
+                                /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
+                                [...Array(getDecades())].map((e, i) => {
+                                    let decade = determineDecade(i);    
+                                    return <SideNavItem key={i} decade={decade} />
+                                })
+                            }
+    
+                        </ul>
+                    </Fragment>
+                )
+            }
         }
         else {
             return (
                 <Fragment>
-                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        {
-                            /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
-                            [...Array(getDecades())].map((e, i) => {
-                                let decade = determineDecade(i);    
-                                return <SideNavItem key={i} decade={decade} />
-                            })
-                        }
-
-                    </ul>
+                    <div className="alert alert-warning" role="alert">
+                        Unable to reach server. Please check your connection, or try again later.
+                    </div>
                 </Fragment>
-            )
+            );
         }
     }
     

@@ -8,7 +8,7 @@ import TableGPHeritage from "../../components/table/gpheritage/table.gpheritage.
 const GPHeritage = () => {
 
     const this_publisher = "gpheritage";
-    const { updatePublisher, currentPublisher } = useContext(PublisherContext);
+    const { updatePublisher } = useContext(PublisherContext);
     const { currentDecade } = useContext(DecadeContext);
 
     useEffect(() => {

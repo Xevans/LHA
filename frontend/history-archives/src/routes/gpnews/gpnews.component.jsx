@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
 import { YearContext } from "../../contexts/yearContext.context";
 import TableGPnews from "../../components/table/gpnews/table.gpnews.component";

@@ -5,7 +5,7 @@ import { DecadeContext } from "../../../contexts/decadeContext.context";
 
 const TableGPCivic = () => {
 
-    const { currentDecade, updateDecade } = useContext(DecadeContext);
+    const { currentDecade } = useContext(DecadeContext);
     const [newspapers, setNewspapers] = useState([]);
 
     useEffect(() => {

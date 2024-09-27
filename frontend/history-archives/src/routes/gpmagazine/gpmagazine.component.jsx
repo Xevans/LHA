@@ -7,7 +7,7 @@ import TableGPMagazine from "../../components/table/gpmagazine/table.gpmagazine.
 const GPMagazine = () => {
     
     const this_publisher = "gpmagazine";
-    const { updatePublisher, currentPublisher } = useContext(PublisherContext);
+    const { updatePublisher } = useContext(PublisherContext);
     const { currentDecade } = useContext(DecadeContext);
 
     useEffect(() => {

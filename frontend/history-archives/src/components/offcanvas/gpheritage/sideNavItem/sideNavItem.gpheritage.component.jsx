@@ -7,7 +7,7 @@ const SideNavItem = (props) => {
 
     const { decade } = props;
 
-    const { currentDecade, updateDecade } = useContext(DecadeContext);
+    const { updateDecade } = useContext(DecadeContext);
 
 
     return (

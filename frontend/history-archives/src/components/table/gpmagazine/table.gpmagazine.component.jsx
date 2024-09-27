@@ -8,7 +8,7 @@ const TableGPMagazine = () => {
     // need to know the fields for a magazine object
     // how to render a May-Jun issue?
 
-    const { currentDecade, updateDecade } = useContext(DecadeContext);
+    const { currentDecade } = useContext(DecadeContext);
     const [magazines, setMagazines] = useState([]);
 
     useEffect(() => {

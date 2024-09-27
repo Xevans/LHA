@@ -1,5 +1,5 @@
 import { Fragment, useContext, useEffect, useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import SideNavigation from "../../components/offcanvas/sideNavigation/sideNavigation.component";
 import NavbarTitle from "../../components/navbarTitle/navbarTitle.component";
 import { PublisherContext } from "../../contexts/publisher.context";

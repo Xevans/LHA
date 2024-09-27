@@ -5,7 +5,7 @@ const GPReviewDropdownItem = (props) => {
 
     const { decade, year_index } = props;
 
-    const { currentYear, updateYear } = useContext(YearContext);
+    const { updateYear } = useContext(YearContext);
 
     return (
         <div>
