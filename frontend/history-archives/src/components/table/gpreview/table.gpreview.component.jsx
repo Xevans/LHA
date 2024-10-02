@@ -38,9 +38,10 @@ const GPReviewTable = () => {
     }
 
     const determineButtonRenderNext = () => {
-        const d = new Date();
-        let real_time_current_year = d.getFullYear()
-        if (currentYear + 1 < real_time_current_year + 1) {
+        if (currentYear + 1 <= 1952) {
+            if (currentYear === 1932) {
+                return 1940;
+            }
             return currentYear + 1;
         }
         else {
@@ -49,7 +50,10 @@ const GPReviewTable = () => {
     }
 
     const determineButtonRenderPrev = () => {
-        if (currentYear - 1 > 1940 - 1) {
+        if (currentYear - 1 >= 1930) {
+            if (currentYear === 1940) {
+                return 1932; // gap between 1932 and 1940
+            }
             return currentYear - 1;
         }
         else {

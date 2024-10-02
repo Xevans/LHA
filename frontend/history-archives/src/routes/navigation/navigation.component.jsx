@@ -4,29 +4,31 @@ import SideNavigation from "../../components/offcanvas/sideNavigation/sideNaviga
 import NavbarTitle from "../../components/navbarTitle/navbarTitle.component";
 import { PublisherContext } from "../../contexts/publisher.context";
 import { YearContext } from "../../contexts/yearContext.context";
+import { DecadeContext } from "../../contexts/decadeContext.context";
 
 
 const Navigation = () => {
 
     const { currentPublisher } = useContext(PublisherContext);
-    const { currentYear } = useContext(YearContext);
+    const { currentYear } = useContext(YearContext); 
+    const { currentDecade } = useContext(DecadeContext);
 
     const [publisher_code, setPublisherCode] = useState("");
     const [title_year, setTitleYear] = useState("");
-
-    //console.log(currentPublisher); // got publisher, now not getting year
-    //console.log(currentYear);
+    const [title_decade, setTitleDecade] = useState("");
 
     useEffect(() => {
         setPublisherCode(currentPublisher);
         setTitleYear(currentYear);
-    }, [currentPublisher, currentYear]);
+        setTitleDecade(currentDecade);
+
+    }, [currentPublisher, currentYear, currentDecade]);
     
     return(
         <Fragment>
             <nav className="navbar bg-body-tertiary fixed-top">
                 <div className="container-fluid">
-                    <NavbarTitle publisher_code={publisher_code} title_year={title_year} />
+                    <NavbarTitle publisher_code={publisher_code} title_year={title_year} title_decade={title_decade} />
             
                     <SideNavigation />
                     

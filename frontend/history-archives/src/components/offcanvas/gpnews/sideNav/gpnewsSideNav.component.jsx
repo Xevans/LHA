@@ -52,8 +52,8 @@ const GPnewsSideNav = () => {
     // Determine how many times to iterate.
     const getDecades = () => {
         let x = lower_bound;
-        console.log(lower_bound);
-        console.log(upper_bound);
+        //console.log(lower_bound);
+        //console.log(upper_bound);
         let count = 0;
         // inc x by 10 every time a decade is rendered until x is larger than upper bound
         while (x <= upper_bound) {

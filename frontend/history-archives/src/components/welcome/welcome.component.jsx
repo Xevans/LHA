@@ -10,8 +10,8 @@ const Welcome = () => {
 
     return (
         <div className="welcome-home-body container text-center bg-light p-3 rounded-2">
-            <h4>Welcome to {publisherName}</h4>
-            <p>Here, you can browse for publications by year.<br /> Open the menu in the top-right corner or click 'select decade' below.
+            <h4>Welcome to The {`${publisherName}`} Archives</h4>
+            <p>Here, you can browse for local news publications by year.<br /> Open the menu in the top-right corner by clicking the button with three lines.
             
             </p>
 

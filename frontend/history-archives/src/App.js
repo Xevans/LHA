@@ -4,8 +4,6 @@ import Home from './routes/home/home.component';
 import GPnews from './routes/gpnews/gpnews.component';
 import GPCivic from './routes/gpcivic/gpcivic.component';
 
-import { useState, useEffect } from 'react';
-
 import './App.css';
 import GPMagazine from './routes/gpmagazine/gpmagazine.component';
 import GPHeritage from './routes/gpheritage/gpheritage.component';

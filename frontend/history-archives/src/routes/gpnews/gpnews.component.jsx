@@ -9,7 +9,7 @@ import './gpnews.styles.scss';
 const GPnews = () => {
 
     const this_publisher = "gpnews";
-    const { updatePublisher, currentPublisher } = useContext(PublisherContext);    
+    const { updatePublisher } = useContext(PublisherContext);    
     const { currentYear } = useContext(YearContext); // need this to determine if home or table should render
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const GPnews = () => {
         
     }, []);
 
-    console.log(currentPublisher);
+    //console.log(currentPublisher);
 
 
     const determineRender = () => {

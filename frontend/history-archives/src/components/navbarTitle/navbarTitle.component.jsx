@@ -7,10 +7,11 @@ const NavbarTitle = (props) => {
 
     
     // operate on the incoming props
-    const { publisher_code, title_year } = props;
+    const { publisher_code, title_year, title_decade } = props;
 
     const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
+    const [decade, setDecade] = useState("");
 
 
     useEffect(() => {
@@ -46,16 +47,23 @@ const NavbarTitle = (props) => {
             setYear(title_year);
         }
 
+        if (title_decade === 0) {
+            setDecade("");
+        } else {
+            setDecade(title_decade + "s");
+        }
+
         
-    },[publisher_code, title_year]); // update when publisher code or year changes
+    },[publisher_code, title_year, title_decade]); // update when publisher code or year changes
 
     
 
     
     return (
         <div>
-
-            <Link className="navbar-brand" to='/'>{`${title}`} <b> {`${year}`}</b></Link>
+            <Link className="navbar-brand"> 
+                {`${title}`} <b> {`${year}`}{`${decade}`}</b> 
+            </Link>
         </div>
     )
 }

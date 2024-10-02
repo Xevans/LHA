@@ -20,12 +20,12 @@ const GPMagazineSideNav = () => {
                 try {
                     let response_high = await axios.get('http://127.0.0.1:5555/gp_magazine/high');
                     const high = response_high.data.data;
-                    console.log(high[0].publishYear);
+                    //console.log(high[0].publishYear);
                     setUpperBound(high[0].publishYear);
 
                     let response_low = await axios.get('http://127.0.0.1:5555/gp_magazine/low');
                     const low = response_low.data.data;
-                    console.log(low[0].publishYear);
+                    //console.log(low[0].publishYear);
                     
                     // ensure last digit is 0 for an effective lower bound for nav rendering
                     let floored_lower = low[0].publishYear.toString();
@@ -77,8 +77,8 @@ const GPMagazineSideNav = () => {
             if (isloading) {
                 return (
                     <Fragment>
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
                         </div>
                     </Fragment>
                 );
