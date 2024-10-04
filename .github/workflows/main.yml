@@ -1,0 +1,38 @@
+name: Deploy to On-Prem Server
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  MONGO_DB_URL: ${{ secrets.MONGO_DB_URL}}
+  PORT: ${{ secrets.PORT}}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # Use the self-hosted runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies and run tests for frontend
+      working-directory: ./frontend/history-archives
+      run: |
+        npm install
+        npm run test
+
+    - name: Install dependencies and run test for backend
+      working-directory: ./backend
+      run: |
+        npm install
+        export MONGO_DB_URL=$MONGO_DB_URL
+        export PORT=$PORT
+        npm run test
+        
