@@ -35,15 +35,18 @@ jobs:
         export MONGO_DB_URL=$MONGO_DB_URL
         export PORT=$PORT
 
+    - name: Deploy Backend
+      run: |
+        cd backend
+        npm run test
+        npm start
+
     - name: Build Frontend
       working-directory: ./frontend/history-archives
       run: |
+        cd frontend
+        cd history-archives
         npm run build
-
-    - name: Deploy Backend
-      working-directory: ./backend
-      run: |
-        npm start
         
           
         
