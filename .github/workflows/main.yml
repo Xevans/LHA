@@ -38,10 +38,6 @@ jobs:
     - name: Deploy Backend
       working-directory: ./backend
       run: |
-<<<<<<< Updated upstream
-        cd backend
-=======
->>>>>>> Stashed changes
         npm start
 
     - name: Build Frontend
