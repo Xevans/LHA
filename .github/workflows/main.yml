@@ -38,7 +38,7 @@ jobs:
     - name: Deploy Backend
       run: |
         cd backend
-        npm run test
+        npm test
         npm start
 
     - name: Build Frontend
