@@ -275,6 +275,8 @@ Beware: This outlet starts with a decade that has only 3 years. How to account f
 - consider user facing error messages.
     - If no response from server -> "server unreachable". (done)
     - send custom server messages and check for them to front end app for appropriate action.
+- CORS policy changes
+- Err messages when doing fetches expose IP addesses. Maybe don't console log sensitive descriptions. Just give something basic. 
 
 
 
