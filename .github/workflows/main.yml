@@ -36,15 +36,17 @@ jobs:
         export PORT=$PORT
 
     - name: Deploy Backend
+      working-directory: ./backend
       run: |
+<<<<<<< Updated upstream
         cd backend
+=======
+>>>>>>> Stashed changes
         npm start
 
     - name: Build Frontend
       working-directory: ./frontend/history-archives
       run: |
-        cd frontend
-        cd history-archives
         npm run build
         
           
