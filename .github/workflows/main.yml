@@ -6,6 +6,7 @@ on:
       - main
 
 env:
+  CI: false
   MONGO_DB_URL: ${{ secrets.MONGO_DB_URL}}
   PORT: ${{ secrets.PORT}}
 
