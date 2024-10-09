@@ -1,0 +1,27 @@
+{
+  "name": "lha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "cd backend && npm install",
+    "start-server": "cd backend && npm start",
+    "install-client": "cd frontend && cd history-archives && npm install",
+    "build-client": "cd frontend && cd history-archives && npm run build",
+    "start-client": "cd frontend && cd history-archives && npm run start",
+    "dev-start-backend": "cd backend && npm run dev",
+    "dev-start-frontend": "cd frontend && cd history-archives && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xevans/LHA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xevans/LHA/issues"
+  },
+  "homepage": "https://github.com/Xevans/LHA#readme"
+}

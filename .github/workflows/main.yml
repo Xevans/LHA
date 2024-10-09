@@ -23,27 +23,16 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install dependencies and run tests for frontend
-      working-directory: ./frontend/history-archives
-      run: |
-        npm install
-
-    - name: Install dependencies and run test for backend
-      working-directory: ./backend
-      run: |
-        npm install
-        export MONGO_DB_URL=$MONGO_DB_URL
-        export PORT=$PORT
-
     - name: Deploy Backend
-      working-directory: ./backend
       run: |
-        npm start
+        npm run install-server
+        npm run start-server
 
     - name: Build Frontend
-      working-directory: ./frontend/history-archives
       run: |
-        npm run build
+        npm run install-client
+        npm run build-client
+        npm run start-client
         
           
         
