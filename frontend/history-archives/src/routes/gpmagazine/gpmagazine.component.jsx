@@ -12,7 +12,7 @@ const GPMagazine = () => {
 
     useEffect(() => {
         updatePublisher(this_publisher);
-    }, []);
+    }, [updatePublisher]);
 
 
     const determineRender = () => {

@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         updatePublisher("1");
-    }, []);
+    }, [updatePublisher]);
 
     console.log(currentPublisher);
 

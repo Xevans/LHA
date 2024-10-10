@@ -22,7 +22,7 @@ dotenv.config(); // access the .env file
 // Method 1: allow all origins with default of cors(*)
 
 const corsOptions = {
-origin: 'http://localhost:3001', // until front end has domain name, local host is used.// set to 3000 for testing
+origin: 'http://localhost:3000', // until front end has domain name, local host is used.// set to 3000 for testing
 optionsSuccessStatus: 200,
 };
 

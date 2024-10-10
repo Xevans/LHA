@@ -15,7 +15,7 @@ const GPnews = () => {
     useEffect(() => {
         updatePublisher(this_publisher);
         
-    }, []);
+    }, [updatePublisher]);
 
     //console.log(currentPublisher);
 

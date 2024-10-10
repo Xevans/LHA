@@ -8,13 +8,13 @@ import TableGPCivic from "../../components/table/gpcivic/table.gpcivic.component
 const GPCivic = () => {
 
     const this_publisher = "gpcivic"
-    const { updatePublisher, currentPublisher } = useContext(PublisherContext);
-    const { updateDecade, currentDecade } = useContext(DecadeContext);
+    const { updatePublisher } = useContext(PublisherContext);
+    const { currentDecade } = useContext(DecadeContext);
     // civic context
 
     useEffect(() => {
         updatePublisher(this_publisher);
-    }, []);
+    }, [updatePublisher]);
 
     
     const determineRender = () => {

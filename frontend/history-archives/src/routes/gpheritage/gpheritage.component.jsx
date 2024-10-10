@@ -13,7 +13,7 @@ const GPHeritage = () => {
 
     useEffect(() => {
         updatePublisher(this_publisher);
-    }, []);
+    }, [updatePublisher]);
 
 
     const determineRender = () => {

@@ -15,7 +15,7 @@ const GPreview = () => {
     useEffect(() => {
         updatePublisher(this_publisher);
         
-    }, []);
+    }, [updatePublisher]);
 
 
     const determineRender = () => {
