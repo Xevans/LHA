@@ -9,6 +9,7 @@ env:
   CI: false
   MONGO_DB_URL: ${{ secrets.MONGO_DB_URL }}
   PORT: ${{ secrets.PORT }}
+  INTERNAL_SERVER: ${{ secrets.INTERNAL_SERVER }}
 
 jobs:
   build-and-deploy:
