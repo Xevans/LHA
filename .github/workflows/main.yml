@@ -8,7 +8,7 @@ on:
 env:
   CI: false
   MONGO_DB_URL: ${{ secrets.MONGO_DB_URL}}
-  PORT: ${{ secrets.PORT}}
+  PORT: ${{ secrets.PORT }}
 
 jobs:
   build-and-deploy:
