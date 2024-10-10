@@ -20,25 +20,28 @@ dotenv.config(); // access the .env file
 // Cors is needed to 1: allow acess to the db from another domain and 2: prevent clients from doing whatever operations they want from anywhere
 
 // Method 1: allow all origins with default of cors(*)
-app.use(cors({
-    origin: 'http://localhost:3001' // Replace with your frontend origin
-  }));
 
+const corsOptions = {
+origin: 'http://localhost:3001', // until front end has domain name, local host is used.// set to 3000 for testing
+optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 
 //Route '/' send server message
-app.get('/', (request, response) => {
+app.get('/', cors(corsOptions), (request, response) => {
     console.log(request);
     return response.status(200).send('Welcome to the Express backend');
 });
 
 
 // routes
-app.use('/gp_news', GPnewsRouter);
-app.use('/gp_review', GPreviewRouter);
-app.use('/gp_civic', GPcivicRouter);
-app.use('/gp_heritage', GPheritageRouter);
-app.use('/gp_magazine', GPmagazineRouter);
+app.use('/gp_news', cors(corsOptions), GPnewsRouter);
+app.use('/gp_review', cors(corsOptions), GPreviewRouter);
+app.use('/gp_civic', cors(corsOptions), GPcivicRouter);
+app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
+app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
 
 
 // mongo DB connection
