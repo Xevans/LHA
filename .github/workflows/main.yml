@@ -7,7 +7,7 @@ on:
 
 env:
   CI: false
-  MONGO_DB_URL: ${{ secrets.MONGO_DB_URL}}
+  MONGO_DB_URL: ${{ secrets.MONGO_DB_URL }}
   PORT: ${{ secrets.PORT }}
 
 jobs:
