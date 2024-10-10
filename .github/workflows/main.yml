@@ -23,16 +23,16 @@ jobs:
       with:
         node-version: 18
 
-    - name: Deploy Backend
-      run: |
-        npm run install-server
-        npm run start-server
 
     - name: Build Frontend
       run: |
         npm run install-client
         npm run build-client
-        npm run start-client
+
+    - name: Deploy Backend
+      run: |
+        npm run install-server
+        npm run start-server
         
           
         
