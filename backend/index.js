@@ -20,7 +20,9 @@ dotenv.config(); // access the .env file
 // Cors is needed to 1: allow acess to the db from another domain and 2: prevent clients from doing whatever operations they want from anywhere
 
 // Method 1: allow all origins with default of cors(*)
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3001' // Replace with your frontend origin
+  }));
 
 
 
