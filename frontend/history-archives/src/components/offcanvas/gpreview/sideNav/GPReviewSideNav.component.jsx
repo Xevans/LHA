@@ -16,12 +16,12 @@ const GPReviewSideNav = () => {
             async function getHighAndLow() {
                 setIsLoading(true);
                 try {
-                    let response_high = await axios.get('http://127.0.0.1:5555/gp_review/high');
+                    let response_high = await axios.get(`${process.env.REACT_APP_EXPRESS_SERVER}/gp_review/high`);
                     const high = response_high.data.data;
                     //console.log(high[0].publishYear);
                     setUpperBound(high[0].publishYear);
 
-                    let response_low = await axios.get('http://127.0.0.1:5555/gp_review/low');
+                    let response_low = await axios.get(`${process.env.REACT_APP_EXPRESS_SERVER}/gp_review/low`);
                     const low = response_low.data.data;
                     //console.log(low[0].publishYear);
                     
@@ -92,7 +92,7 @@ const GPReviewSideNav = () => {
             return (
                 <Fragment>
                     <div className="alert alert-warning" role="alert">
-                        Unable to reach server. Please check your connection, or try again later.
+                        Unable to reach server. Please check your connection or try again later.
                     </div>
                 </Fragment>
             );

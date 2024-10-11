@@ -16,7 +16,7 @@ const TableGPMagazine = () => {
 
             async function getIssues() {
                 try {
-                    const response = await axios.get(`http://127.0.0.1:5555/gp_magazine/issues?publishDecade=${currentDecade}`)
+                    const response = await axios.get(`${process.env.REACT_APP_EXPRESS_SERVER}/gp_magazine/issues?publishDecade=${currentDecade}`)
                     const issues = response.data.data;
                     setMagazines(issues);
                 } catch (error) {

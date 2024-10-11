@@ -4,6 +4,7 @@ import Dropdown from "../dropdown/dropdown.component";
 
 const GPnewsSideNav = () => {
 
+
     const [upper_bound, setUpperBound] = useState(0);
     const [lower_bound, setLowerBound] = useState(0);
     const [isloading, setIsLoading] = useState(false);
@@ -16,12 +17,12 @@ const GPnewsSideNav = () => {
             async function getHighAndLow() {
                 setIsLoading(true);
                 try {
-                    let response_high = await axios.get('http://127.0.0.1:5555/gp_news/high');
+                    let response_high = await axios.get(`${process.env.REACT_APP_EXPRESS_SERVER}/gp_news/high`);
                     const high = response_high.data.data;
                     //console.log(high[0].publishYear);
                     setUpperBound(high[0].publishYear);
 
-                    let response_low = await axios.get('http://127.0.0.1:5555/gp_news/low');
+                    let response_low = await axios.get(`${process.env.REACT_APP_EXPRESS_SERVER}/gp_news/low`);
                     const low = response_low.data.data;
                     //console.log(low[0].publishYear);
                     
@@ -93,7 +94,7 @@ const GPnewsSideNav = () => {
             return (
                 <Fragment>
                     <div className="alert alert-warning" role="alert">
-                        Unable to reach server. Please check your connection, or try again later.
+                        Unable to reach server. Please check your connection or try again later.
                     </div>
                 </Fragment>
             );
