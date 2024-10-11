@@ -20,7 +20,7 @@ const GPnewsSideNav = () => {
                     const base_url = process.env.REACT_APP_EXPRESS_SERVER;
                     let url = toString(base_url + "/gp_news/high"); 
                     let response_high = await axios.get(url);
-                    const high = response_high.data.data;
+                    const high = response_high.data.data; 
                     //console.log(high[0].publishYear);
                     setUpperBound(high[0].publishYear);
 
