@@ -6,7 +6,7 @@ const GPnewsSideNav = () => {
 
 
     const [upper_bound, setUpperBound] = useState(0);
-    const [lower_bound, setLowerBound] = useState(0);
+    const [lower_bound, setLowerBound] = useState(0); 
     const [isloading, setIsLoading] = useState(false);
     const [hasFailed, setHasFailed] = useState(false);
 
