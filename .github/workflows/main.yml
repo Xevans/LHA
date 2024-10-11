@@ -10,7 +10,7 @@ env:
   MONGO_DB_URL: ${{ secrets.MONGO_DB_URL }}
   PORT: ${{ secrets.PORT }}
   INTERNAL_SERVER: ${{ secrets.INTERNAL_SERVER }}
-  EXPRESS_SERVER: ${{ secrets.REACT_APP_EXPRESS_SERVER }}
+  EXPRESS_SERVER: ${{ secrets.REACT_APP_EXPRESS_SERVER }} 
 
 jobs:
   build-and-deploy:
