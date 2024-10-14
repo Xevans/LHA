@@ -25,12 +25,13 @@ jobs:
       with:
         node-version: 18
 
-
     - name: Build Frontend
       run: |
         npm run install-client
         npm run build-client
-        npm run copy-client-build-files
+    
+    - name: Copy Build Files
+      run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html
 
     - name: Deploy Backend
       run: |
