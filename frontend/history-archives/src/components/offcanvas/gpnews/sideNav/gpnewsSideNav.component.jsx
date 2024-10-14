@@ -17,12 +17,12 @@ const GPnewsSideNav = () => {
             async function getHighAndLow() {
                 setIsLoading(true);
                 try {
-                    let response_high = await axios.get(`10.1.5.203/api/gp_news/high`);
+                    let response_high = await axios.get('10.1.5.203/api/gp_news/high');
                     const high = response_high.data.data;
                     //console.log(high[0].publishYear);
                     setUpperBound(high[0].publishYear);
 
-                    let response_low = await axios.get(`10.1.5.203/api/gp_news/low`);
+                    let response_low = await axios.get('10.1.5.203/api/gp_news/low');
                     const low = response_low.data.data;
                     //console.log(low[0].publishYear);
                     
