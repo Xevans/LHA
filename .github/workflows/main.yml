@@ -32,6 +32,8 @@ jobs:
     
     - name: Copy Build Files
       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html
+    
+    - name: Copy Server Secrets
       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env /home/administrator/actions-runner/_work/LHA/LHA/backend
 
     - name: Deploy Backend
