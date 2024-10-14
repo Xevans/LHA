@@ -19,7 +19,7 @@ const TableGPnews = () => {
             setIsLoading(true);
             async function getIssues() {
                 try {
-                    const response = await axios.get(`http://10.1.5.203/gp_news/issues?publishYear=${currentYear}`)
+                    const response = await axios.get(`http://10.1.5.203/api/gp_news/issues?publishYear=${currentYear}`)
                     const issues = response.data.data;
                     setNewspapers(issues);
                 } catch (error) {
