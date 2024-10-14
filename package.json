@@ -9,7 +9,7 @@
     "start-server": "cd backend && npm start",
     "install-client": "cd frontend && cd history-archives && npm install",
     "build-client": "cd frontend && cd history-archives && npm run build",
-    "copy-client-build-files": "cp -r /actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html",
+    "copy-client-build-files": "cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html",
     "start-client": "cd frontend && cd history-archives && npm run start-deployed",
     "dev-start-backend": "cd backend && npm run dev",
     "dev-start-frontend": "cd frontend && cd history-archives && npm start"
