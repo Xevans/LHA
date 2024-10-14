@@ -30,6 +30,7 @@ jobs:
       run: |
         npm run install-client
         npm run build-client
+        npm run copy-client-build-files
 
     - name: Deploy Backend
       run: |
