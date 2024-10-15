@@ -25,6 +25,9 @@ jobs:
       with:
         node-version: 18
 
+    - name: Copy FE Secrets
+      run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env.production /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives
+
     - name: Build Frontend
       run: |
         npm run install-client
