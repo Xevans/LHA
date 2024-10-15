@@ -54,7 +54,7 @@ const TableGPnews = () => {
     }
 
     const determineButtonRenderPrev = () => {
-        if (currentYear - 1 > 1940 - 1) {
+        if (currentYear - 1 > 1937 - 1) {
             return currentYear - 1;
         }
         else {

@@ -12,7 +12,7 @@ const TableGPHeritage = () => {
 
             async function getIssues() {
                 try {
-                    const response = await axios.get(`http://10.1.5.203/api/gp_heritage/issues?publishDecade=${currentDecade}`)
+                    const response = await axios.get(`${process.env.REACT_APP_EXPRESS_SERVER}/gp_heritage/issues?publishDecade=${currentDecade}`)
                     const issues = response.data.data;
                     setNewspapers(issues);
                 } catch (error) {
