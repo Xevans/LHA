@@ -40,7 +40,7 @@ app.get('/', cors(corsOptions), (request, response) => {
     console.log(request);
     return response.status(200).send('Welcome to the Express backend');
 });
-
+ 
 
 // routes
 app.use('/gp_news', cors(corsOptions), GPnewsRouter);
