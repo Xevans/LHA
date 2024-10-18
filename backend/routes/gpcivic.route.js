@@ -3,11 +3,12 @@ import { GPcivic } from '../models/newspapers/gpcivic.model.js';
 
 const router = express.Router();
 
-// Route for creating/saving a new Grosse Pointe News publication
+/*// Route for creating/saving a new Grosse Pointe Civic publication
 router.post('/', async (request, response) => {
-    try {
+    
+    const data = request.body;
 
-        const data = request.body;
+    try {
 
         data.forEach(async (element) => {
             if (!element.title || 
@@ -38,7 +39,7 @@ router.post('/', async (request, response) => {
         response.status(500).send({message: error.message});
     }
 });
-
+*/
 
 // Route for retreiving all Grosse Pointe civic publications
 router.get('/', async (request, response) => {

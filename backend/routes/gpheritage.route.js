@@ -3,11 +3,12 @@ import { GPheritage } from '../models/magazines/gpheritage.model.js';
 
 const router = express.Router();
 
-// Route for creating/saving a new Grosse Pointe heritage publication
+/*// Route for creating/saving a new Grosse Pointe heritage publication
 router.post('/', async (request, response) => {
-    try {
-
-        const data = request.body;
+    
+    const data = request.body;
+    
+    try {   
 
         data.forEach(async (element) => {
 
@@ -28,8 +29,6 @@ router.post('/', async (request, response) => {
             };
     
             const gp_heritage = await GPheritage.create(new_gp_heritage);
-    
-            return response.status(201).send(data);
 
         });
         
@@ -37,7 +36,9 @@ router.post('/', async (request, response) => {
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
-});
+
+    return response.status(201).send(data);
+});*/
 
 
 // Route for retreiving all Grosse Pointe heritage publications

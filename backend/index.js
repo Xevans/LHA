@@ -6,7 +6,8 @@ import GPnewsRouter from "./routes/gpnews.route.js";
 import GPreviewRouter from "./routes/gpreview.route.js";
 import GPcivicRouter from "./routes/gpcivic.route.js";
 import GPheritageRouter from "./routes/gpheritage.route.js";
-import GPmagazineRouter from "./routes/gpmagazine.route.js"
+import GPmagazineRouter from "./routes/gpmagazine.route.js";
+import AdminUploadRouter from "./routes/upload.route.js";
 
 const app = express();
 // middleware for parsing request body
@@ -26,6 +27,11 @@ origin: process.env.INTERNAL_SERVER, // until front end has domain name, local h
 optionsSuccessStatus: 200,
 };
 
+const corsOptions_admin = {
+    origin: process.env.ADMIN_APP, // until front end has domain name, local host is used.// set to 3000 for testing
+    optionsSuccessStatus: 200,
+};
+
 app.use(cors(corsOptions));
 
 
@@ -42,6 +48,9 @@ app.use('/gp_review', cors(corsOptions), GPreviewRouter);
 app.use('/gp_civic', cors(corsOptions), GPcivicRouter);
 app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
 app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
+
+app.use('/upload', /*cors(corsOptions_admin),*/ AdminUploadRouter); // user app shall not interface with this route.
+
 
 
 // mongo DB connection

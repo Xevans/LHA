@@ -3,7 +3,7 @@ import { GPreview } from '../models/newspapers/gpreview.model.js';
 
 const router = express.Router();
 
-// Route for creating/saving a new Grosse Pointe Review publication
+/*// Route for creating/saving a new Grosse Pointe Review publication
 router.post('/', async (request, response) => {
     try {
 
@@ -39,7 +39,7 @@ router.post('/', async (request, response) => {
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
-});
+});*/
 
 
 // Route for retreiving all Grosse Pointe Review publications

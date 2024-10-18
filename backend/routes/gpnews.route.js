@@ -4,7 +4,7 @@ import { query } from 'express';
 
 const router = express.Router();
 
-// Route for creating/saving a new Grosse Pointe News publication
+/*// Route for creating/saving a new Grosse Pointe News publication
 router.post('/', async (request, response) => {
     try {
 
@@ -44,7 +44,7 @@ router.post('/', async (request, response) => {
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
-});
+});*/
 
 
 // Route for retreiving all Grosse Pointe News publications
