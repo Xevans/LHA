@@ -22,11 +22,11 @@ const Dropdown = (props) => {
                 [...Array(getYearsToRender())].map((e, i) => <DropdownItem key={i} decade={determineDecade()} year_index={i} />)
             )
         }
-        else if (current_dropdown_decade === 3) {
+        /*else if (current_dropdown_decade === 3) {
             return (
                 [...Array(3)].map((e, i) => <DropdownItem key={i} decade={determineDecade()} year_index={i} />)
             )
-        } 
+        } */
         else {
             return (
                 [...Array(10)].map((e, i) => <DropdownItem key={i} decade={determineDecade()} year_index={i} />)
