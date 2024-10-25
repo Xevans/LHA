@@ -11,7 +11,7 @@ import GPmagazineRouter from "./routes/gpmagazine.route.js";
 
 const app = express();
 // middleware for parsing request body
-// i.e. will assist in reading json data from requests bodies
+// i.e. will assist in reading json data from requests bodies 
 app.use(express.json());
 
 dotenv.config(); // access the .env file
