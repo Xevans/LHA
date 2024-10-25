@@ -261,7 +261,7 @@ const TableGPnews = () => {
                         </tbody>
                     </table>
 
-                    <div className='container text-center table-navigator'>
+                    <div className='container text-center table-navigator sticky-bottom'>
                         {/*Handle lowerbound: 1940 and upper bound: current Real time year */}
                         <div className='row'>
                             <div className='col-auto me-auto' onClick={() => handleClick(determineButtonRenderPrev())}>
