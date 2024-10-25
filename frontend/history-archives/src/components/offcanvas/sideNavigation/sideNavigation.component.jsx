@@ -55,6 +55,7 @@ const SideNavigation = () => {
                             
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to='/'>Home</Link>
+                                <Link className="nav-link" aria-current="page" to='https://digitize.gp.lib.mi.us'>Return To Main Site</Link>
                             </li>
                             
                             <li className="nav-item dropdown">
