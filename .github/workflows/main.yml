@@ -39,10 +39,10 @@ jobs:
     - name: Copy Portal Secrets
       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env.production /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal
 
-    - name: Build Portal
+    - name: Setup Admin Portal
       run: |
         npm run install-portal
-        npm run build-portal
+        npm run setup-admin-portal
     
     - name: Copy Server Secrets
       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env /home/administrator/actions-runner/_work/LHA/LHA/backend
