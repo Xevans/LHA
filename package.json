@@ -11,6 +11,8 @@
     "install-client": "cd frontend && cd history-archives && npm install",
     "build-client": "cd frontend && cd history-archives && npm run build",
     "start-client": "cd frontend && cd history-archives && npm run start-deployed",
+    "install-portal": "cd admin && cd admin-portal && npm install",
+    "build-portal": "cd admin && cd admin-portal && npm run build",
     "dev-start-backend": "cd backend && npm run dev",
     "dev-start-frontend": "cd frontend && cd history-archives && npm start"
 

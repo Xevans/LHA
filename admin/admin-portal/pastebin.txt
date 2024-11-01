@@ -1,0 +1,9 @@
+<div class="card form-selection">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" onClick={() => handleClick("news")}> <Radio name={'Grosse Pointe News'} /> </li>
+                                <li class="list-group-item" onClick={() => handleClick("magazine")}> <Radio name={'Grosse Pointe Magazine'} /> </li>
+                                <li class="list-group-item" onClick={() => handleClick("civic")}> <Radio name={'Grosse Pointe Civic'} /> </li>
+                                <li class="list-group-item" onClick={() => handleClick("review")}> <Radio name={'Grosse Pointe Review'} /> </li>
+                                <li class="list-group-item" onClick={() => handleClick("heritage")}> <Radio name={'Grosse Pointe Heritage'} /> </li>
+                            </ul>
+                        </div>
