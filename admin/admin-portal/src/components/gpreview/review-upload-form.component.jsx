@@ -94,7 +94,7 @@ const GPReviewUploadForm = () => {
 
                 <div className='mb-3'>
                     <label className='form-label'>Publish Day</label>
-                    <input className='form-control' maxLength={1} type='publishDay' name='publishDay' required={true} onChange={handleChange} value={publishDay}></input>
+                    <input className='form-control' maxLength={2} type='publishDay' name='publishDay' required={true} onChange={handleChange} value={publishDay}></input>
                 </div>
 
                 <ButtonsContainer>
