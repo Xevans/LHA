@@ -22,14 +22,11 @@ dotenv.config(); // access the .env file
 
 // Method 1: allow all origins with default of cors(*)
 
-const corsOptions = {
-origin: process.env.INTERNAL_SERVER, // until front end has domain name, local host is used.// set to 3000 for testing
-optionsSuccessStatus: 200,
-};
+const options = [process.env.INTERNAL_SERVER, process.env.ADM_APP]
 
-const corsOptions_admin = {
-    origin: process.env.ADM_APP, // until front end has domain name, local host is used.// set to 3000 for testing
-    optionsSuccessStatus: 200, 
+const corsOptions = {
+origin: options, // until front end has domain name, local host is used.// set to 3000 for testing
+optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
@@ -49,7 +46,7 @@ app.use('/gp_civic', cors(corsOptions), GPcivicRouter);
 app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
 app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
 
-app.use('/upload', AdminUploadRouter); // user app shall not interface with this route.
+app.use('/upload', cors(corsOptions), AdminUploadRouter); // user app shall not interface with this route.
 
 
 
