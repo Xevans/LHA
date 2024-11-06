@@ -36,7 +36,7 @@ app.use(cors(corsOptions));
 app.get('/', cors(corsOptions), (request, response) => {
     console.log(request);
     return response.status(200).send('Welcome to the Express backend');
-});
+}); 
  
 
 // routes
