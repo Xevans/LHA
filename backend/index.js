@@ -49,7 +49,7 @@ app.use('/gp_civic', cors(corsOptions), GPcivicRouter);
 app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
 app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
 
-app.use('/upload', cors(corsOptions_admin), AdminUploadRouter); // user app shall not interface with this route.
+app.use('/upload', AdminUploadRouter); // user app shall not interface with this route.
 
 
 
