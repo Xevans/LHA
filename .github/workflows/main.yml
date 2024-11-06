@@ -45,7 +45,7 @@ jobs:
         npm run setup-admin-portal
 
     - name: Copy Admin Build Files
-      run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal/build/ /var/www2/html
+      run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal/build/ /var/www/admin
     
     - name: Copy Server Secrets
       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env /home/administrator/actions-runner/_work/LHA/LHA/backend
