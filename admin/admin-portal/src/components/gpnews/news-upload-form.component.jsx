@@ -60,6 +60,7 @@ const GPNewsUploadForm = () => {
         <UploadContainer>
             <h2>Grosse Pointe News Upload</h2>
             <span>Enter details below</span>
+            <small>{`${process.env.REACT_APP_ADMIN_EXPRESS}/gp_news`}</small>
             <form onSubmit={handleSubmit}>
 
             
