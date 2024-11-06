@@ -81,7 +81,7 @@ const GPNewsUploadForm = () => {
 
                 <div className='mb-3'>
                     <label className='form-label'>Publish Month</label>
-                    <input className='form-control' maxLength={1} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}></input>
+                    <input className='form-control' maxLength={2} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}></input>
                     <div className="form-text">Ex: if month = July, enter 7</div>
                 </div>
 
