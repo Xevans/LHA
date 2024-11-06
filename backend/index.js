@@ -29,7 +29,7 @@ optionsSuccessStatus: 200,
 
 const corsOptions_admin = {
     origin: process.env.ADM_APP, // until front end has domain name, local host is used.// set to 3000 for testing
-    optionsSuccessStatus: 200,
+    optionsSuccessStatus: 200, 
 };
 
 app.use(cors(corsOptions));
