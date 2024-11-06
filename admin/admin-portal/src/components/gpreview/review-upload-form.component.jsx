@@ -36,7 +36,7 @@ const GPReviewUploadForm = () => {
         // do upload
         event.preventDefault();
         console.log('here');
-        formFields.fileURL = "digitize.gp.lib.mi.us/history/newspapers/gpreview/" + fileURL + ".pdf";
+        formFields.fileURL = "http://digitize.gp.lib.mi.us/history/newspapers/gpreview/" + fileURL + ".pdf";
         console.log(formFields);
         let data = [formFields];
         
@@ -74,7 +74,7 @@ const GPReviewUploadForm = () => {
                 <div className='mb-3'>
                     <label className='form-label'>File URL</label>
                     <div className='input-group'>
-                        <span className="input-group-text">digitize.gp.lib.mi.us/history/newspapers/gpreview/</span>
+                        <span className="input-group-text">http://digitize.gp.lib.mi.us/history/newspapers/gpreview/</span>
                         <input className="form-control" placeholder='1930-34/1930/1930-01-02' type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}></input>
                         <span className="input-group-text">.pdf</span>
                     </div>
