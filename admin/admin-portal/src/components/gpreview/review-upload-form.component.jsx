@@ -68,7 +68,7 @@ const GPReviewUploadForm = () => {
             
                 <div className='mb-3'>
                     <label className='form-label'>Title</label>
-                    <input className='form-control' placeholder='Example title: 01-04-2024' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
+                    <input className='form-control' placeholder='Format: MM-DD-YYYY' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
                 </div>
 
                 <div className='mb-3'>
@@ -90,6 +90,7 @@ const GPReviewUploadForm = () => {
                 <div className='mb-3'>
                     <label className='form-label'>Publish Year</label>
                     <input className='form-control' maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}></input>
+                    <div className="form-text">Ex: 2024</div>
                 </div>
 
                 <div className='mb-3'>

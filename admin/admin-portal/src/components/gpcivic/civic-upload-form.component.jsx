@@ -36,7 +36,7 @@ const GPCivicUploadForm = () => {
         // do upload
         event.preventDefault();
         console.log('here');
-        formFields.fileURL = "http://digitize.gp.lib.mi.us/history/newspapers/civic/" + fileURL + ".pdf";
+        formFields.fileURL = "http://digitize.gp.lib.mi.us/history/newspapers/gpcivic/" + fileURL + ".pdf";
         console.log(formFields);
         let data = [formFields];
         
@@ -67,13 +67,13 @@ const GPCivicUploadForm = () => {
 
                 <div className='mb-3'>
                     <label className='form-label'>Title</label>
-                    <input className='form-control' placeholder='Example title: 07' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
+                    <input className='form-control' placeholder='Format: MM' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
                 </div>
 
                 <div className='mb-3'>
                     <label className='form-label'>File URL</label>
                     <div className='input-group'>
-                        <span className="input-group-text">http://digitize.gp.lib.mi.us/history/newspapers/civic/</span>
+                        <span className="input-group-text">http://digitize.gp.lib.mi.us/history/newspapers/gpcivic/</span>
                         <input className="form-control" placeholder='1920-24/23/1923-07' type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}></input>
                         <span className="input-group-text">.pdf</span>
                     </div>

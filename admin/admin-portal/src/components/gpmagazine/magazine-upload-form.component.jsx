@@ -90,6 +90,7 @@ const GPMagazineUploadForm = () => {
                 <div className='mb-3'>
                     <label className='form-label'>Publish Year</label>
                     <input className='form-control' maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}></input>
+                    <div className="form-text">Ex: 2024</div>
                 </div>
 
                 <div className='mb-3'>
