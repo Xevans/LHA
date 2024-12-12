@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import axios from 'axios';
 
 import {UploadContainer, ButtonsContainer} from "./upload-form.styles.jsx"
@@ -37,6 +37,7 @@ const GPNewsUploadForm = () => {
         event.preventDefault();
         console.log('here');
         formFields.fileURL = "http://digitize.gp.lib.mi.us/history/newspapers/GrossePointeNews/year_ranges/" + fileURL + ".pdf";
+        formFields.title = "" + String(formFields.publishMonth) + "-" + String(formFields.publishDay) + "-" + String(formFields.publishYear);
         console.log(formFields);
         let data = [formFields];
         
@@ -48,7 +49,6 @@ const GPNewsUploadForm = () => {
       
           } catch (error) {
             console.error('Error:', error);
-
           }
 
         resetFormFields(); // reset states of each field value
@@ -57,17 +57,19 @@ const GPNewsUploadForm = () => {
 
 
     return (
+        <Fragment>
         <UploadContainer>
             <h2>Grosse Pointe News Upload</h2>
             <span>Enter details below</span>
             <small>{`${process.env.REACT_APP_ADMIN_EXPRESS}/gp_news`}</small>
+
             <form onSubmit={handleSubmit}>
 
             
-                <div className='mb-3'>
+                {/*<div className='mb-3'>
                     <label className='form-label'>Title</label>
                     <input className='form-control' placeholder='Format: MM-DD-YYYY' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
-                </div>
+                </div>*/}
 
                 <div className='mb-3'>
                     <label className='form-label'>File URL</label>
@@ -101,8 +103,13 @@ const GPNewsUploadForm = () => {
                 </ButtonsContainer>
 
             </form>
-            
         </UploadContainer>
+
+    
+        </Fragment>
+
+
+
     )
 }
 

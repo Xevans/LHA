@@ -37,8 +37,11 @@ const GPReviewUploadForm = () => {
         event.preventDefault();
         console.log('here');
         formFields.fileURL = "http://digitize.gp.lib.mi.us/history/newspapers/gpreview/" + fileURL + ".pdf";
+        formFields.title = "" + String(formFields.publishMonth) + "-" + String(formFields.publishDay) + "-" + String(formFields.publishYear);
         console.log(formFields);
         let data = [formFields];
+
+
         
         
         try {
@@ -66,10 +69,10 @@ const GPReviewUploadForm = () => {
             <form onSubmit={handleSubmit}>
 
             
-                <div className='mb-3'>
+                {/*<div className='mb-3'>
                     <label className='form-label'>Title</label>
                     <input className='form-control' placeholder='Format: MM-DD-YYYY' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
-                </div>
+                </div>*/}
 
                 <div className='mb-3'>
                     <label className='form-label'>File URL</label>

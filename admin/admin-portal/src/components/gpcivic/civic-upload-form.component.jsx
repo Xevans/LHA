@@ -39,6 +39,13 @@ const GPCivicUploadForm = () => {
         formFields.fileURL = "http://digitize.gp.lib.mi.us/history/newspapers/gpcivic/" + fileURL + ".pdf";
         console.log(formFields);
         let data = [formFields];
+
+        if (formFields.publishMonth < 10) {
+            formFields.title = "0" + String(formFields.publishMonth);
+        }
+        else {
+            formFields.title = "" + String(formFields.publishMonth);
+        }
         
         
         try {
@@ -65,10 +72,10 @@ const GPCivicUploadForm = () => {
             <span>Enter details below</span>
             <form onSubmit={handleSubmit}>
 
-                <div className='mb-3'>
+                {/*<div className='mb-3'>
                     <label className='form-label'>Title</label>
                     <input className='form-control' placeholder='Format: MM' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
-                </div>
+                </div>*/}
 
                 <div className='mb-3'>
                     <label className='form-label'>File URL</label>
@@ -89,6 +96,7 @@ const GPCivicUploadForm = () => {
                 <div className='mb-3'>
                     <label className='form-label'>Publish Year</label>
                     <input className='form-control' maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}></input>
+                    <div className="form-text">Ex: 2024</div>
                 </div>
 
                 <div className='mb-3'>

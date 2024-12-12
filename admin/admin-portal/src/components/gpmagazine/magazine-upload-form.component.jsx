@@ -31,12 +31,26 @@ const GPMagazineUploadForm = () => {
     };
 
 
+    const getDecade = (year) => {
+        let temp = toString(year);
+        let d = "";
+        for (let index = 0; index < temp.length-1; index++) {
+            d += temp[index];
+        }
+        d += "0";
+        Number(d);
+        return d;
+    }
+
+
     // user submits their email and password for sign in
     const handleSubmit = async (event) => {
         // do upload
         event.preventDefault();
         console.log('here');
         formFields.fileURL = "http://digitize.gp.lib.mi.us/history/magazines/gp_magazine/" + fileURL + ".pdf";
+        let this_decade = getDecade(formFields.publishYear);
+        formFields.publishDecade = this_decade;
         console.log(formFields);
         let data = [formFields];
         
@@ -91,12 +105,6 @@ const GPMagazineUploadForm = () => {
                     <label className='form-label'>Publish Year</label>
                     <input className='form-control' maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}></input>
                     <div className="form-text">Ex: 2024</div>
-                </div>
-
-                <div className='mb-3'>
-                    <label className='form-label'>Publish Decade</label>
-                    <input className='form-control' maxLength={4} type='publishDecade' name='publishDecade' required={true} onChange={handleChange} value={publishDecade}></input>
-                    <div className="form-text">Ex: if year = 2017, enter 2010</div>
                 </div>
 
                 <ButtonsContainer>
