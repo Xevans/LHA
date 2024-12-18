@@ -31,8 +31,8 @@ const GPMagazineUploadForm = () => {
     };
 
 
-    const getDecade = (year) => {
-        let temp = toString(year);
+    const getDecade = (year) => { // building decade by concatenating string where last digit is zero (hard coded).
+        let temp = String(year);
         let d = "";
         for (let index = 0; index < temp.length-1; index++) {
             d += temp[index];
