@@ -288,4 +288,84 @@ Consider having a login authenticated by firebase that returns a key to the util
 (admins enter upload app via http://10.1.5.203)
 
 
+1/2/25
+comment code modules for clarity.
 
+
+1/16/25 -- Search functionality
+
+Add a search bar to the table page
+
+User sends a query (e.g. morross). 
+paperless returns all objects that match.
+
+Objects contain a tag (e.g. GPN = Grosse Pointe News)
+user can filter the results by several parameters
+
+
+1/29/25
+After some fighting with the implementation of CORS in the paperless open source project
+LHA is able to interface with its API and query data using a phrase.
+
+Troubleshooting notes will be transfered from paper.
+
+The next steps from here are to show the data on the home page (testing purposes) and have certain properties from the object displayed.
+The objects will be ranged in decending order and the percentage will be converted from decimal (e.g. 1 = 100% 0.88002 = 88%) will round to the nearest whole number
+
+Need to figure out other things:
+Matching th title name of the paperless object with an issue in Mongo
+Alternatively, could I retrieve the pdf from paperless and show it directly to the browser?
+Would this create unwanted demand on the postgres DB?
+
+I will try the initial option first since it seems to be the most feasable.
+This will require making sure strict naming conventions are followed when adding pdfs to paperless.
+
+...
+So it looks like I do not need to match any titles. I found out that paperless does indeed have an endpoint
+for serving pdfs with a content-type application/pdf (i.e. serving pdfs to the browser's pdf viewer).
+
+Pattern for endpoint host/api/documents/{id number of document}/preview/
+
+The real test will be verifying that this works through the internet.
+
+1/30
+Following Action items:
+- filter pulls by date in react (matched with a year from a dropdown)
+    if "all years" (a checkbox) is checked. dropdown selection is disabled.
+- filter pulls by publisher.
+    Not sure if this will work. Tags dont seem to be accessible in request.
+    Will continue exploring this.
+
+(Optional)
+- sort by date (default is sorting by rank [# of hits]).
+
+
+
+It looks like the tags are not indicated by name in the json package. My asssumption is that they are IDs
+Reason being that the items I am pulling have a distinct value per document. 1 and 2.
+This gives me reason to believe GPN == 1 and GPM == 2
+I created a new tag and applied it to a document. When pulled, it's tag showed as 3. I will continue with the above line of thinking.
+
+
+If the filter value is not zero, render the filtered group?
+
+This is getting pretty bloated. Should I create another node express application to handle the logic?
+OR
+Review query techniques to send more detailed queries to paperless (It will do the heavy lifting).
+
+Option 2 seems more feasible.
+
+Update:
+The core of the Search project is to pull documents given a search query which has been acheived.
+The wishlist action items will take next priority after search and result UI/components have been built.
+
+set up search results component
+
+Want to browse to the right now down (too far). Use a mix of scrolling down and pagination for results. 
+
+
+
+1/31/25
+- Work on centering results (done)
+- Work on being able to enter text in the searchbar as opposed to dummy search (done)
+- Work on pagination (results box)

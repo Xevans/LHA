@@ -15,7 +15,6 @@
     "setup-admin-portal": "cd admin && cd admin-portal && npm run build",
     "dev-start-backend": "cd backend && npm run dev",
     "dev-start-frontend": "cd frontend && cd history-archives && npm start"
-
   },
   "repository": {
     "type": "git",

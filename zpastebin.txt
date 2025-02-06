@@ -1,12 +1,12 @@
-<ul>
-    <li onClick={() => updateYear(1940)}> 1940 </li>
-    <li onClick={() => updateYear(1941)}> 1941 </li>
-    <li onClick={() => updateYear(1942)}> 1942 </li>
-    <li onClick={() => updateYear(1943)}> 1943 </li>
-    <li onClick={() => updateYear(1944)}> 1944 </li>
-    <li onClick={() => updateYear(1945)}> 1945 </li>
-    <li onClick={() => updateYear(1946)}> 1946 </li>
-    <li onClick={() => updateYear(1947)}> 1947 </li>
-    <li onClick={() => updateYear(1948)}> 1948 </li>
-    <li onClick={() => updateYear(1949)}> 1949 </li>
-</ul>
+{/*Render with loop and put an onlclick property on elements */}
+                            {/* Match with tag ID */}
+                            {/*
+                            <label for="publishers">Filter by Publisher: </label>
+                            
+                            <select name="publishers" id="publishers">
+                                <option onClick={handleSelectPublisher} value="Grosse Pointe News">Grosse Pointe News</option>
+                                <option onClick={handleSelectPublisher} value="Grosse Pointe Magazine">Grosse Pointe Magazine</option>
+                                <option onClick={handleSelectPublisher} value="Grosse Pointe Civic">Grosse Pointe Civic</option>
+                                <option onClick={handleSelectPublisher} value="Grosse Pointe Review">Grosse Pointe Review</option>
+                                <option onClick={handleSelectPublisher} value="Grosse Pointe Heritage">Grosse Pointe Heritage</option>
+                            </select>  */}

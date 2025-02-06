@@ -2,6 +2,7 @@ import './home.styles.scss'
 import { useContext, useEffect } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
 import Welcome from '../../components/welcome/welcome.component';
+import Searchbar from '../../components/search/searchbar.component';
 
 
 
@@ -16,7 +17,10 @@ const Home = () => {
     console.log(currentPublisher);
 
     return (
-        <Welcome/>
+        <div>
+            <Welcome/>
+            <Searchbar/>
+        </div>
     );
 }
 
