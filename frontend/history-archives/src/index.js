@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { PublisherProvider } from './contexts/publisher.context';
 import { YearProvider } from './contexts/yearContext.context';
 import { DecadeProvider } from './contexts/decadeContext.context';
+import { PublisherFilterProvider } from './contexts/searchFilters/publisherFilter.context';
 
 import './index.css';
 
@@ -16,9 +17,11 @@ root.render(
     <PublisherProvider>
       <YearProvider>
         <DecadeProvider>
-          <BrowserRouter>         
-            <App />
-          </BrowserRouter>
+          <PublisherFilterProvider>
+            <BrowserRouter>         
+              <App />
+            </BrowserRouter>
+          </PublisherFilterProvider>
         </DecadeProvider>
       </YearProvider>
     </PublisherProvider>
