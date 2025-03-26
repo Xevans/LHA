@@ -6,6 +6,7 @@ import './upload.styles.scss'
 import GPHeritageUploadForm from "../../components/gpheritage/heritage-upload-form.component";
 import GPReviewUploadForm from "../../components/gpreview/review-upload-form.component";
 import { Link } from "react-router-dom";
+import DatabaseList from "../../components/database-list/database-list";
 
 const Upload = () => {
 
@@ -104,8 +105,12 @@ const Upload = () => {
 
                 </div>
 
+
+                <DatabaseList />
+
                 
             </div>
+
 
             
         </Fragment>

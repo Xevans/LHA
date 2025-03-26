@@ -8,6 +8,7 @@ import GPcivicRouter from "./routes/gpcivic.route.js";
 import GPheritageRouter from "./routes/gpheritage.route.js";
 import GPmagazineRouter from "./routes/gpmagazine.route.js";
 import AdminUploadRouter from "./routes/upload.route.js";
+import ManagementRouter from "./routes/manage.route.js"
 
 const app = express();
 // middleware for parsing request body
@@ -47,6 +48,7 @@ app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
 app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
 
 app.use('/upload', cors(corsOptions), AdminUploadRouter); // user app shall not interface with this route.
+app.use('/manage', cors(corsOptions), ManagementRouter);
 
 
 

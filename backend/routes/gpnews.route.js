@@ -199,25 +199,5 @@ router.get('/:publishYear', async (request, response) => {
 });
 */
 
-// Route for deleting a new Grosse Pointe News publication
-router.delete('/:id', async (request, response) => {
-    try {
-
-        const { id } = request.params;
-
-        const result = await GPnews.findByIdAndDelete(id);
-
-        if (!result) {
-            return response.status(404).json({ message: 'Publication not found.'});
-        }
-
-        return response.status(200).send({message: 'Publication Deleted Successfully.'});
-        
-    } catch (error) {
-        console.log(error.message);
-        response.status(500).send({message: error.message});
-    }
-});
-
 
 export default router;

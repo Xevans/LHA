@@ -2,6 +2,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 import {UploadContainer, ButtonsContainer} from "./upload-form.styles.jsx"
+import { useContext } from 'react';
+import { ADMPublisherContext } from '../../context/publisher.context.jsx';
+import { useEffect } from 'react';
 
 
 const GPHeritageUploadForm = () => {
@@ -22,6 +25,20 @@ const GPHeritageUploadForm = () => {
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
+
+
+    const { updatePublisher } = useContext(ADMPublisherContext);
+
+
+    function changePublisher() {
+        updatePublisher("gp_heritage");
+    }
+
+    useEffect(() => {
+        changePublisher();
+    })
+
+
 
     // update respective state values as user types
     const handleChange = (event) => {
