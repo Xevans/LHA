@@ -45,7 +45,7 @@ const GPReviewUploadForm = () => {
         
         
         try {
-            const response = await axios.post(`${process.env.REACT_APP_ADMIN_EXPRESS}/gp_review`, data);
+            const response = await axios.post(`${import.meta.env.VITE_APP_ADMIN_EXPRESS}/gp_review`, data);
             console.log(response.data); // Handle response data
             console.log("Data Sent successfully!");
       

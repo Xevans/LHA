@@ -339,3 +339,8 @@ LHA user-facing app
 - Create a search bar component for handling queries.
 - Create a table component for rendering the table contents if there is data to render.
 
+
+
+Migration notes:
+Before deployment, review the changes made here: https://www.freecodecamp.org/news/how-to-migrate-from-create-react-app-to-vite/
+The env variables changed
