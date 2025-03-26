@@ -288,4 +288,54 @@ Consider having a login authenticated by firebase that returns a key to the util
 (admins enter upload app via http://10.1.5.203)
 
 
+----------------------------------------------
+**Obituaries Architechture:**
+
+Scaffolding: Collection and Document Architechture
+- Obituaries will be 1 collection
+- an obituary document will contain the following data (will use mongo generated _id): 
+
+obituary = 
+{
+    last_name: string,
+    first_name: string,
+    middle_name: string,
+    death_year: number,
+    death_month: number,
+    death_day: number,
+    print_year: number,
+    print_month: number,
+    print_day: number,
+    publication: string,
+    page: number
+}
+
+Scaffolding: RESTful API Endpoints:
+- There will be an express end point to: upload an obituary document to the collection
+- There will be an express end point to: retrieve an obituary document from the collection
+- There will be an express end point to: retrieve the documents where the death_year field matches the requested death_year
+- There will be an express end point to: retrieve the documents where the first_name field matches the requested first_name
+- There will be an express end point to: retrieve the documents where the last_name field matches the requested last_name
+- There will be an express end point to: delete a document where the _id field matches the request _id
+
+
+Tasks:
+Express and REST API endpoints
+- Create collection in mongoDB, create backend route.
+- One end point at a time, create and test functionality (use postman).
+
+
+Admin frontend logic
+- Integrate TailwindCSS to backend to save styling aches.
+- Implement Administrative interface for obituary.
+    - Add a new component for Obituary upload.
+    - No need to reference a file since these are just entries in the DB. 
+
+
+LHA user-facing app
+- Tailwind overhaul?
+- Consider drilldown scenarios you want to apply.
+- Add a new route for Obituaries.
+- Create a search bar component for handling queries.
+- Create a table component for rendering the table contents if there is data to render.
 
