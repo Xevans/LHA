@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-import {UploadContainer, ButtonsContainer} from "./upload-form.styles.jsx"
 
 
 const GPHeritageUploadForm = () => {
@@ -68,9 +67,12 @@ const GPHeritageUploadForm = () => {
 
 
     return (
-        <UploadContainer>
-            <h2>Grosse Pointe Heritage Upload</h2>
-            <span>Enter details below</span>
+        <div>
+
+            <div className='mt-8'>
+                <h2 className='text-lg font-semibold'>Route: Grosse Pointe Heritage</h2>
+            </div>
+
             <form onSubmit={handleSubmit}>
 
                 {/*<div className='mb-3'>
@@ -78,41 +80,86 @@ const GPHeritageUploadForm = () => {
                     <input className='form-control' placeholder='Format: MM' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
                 </div>*/}
 
-                <div className='mb-3'>
-                    <label className='form-label'>File URL</label>
-                    <div className='input-group'>
-                        <span className="input-group-text">http://digitize.gp.lib.mi.us/history/magazines/heritage/</span>
-                        <input className="form-control" placeholder='' type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}></input>
-                        <span className="input-group-text">.pdf</span>
+
+                <div className="mt-4 w-full max-w-xl min-w-[200px]">
+                    <div className="relative">
+                        <input
+                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}
+                        />
+                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
+                        File URL
+                        </label>
+                        <div className='flex flex-row'>
+                            <div className='flex-1 text-sm text-'>Example: 1985-89/85/1985-02-03</div>
+                            <div className='text-sm'>Do not add extention.</div>
+                        </div>
                     </div>
-                    <div className="form-text">Exclude prepended path and file extention.</div>
                 </div>
 
-                <div className='mb-3'>
-                    <label className='form-label'>Publish Month</label>
-                    <input className='form-control' maxLength={2} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}></input>
-                    <div className="form-text">Ex: if month = July, enter 7</div>
+                <div>
+                    <div className='text-xl mt-4'>
+                        Completed URL Preview
+                    </div>
+
+                    <div className='text-sm'>
+                    https://digitize.gp.lib.mi.us/history/magazines/heritage/{fileURL}.pdf
+                    </div>
                 </div>
 
-                <div className='mb-3'>
-                    <label className='form-label'>Publish Year</label>
-                    <input className='form-control' maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}></input>
-                    <div className="form-text">Ex: 2024</div>
+                <div className="mt-8 w-full max-w-xl min-w-[200px]">
+                    <div className="relative">
+                        <input
+                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
+                        />
+                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
+                        Publish Month
+                        </label>
+                        <div className="text-sm">Ex: if month = July, enter 7</div>
+                    </div>
                 </div>
 
-                <div className='mb-3'>
-                    <label className='form-label'>Publish Decade</label>
-                    <input className='form-control' maxLength={4} type='publishDecade' name='publishDecade' required={true} onChange={handleChange} value={publishDecade}></input>
-                    <div className="form-text">Ex: if year = 2017, enter 2010</div>
+                
+                <div className="mt-8 w-full max-w-xl min-w-[200px]">
+                    <div className="relative">
+                        <input
+                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}
+                        />
+                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
+                        Publish Year
+                        </label>
+                        <div className="text-sm">Ex: 2024</div>
+                    </div>
+                </div>
+
+
+                <div className="mt-8 w-full max-w-xl min-w-[200px]">
+                    <div className="relative">
+                        <input
+                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={4} type='publishDecade' name='publishDecade' required={true} onChange={handleChange} value={publishDecade}
+                        />
+                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
+                        Publish Decade
+                        </label>
+                        <div className="text-sm">Ex: if year = 2017, enter 2010</div>
+                    </div>
                 </div>
                 
 
-                <ButtonsContainer>
-                    <button type="submit" className="btn btn-primary">Upload</button>
-                </ButtonsContainer>
+                <button type="submit" 
+                className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                >
+                    Publish
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
+                        <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                    </svg>
+                </button>
             </form>
             
-        </UploadContainer>
+        </div>
     )
 }
 

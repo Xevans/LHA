@@ -329,7 +329,7 @@ Admin frontend logic
 - Integrate TailwindCSS to backend to save styling aches.
 - Implement Administrative interface for obituary.
     - Add a new component for Obituary upload.
-    - No need to reference a file since these are just entries in the DB. 
+    - No need to reference a file since these are just entries in the DB.
 
 
 LHA user-facing app
@@ -343,4 +343,9 @@ LHA user-facing app
 
 Migration notes:
 Before deployment, review the changes made here: https://www.freecodecamp.org/news/how-to-migrate-from-create-react-app-to-vite/
-The env variables changed
+The env variables changed.
+Overall vite migration was pretty straight forward since there arent many plugins.
+
+<small>{`${import.meta.env.REACT_APP_ADMIN_EXPRESS}/gp_news`}</small>
+
+Make the obituary form scrollable if it goes beyond the screen height

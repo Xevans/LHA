@@ -11,7 +11,7 @@ const Upload = () => {
 
     // display a different form and call the appropiate functionality depending on the chosen issue to upload
 
-    const [uploadType, setUploadType] = useState("news")
+    const [uploadType, setUploadType] = useState("news");
 
 
     useEffect(() => {
@@ -68,47 +68,87 @@ const Upload = () => {
     /*Radios before switch */
     return (
         
-        <Fragment>
-            <div className="container text-center">
-                <div className="row align-items-start main-cols">
-
-                    <div className="col-9" >
-                        {formSwitch()}
-                    </div>
-
-                    <div className="col-3">
-                        <div class="list-group form-selection">
-
-                            <Link className="list-group-item list-group-item-action" onClick={() => handleClick("news")} aria-current={checkCurrent("news")}>
-                                Grosse Pointe News
-                            </Link>
-
-                            <Link className="list-group-item list-group-item-action" onClick={() => handleClick("heritage")} aria-current={checkCurrent("heritage")}>
-                                Grosse Pointe Heritage
-                            </Link>
-
-                            <Link className="list-group-item list-group-item-action" onClick={() => handleClick("civic")} aria-current={checkCurrent("civic")}>
-                                Grosse Pointe Civic
-                            </Link>
-
-                            <Link className="list-group-item list-group-item-action" onClick={() => handleClick("magazine")} aria-current={checkCurrent("magazine")}>
-                                Grosse Pointe Magazine
-                            </Link>
-
-                            <Link className="list-group-item list-group-item-action" onClick={() => handleClick("review")} aria-current={checkCurrent("review")}>
-                                Grosse Pointe Review
-                            </Link>
-                        </div>
-                        
-                    </div>
-
+        <>
+            <div className="top-0 left-0 w-full  max-w-screen px-4 py-2 mx-auto bg-white shadow-md">
+                <div className="">
+                    <h2 className="font-semibold text-xl ">Local History Archives | Administrative UI</h2>
                 </div>
+            </div>
+            <div className="bg-white">
+                <div className="container">
 
-                
+                    <div className="text-center mt-10">
+                        <h2 className="text-3xl font-semibold"> Publisher Upload</h2>
+                        <span className="font-semibold">Enter details below</span>
+                    </div>
+
+                    <div className=" p-10">
+                        
+                        <div className="">
+                            <div className="row flex w-full">
+
+                                <div className="rounded-md w-full rounded-r-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <Link onClick={() => handleClick("news")} aria-current={checkCurrent("news")}>
+                                        G.P. News
+                                    </Link>
+                                </div>
+
+                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <Link onClick={() => handleClick("heritage")} aria-current={checkCurrent("heritage")}>
+                                        G.P. Heritage
+                                    </Link>
+                                </div>
+
+                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <Link onClick={() => handleClick("civic")} aria-current={checkCurrent("civic")}>
+                                        G.P. Civic
+                                    </Link>
+                                </div>
+
+                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <Link onClick={() => handleClick("magazine")} aria-current={checkCurrent("magazine")}>
+                                        G.P. Magazine
+                                    </Link>
+                                </div>
+
+                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <Link onClick={() => handleClick("review")} aria-current={checkCurrent("review")}>
+                                        G.P. Review
+                                    </Link>
+                                </div>
+
+                                <div className="rounded-md w-full rounded-l-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <Link onClick={() => handleClick("")} aria-current={checkCurrent("")}>
+                                        Obituary
+                                    </Link>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div className="flex">
+
+                            <div className="flex-auto" >
+                                {formSwitch()}
+                            </div>
+
+                            <div className="flex-none">
+
+                                {/* put db list here? */}
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+                </div>
             </div>
 
             
-        </Fragment>
+        </>
     )
 }
 
