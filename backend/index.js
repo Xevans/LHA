@@ -7,8 +7,9 @@ import GPreviewRouter from "./routes/gpreview.route.js";
 import GPcivicRouter from "./routes/gpcivic.route.js";
 import GPheritageRouter from "./routes/gpheritage.route.js";
 import GPmagazineRouter from "./routes/gpmagazine.route.js";
-import AdminUploadRouter from "./routes/upload.route.js";
+import AdminUploadRouter from "./routes/admin-upload.route.js";
 import ObituaryRouter from "./routes/obituary.route.js";
+import AdminManagementRouter from "./routes/admin-manage.route.js";
 
 const app = express();
 // middleware for parsing request body
@@ -48,8 +49,10 @@ app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
 app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
 app.use('/obituary', cors(corsOptions), ObituaryRouter);
 
-app.use('/upload', cors(corsOptions), AdminUploadRouter); // user app shall not interface with this route.
+// Administrative
+app.use('/upload', cors(corsOptions), AdminUploadRouter);
 
+app.use('/manage', cors(corsOptions), AdminManagementRouter);
 
 
 // mongo DB connection

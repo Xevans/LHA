@@ -8,8 +8,13 @@ const router = express.Router();
 // retrieve all documents
 router.get('/', async (request, response) => {
     try {
-        const obits = await Obituary.find({})
-        .sort({ deathYear: -1 })
+        const obits = await Obituary.find({});
+
+        if (obits.length < 1) {
+            return response.status(404).send({message: 'No records found.'})
+        }
+
+        obits.sort({ deathYear: -1 })
         .then((docs) => {
 
             return response.status(200).json(
@@ -34,8 +39,13 @@ router.get('/last_name', async (request, response) => {
         
         const query = request.query; // /Last_name?lastName=Doe
 
-        Obituary.find(query)
-        .sort({ deathYear: -1 })
+        const obits = Obituary.find(query);
+
+        if (obits.length < 1) {
+            return response.status(404).send({message: 'No records found.'})
+        }
+
+        obits.sort({ deathYear: -1 })
         .then( (docs) => { // parent method passes return value to the then method as a callback that we reference as docs
             
             return response.status(200).send(
@@ -59,8 +69,13 @@ router.get('/middle_name', async (request, response) => {
         
         const query = request.query;
 
-        Obituary.find(query)
-        .sort({ deathYear: -1 })
+        const obits = Obituary.find(query);
+
+        if (obits.length < 1) {
+            return response.status(404).send({message: 'No records found.'})
+        }
+
+        obits.sort({ deathYear: -1 })
         .then( (docs) => { // parent method passes return value to the then method as a callback that we reference as docs
             
             return response.status(200).send(
@@ -85,8 +100,13 @@ router.get('/first_name', async (request, response) => {
         
         const query = request.query;
 
-        Obituary.find(query)
-        .sort({ deathYear: -1 })
+        const obits = Obituary.find(query);
+
+        if (obits.length < 1) {
+            return response.status(404).send({message: 'No records found.'})
+        }
+
+        obits.sort({ deathYear: -1 })
         .then( (docs) => { // parent method passes return value to the then method as a callback that we reference as docs
             
             return response.status(200).send(
@@ -111,8 +131,13 @@ router.get('/death_year', async (request, response) => {
         
         const query = request.query; // /death_year?deathYear=2012
 
-        Obituary.find(query)
-        .sort({ deathYear: -1 })
+        const obits = Obituary.find(query);
+
+        if (obits.length < 1) {
+            return response.status(404).send({message: 'No records found.'})
+        }
+
+        obits.sort({ deathYear: -1 })
         .then( (docs) => { // parent method passes return value to the then method as a callback that we reference as docs
             
             return response.status(200).send(
