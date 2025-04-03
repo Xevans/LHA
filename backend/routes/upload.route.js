@@ -4,6 +4,7 @@ import { GPcivic } from '../models/newspapers/gpcivic.model.js';
 import { GPheritage } from '../models/magazines/gpheritage.model.js';
 import { GPmagazine } from '../models/magazines/gpmagazine.model.js';
 import { GPreview } from '../models/newspapers/gpreview.model.js';
+import { Obituary } from '../models/obituaries/obituary.model.js';
 
 // this route is solely deticated to uploads of publications from an admin facing app that is in no way bound to the LHA app.
 
@@ -207,6 +208,56 @@ router.post('/gp_review', async (request, response) => {
         response.status(500).send({message: error.message});
     }
 });
+
+
+// Route for creating/saving a new Obituary record
+router.post('/obituary', async (request, response) => {
+    try {
+
+        const data = request.body;
+
+        data.forEach(async (element) => {
+
+            if (!element.last_name || 
+                !element.first_name || 
+                !element.middle_name || 
+                !element.death_month || 
+                !element.death_day || 
+                !element.death_year || 
+                !element.printed_month || 
+                !element.printed_day || 
+                !element.printed_year || 
+                !element.publisher_name ||
+                !element.page_number ) {
+                return response.status(400).send({message: 'Send all required fields in your request.'});
+            }
+    
+            const new_obituary = {
+                lastName:element.last_name, 
+                firstName:element.first_name, 
+                middleName:element.middle_name, 
+                deathYear:element.death_year, 
+                deathMonth:element.death_month, 
+                deathDay:element.death_day, 
+                printYear:element.printed_year, 
+                printMonth:element.printed_month, 
+                printDay:element.printed_day, 
+                publicationName:element.publisher_name,
+                pageNumber:element.page_number
+            };
+    
+            const obit = await Obituary.create(new_obituary);
+        });
+        
+
+        return response.status(201).send(data); // this is just confirmation of reciept
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
 
 
 export default router;

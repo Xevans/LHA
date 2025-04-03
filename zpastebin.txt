@@ -10,3 +10,8 @@
     <li onClick={() => updateYear(1948)}> 1948 </li>
     <li onClick={() => updateYear(1949)}> 1949 </li>
 </ul>
+
+
+
+
+<small>{`${import.meta.env.REACT_APP_ADMIN_EXPRESS}/gp_news`}</small>

@@ -8,6 +8,7 @@ import GPcivicRouter from "./routes/gpcivic.route.js";
 import GPheritageRouter from "./routes/gpheritage.route.js";
 import GPmagazineRouter from "./routes/gpmagazine.route.js";
 import AdminUploadRouter from "./routes/upload.route.js";
+import ObituaryRouter from "./routes/obituary.route.js";
 
 const app = express();
 // middleware for parsing request body
@@ -45,6 +46,7 @@ app.use('/gp_review', cors(corsOptions), GPreviewRouter);
 app.use('/gp_civic', cors(corsOptions), GPcivicRouter);
 app.use('/gp_heritage', cors(corsOptions), GPheritageRouter);
 app.use('/gp_magazine', cors(corsOptions), GPmagazineRouter);
+app.use('/obituary', cors(corsOptions), ObituaryRouter);
 
 app.use('/upload', cors(corsOptions), AdminUploadRouter); // user app shall not interface with this route.
 

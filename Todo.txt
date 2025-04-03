@@ -311,13 +311,17 @@ obituary =
 }
 
 Scaffolding: RESTful API Endpoints:
+(Admin Route)
 - There will be an express end point to: upload an obituary document to the collection
-- There will be an express end point to: retrieve an obituary document from the collection
+- There will be an express end point to: delete a document where the _id field matches the request _id
+(Standard Route)
+- There will be an express end point to: retrieve all obituary documents from the collection
 - There will be an express end point to: retrieve the documents where the death_year field matches the requested death_year
 - There will be an express end point to: retrieve the documents where the first_name field matches the requested first_name
 - There will be an express end point to: retrieve the documents where the last_name field matches the requested last_name
-- There will be an express end point to: delete a document where the _id field matches the request _id
 
+For fetching obits, consider multi-query fetches ex: last name & death year
+Consider adding 404 responses in endpoints when return payload length is 0
 
 Tasks:
 Express and REST API endpoints
@@ -326,8 +330,8 @@ Express and REST API endpoints
 
 
 Admin frontend logic
-- Integrate TailwindCSS to backend to save styling aches.
-- Implement Administrative interface for obituary.
+- Integrate TailwindCSS to backend to save styling aches. [Done]
+- Implement Administrative interface for obituary. [Done]
     - Add a new component for Obituary upload.
     - No need to reference a file since these are just entries in the DB.
 
@@ -346,6 +350,14 @@ Before deployment, review the changes made here: https://www.freecodecamp.org/ne
 The env variables changed.
 Overall vite migration was pretty straight forward since there arent many plugins.
 
-<small>{`${import.meta.env.REACT_APP_ADMIN_EXPRESS}/gp_news`}</small>
 
-Make the obituary form scrollable if it goes beyond the screen height
+3/27
+Make the obituary form scrollable vertical if it goes beyond the screen height. DB view will be the same.
+
+
+
+3/28
+Vite and tailwind migration, and refactoring complete. Will return once Express server is updated with above specifications.
+Finish fixing input styling then start on backend.
+
+

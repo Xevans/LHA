@@ -2,7 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 
 
-const GPMagazineUploadForm = () => {
+
+const GPHeritageUploadForm = () => {
 
      //default states for sign-in form members
     const defaultFormFields = { // pre-defineing state data because we know exactly what is going to go in there and know that should be the case every time
@@ -29,32 +30,26 @@ const GPMagazineUploadForm = () => {
     };
 
 
-    const getDecade = (year) => { // building decade by concatenating string where last digit is zero (hard coded).
-        let temp = String(year);
-        let d = "";
-        for (let index = 0; index < temp.length-1; index++) {
-            d += temp[index];
-        }
-        d += "0";
-        Number(d);
-        return d;
-    }
-
-
     // user submits their email and password for sign in
     const handleSubmit = async (event) => {
         // do upload
         event.preventDefault();
         console.log('here');
-        formFields.fileURL = "http://digitize.gp.lib.mi.us/history/magazines/gp_magazine/" + fileURL + ".pdf";
-        let this_decade = getDecade(formFields.publishYear);
-        formFields.publishDecade = this_decade;
+        formFields.fileURL = "http://digitize.gp.lib.mi.us/history/magazines/heritage/" + fileURL + ".pdf";
+        
+        if (formFields.publishMonth < 10) {
+            formFields.title = "0" + String(formFields.publishMonth);
+        }
+        else {
+            formFields.title = "" + String(formFields.publishMonth);
+        }
+        
         console.log(formFields);
         let data = [formFields];
         
         
         try {
-            const response = await axios.post(`${import.meta.env.VITE_APP_ADMIN_EXPRESS}/gp_magazine`, data);
+            const response = await axios.post(`${import.meta.env.VITE_APP_ADMIN_EXPRESS}/gp_heritage`, data);
             console.log(response.data); // Handle response data
             console.log("Data Sent successfully!");
       
@@ -73,82 +68,83 @@ const GPMagazineUploadForm = () => {
 
     return (
         <div>
+
             <div className='mt-8'>
-                <h2 className='text-lg font-semibold'>Route: Grosse Pointe Magazine</h2>
+                <h2 className='text-lg font-semibold'>Route: Grosse Pointe Heritage</h2>
             </div>
-            
+
             <form onSubmit={handleSubmit}>
 
+                {/*<div className='mb-3'>
+                    <label className='form-label'>Title</label>
+                    <input className='form-control' placeholder='Format: MM' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
+                </div>*/}
 
                 <div className="mt-4 w-full max-w-xl min-w-[200px]">
                     <div className="relative">
-                        <input
-                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        type='title' name='title' required={true} onChange={handleChange} value={title}
-                        />
-                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                        Title
+                        <label className="block mb-2 text-sm text-slate-600">
+                        File URL
                         </label>
-                        <div className='flex flex-row'>
-                            <div className='flex-1 text-sm text-'>Example title: Apr-May.</div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className="mt-8 w-full max-w-xl min-w-[200px]">
-                    <div className="relative">
                         <input
                         className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                         type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}
                         />
-                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                        File URL
-                        </label>
                         <div className='flex flex-row'>
-                            <div className='flex-1 text-sm text-'>Example: 2010-2014/2012/2012/April-May</div>
+                            <div className='flex-1 text-sm text-'>Example: 1985-89/85/1985-02-03</div>
                             <div className='text-sm'>Do not add extention.</div>
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <div className='text-xl mt-4'>
-                        Completed URL Preview
-                    </div>
 
-                    <div className='text-sm'>
-                        https://digitize.gp.lib.mi.us/history/magazines/gp_magazine/{fileURL}.pdf
+                <div className='mt-8'>
+                    <label className="block mb-2 text-sm text-slate-600">
+                        Completed File URL 
+                    </label>
+                    
+                    <div class="w-full max-w-2xl min-w-[200px]">
+                        <input disabled value={`https://digitize.gp.lib.mi.us/history/magazines/heritage/${fileURL}.pdf`} class="w-full bg-slate-200 pointer-events-none placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Type here..." />
                     </div>
                 </div>
 
 
-                <div className="mt-8 w-full max-w-xl min-w-[200px]">
-                    <div className="relative">
+
+                <div className="mt-8 w-full max-w-xl min-w-[200px] flex flex-row">
+
+                    <div className="relative pr-3">
+                        <label className="block mb-2 text-sm text-slate-600">
+                            Month
+                        </label>
                         <input
-                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                         maxLength={2} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
                         />
-                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                        Publish Month
-                        </label>
-                        <div className="text-sm">Ex: if month = July, enter 7</div>
+                        
                     </div>
-                </div>
 
-
-                <div className="mt-8 w-full max-w-xl min-w-[200px]">
-                    <div className="relative">
+                    <div className="relative pr-3">
+                        <label className="block mb-2 text-sm text-slate-600">
+                            Year
+                        </label>
                         <input
-                        className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                         maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}
                         />
-                        <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                        Publish Year
-                        </label>
-                        <div className="text-sm">Ex: 2024</div>
                     </div>
+
+                    <div className="relative pr-3">
+                        <label className="block mb-2 text-sm text-slate-600">
+                            Decade
+                        </label>
+                        <input
+                        className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={4} type='publishDecade' name='publishDecade' required={true} onChange={handleChange} value={publishDecade}
+                        />
+                    </div>
+
                 </div>
+                <div className='text-sm'>No leading zeroes. Ex: if January, enter 1.</div>
+                
 
                 <button type="submit" 
                 className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -158,11 +154,10 @@ const GPMagazineUploadForm = () => {
                         <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
                     </svg>
                 </button>
-
             </form>
             
         </div>
     )
 }
 
-export default GPMagazineUploadForm
+export default GPHeritageUploadForm

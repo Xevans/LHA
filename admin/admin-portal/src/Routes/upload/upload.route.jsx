@@ -1,11 +1,12 @@
 import { Fragment, useEffect, useState } from "react";
-import GPNewsUploadForm from "../../components/gpnews/news-upload-form.component";
-import GPCivicUploadForm from "../../components/gpcivic/civic-upload-form.component";
-import GPMagazineUploadForm from "../../components/gpmagazine/magazine-upload-form.component";
+import GPNewsUploadForm from "../../components/forms/gpnews/news-upload-form.component";
+import GPCivicUploadForm from "../../components/forms/gpcivic/civic-upload-form.component";
+import GPMagazineUploadForm from "../../components/forms/gpmagazine/magazine-upload-form.component";
 import './upload.styles.scss'
-import GPHeritageUploadForm from "../../components/gpheritage/heritage-upload-form.component";
-import GPReviewUploadForm from "../../components/gpreview/review-upload-form.component";
+import GPHeritageUploadForm from "../../components/forms/gpheritage/heritage-upload-form.component";
+import GPReviewUploadForm from "../../components/forms/gpreview/review-upload-form.component";
 import { Link } from "react-router-dom";
+import Obituary from "../../components/forms/obituary/obituary-form.component";
 
 const Upload = () => {
 
@@ -46,6 +47,11 @@ const Upload = () => {
             case "review":
                 return (
                     <GPReviewUploadForm />
+                );
+
+            case "obituary":
+                return (
+                    <Obituary />
                 );
         
             default:
@@ -118,7 +124,7 @@ const Upload = () => {
                                 </div>
 
                                 <div className="rounded-md w-full rounded-l-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("")} aria-current={checkCurrent("")}>
+                                    <Link onClick={() => handleClick("obituary")} aria-current={checkCurrent("obituary")}>
                                         Obituary
                                     </Link>
                                 </div>

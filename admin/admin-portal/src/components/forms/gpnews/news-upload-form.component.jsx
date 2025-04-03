@@ -72,15 +72,16 @@ const GPNewsUploadForm = () => {
                         <input className='form-control' placeholder='Format: MM-DD-YYYY' type='title' name='title' required={true} onChange={handleChange} value={title}></input>
                         </div>*/}
 
-                        <div className="mt-4 w-full max-w-xl min-w-[200px]">
+
+                        <div className="mt-8 w-full max-w-xl min-w-[200px]">
                             <div className="relative">
+                                <label className="block mb-2 text-sm text-slate-600">
+                                    File URL
+                                </label>
                                 <input
                                 className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                 type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}
                                 />
-                                <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                                File URL
-                                </label>
                                 <div className='flex flex-row'>
                                     <div className='flex-1 text-sm text-'>Example: 2020s/2024/pdf/2024-01-04</div>
                                     <div className='text-sm'>Do not add extention.</div>
@@ -89,57 +90,54 @@ const GPNewsUploadForm = () => {
                         </div>
 
 
-                        <div>
-                            <div className='text-xl mt-4'>
-                                Completed URL Preview
-                            </div>
-
-                            <div className='text-sm'>
-                            https://digitize.gp.lib.mi.us/history/newspapers/grossePointeNews/year_ranges/{fileURL}.pdf
+                        <div className='mt-8'>
+                            <label className="block mb-2 text-sm text-slate-600">
+                                Completed File URL 
+                            </label>
+                            
+                            <div class="w-full max-w-2xl min-w-[200px]">
+                                <input disabled value={`https://digitize.gp.lib.mi.us/history/magazines/gp_magazine/${fileURL}.pdf`} class="w-full bg-slate-200 pointer-events-none placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Type here..." />
                             </div>
                         </div>
 
 
-                        <div className="mt-8 w-full max-w-xl min-w-[200px]">
-                            <div className="relative">
+
+                        <div className="mt-8 w-full max-w-xl min-w-[200px] flex flex-row">
+
+                            <div className="relative pr-3">
+                                <label className="block mb-2 text-sm text-slate-600">
+                                    Month
+                                </label>
                                 <input
-                                className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                 maxLength={2} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
                                 />
-                                <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                                Publish Month
-                                </label>
-                                <div className="text-sm">Ex: if month = July, enter 7</div>
+                                
                             </div>
-                        </div>
 
-
-                        <div className="mt-8 w-full max-w-xl min-w-[200px]">
-                            <div className="relative">
-                                <input
-                                className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                                maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}
-                                />
-                                <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                                Publish Year
+                            <div className="relative pr-3">
+                                <label className="block mb-2 text-sm text-slate-600">
+                                    Day
                                 </label>
-                                <div className="text-sm">Ex: 2024</div>
-                            </div>
-                        </div>
-
-
-                        <div className="mt-8 w-full max-w-xl min-w-[200px]">
-                            <div className="relative">
                                 <input
-                                className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
                                 maxLength={2} type='publishDay' name='publishDay' required={true} onChange={handleChange} value={publishDay}
                                 />
-                                <label className="absolute cursor-text bg-white px-1 left-2.5 top-2.5 text-slate-700 text-sm transition-all transform origin-left peer-focus:-top-2 peer-focus:left-2.5 peer-focus:text-xs peer-focus:text-slate-400 peer-focus:scale-90">
-                                Publish Day
-                                </label>
-                                <div className="text-sm">Ex: 1</div>
                             </div>
+
+                            <div className="relative pr-3">
+                                <label className="block mb-2 text-sm text-slate-600">
+                                    Year
+                                </label>
+                                <input
+                                className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}
+                                />
+                            </div>
+
                         </div>
+                        <div className='text-sm'>No leading zeroes. Ex: if January, enter 1.</div>
+                        
                         
                         <button type="submit" 
                         className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
