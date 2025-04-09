@@ -41,7 +41,7 @@ const GPNewsUploadForm = () => {
         
         
         try {
-            const response = await axios.post(`${import.meta.env.VITE_APP_ADMIN_EXPRESS}/gp_news`, data);
+            const response = await axios.post(`${import.meta.env.VITE_APP_ADMIN_UPLOAD}/gp_news`, data);
             console.log(response.data); // Handle response data
             console.log("Data Sent successfully!");
       
@@ -95,8 +95,8 @@ const GPNewsUploadForm = () => {
                                 Completed File URL 
                             </label>
                             
-                            <div class="w-full max-w-2xl min-w-[200px]">
-                                <input disabled value={`https://digitize.gp.lib.mi.us/history/magazines/gp_magazine/${fileURL}.pdf`} class="w-full bg-slate-200 pointer-events-none placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Type here..." />
+                            <div className="w-full max-w-2xl min-w-[200px]">
+                                <input disabled value={`https://digitize.gp.lib.mi.us/history/magazines/gp_magazine/${fileURL}.pdf`} className="w-full bg-slate-200 pointer-events-none placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow" placeholder="Type here..." />
                             </div>
                         </div>
 

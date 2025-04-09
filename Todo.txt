@@ -360,4 +360,32 @@ Make the obituary form scrollable vertical if it goes beyond the screen height. 
 Vite and tailwind migration, and refactoring complete. Will return once Express server is updated with above specifications.
 Finish fixing input styling then start on backend.
 
+4/1
+instead of using a custom hook, how about making autil directory to handle different
+kinds of fetches
 
+Ex: getCollection takes a collection name, retrieves the documents
+Ex: getDocumentById takes a collection and ID then returns a document.
+Ex: remove document takes a collection and an ID then submits an api request to remove the document.
+
+
+Change all ADMIN_EXPRESS TO ADMIN_UPLOAD make it less confusing.
+ADMIN_BACKEND will become BACKEND_ROOT
+
+Address the above in the deployment and apache server
+
+
+4/4
+Finish testing table component
+- prevent brevity change overshoot [Testing]
+
+Finish rendering table headers for each 'route' [Done]
+
+Observe issue getting obituary data from collection [Done]
+ - Observe change in obituary get / endpoint
+    [Update] - Do not sort if there is only 1 obj, only an issue if collection not populated but consider adding fix
+
+
+Add Edit functionality to record
+    - 
+Test create functionality in each form

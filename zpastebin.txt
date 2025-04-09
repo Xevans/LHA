@@ -15,3 +15,28 @@
 
 
 <small>{`${import.meta.env.REACT_APP_ADMIN_EXPRESS}/gp_news`}</small>
+
+
+
+
+return(
+                                        <>
+                                            <tr key={key} className="bg-white border-b  border-gray-200">
+                                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {record._id}
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {record.title}
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    {record.fileURL}
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    {record.publishMonth}/{record.publishDay}/{record.publsihYear}
+                                                </td>
+                                                <td className="px-6 py-4 text-right">
+                                                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                </td>
+                                            </tr>
+                                        </>
+                                    )

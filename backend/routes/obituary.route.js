@@ -14,16 +14,26 @@ router.get('/', async (request, response) => {
             return response.status(404).send({message: 'No records found.'})
         }
 
-        obits.sort({ deathYear: -1 })
-        .then((docs) => {
+        if (obits.length > 2) {
+            obits.sort({ deathYear: -1 })
+            .then((docs) => {
 
+                return response.status(200).json(
+                    {
+                        count: obits.length,
+                        data: obits
+                    }
+                ); 
+            });
+        }
+        else {
             return response.status(200).json(
                 {
                     count: obits.length,
                     data: obits
                 }
             ); 
-        });   
+        }   
         
     } catch (error) {
         console.error(error.message);
