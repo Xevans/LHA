@@ -5,7 +5,6 @@ import GPMagazineUploadForm from "../../components/forms/gpmagazine/magazine-upl
 import './upload.styles.scss'
 import GPHeritageUploadForm from "../../components/forms/gpheritage/heritage-upload-form.component";
 import GPReviewUploadForm from "../../components/forms/gpreview/review-upload-form.component";
-import { Link } from "react-router-dom";
 import Obituary from "../../components/forms/obituary/obituary-form.component";
 import DBTable from "../../components/data-table/database-table.component";
 
@@ -86,40 +85,40 @@ const Upload = () => {
                         <div className="">
                             <div className="row flex w-full">
 
-                                <div className="rounded-md w-full rounded-r-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("news")}>
+                                <div onClick={() => handleClick("news")} className="rounded-md cursor-pointer w-full rounded-r-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <div>
                                         G.P. News
-                                    </Link>
+                                    </div>
                                 </div>
 
-                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("heritage")}>
+                                <div onClick={() => handleClick("heritage")} className="rounded-none cursor-pointer w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <div>
                                         G.P. Heritage
-                                    </Link>
+                                    </div>
                                 </div>
 
-                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("civic")}>
+                                <div onClick={() => handleClick("civic")} className="rounded-none cursor-pointer w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <div>
                                         G.P. Civic
-                                    </Link>
+                                    </div>
                                 </div>
 
-                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("magazine")}>
+                                <div onClick={() => handleClick("magazine")} className="rounded-none cursor-pointer w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <div>
                                         G.P. Magazine
-                                    </Link>
+                                    </div>
                                 </div>
 
-                                <div className="rounded-none w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("review")}>
+                                <div onClick={() => handleClick("review")} className="rounded-none cursor-pointer w-full bg-slate-800 py-2 px-4 border-l border-r border-slate-700 text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <div>
                                         G.P. Review
-                                    </Link>
+                                    </div>
                                 </div>
 
-                                <div className="rounded-md w-full rounded-l-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-                                    <Link onClick={() => handleClick("obituary")}>
+                                <div onClick={() => handleClick("obituary")} className="rounded-md cursor-pointer w-full rounded-l-none bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                                    <div>
                                         Obituary
-                                    </Link>
+                                    </div>
                                 </div>
 
                             </div>

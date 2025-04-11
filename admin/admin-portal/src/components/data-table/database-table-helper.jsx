@@ -10,7 +10,7 @@ export function determineTableHeader(current_route) {
                     <th scope="col" className="px-6 py-3">
                         ID
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-12 py-3">
                         Title
                     </th>
                     <th scope="col" className="px-6 py-3">
@@ -19,8 +19,8 @@ export function determineTableHeader(current_route) {
                     <th scope="col" className="px-6 py-3">
                         Date
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        <span className="sr-only">Edit</span>
+                    <th scope="col" className="px-10 py-3">
+                        <span>Copy</span>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Delete</span>
@@ -48,7 +48,10 @@ export function determineTableHeader(current_route) {
                         Date
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        <span className="sr-only">Edit</span>
+                        Decade
+                    </th>
+                    <th scope="col" className="px-10 py-3">
+                        <span className="">Copy</span>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Delete</span>
@@ -78,8 +81,8 @@ export function determineTableHeader(current_route) {
                     <th scope="col" className="px-6 py-3">
                         Decade
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        <span className="sr-only">Edit</span>
+                    <th scope="col" className="px-10 py-3">
+                        <span className="">Copy</span>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Delete</span>
@@ -109,8 +112,8 @@ export function determineTableHeader(current_route) {
                     <th scope="col" className="px-6 py-3">
                         Decade
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        <span className="sr-only">Edit</span>
+                    <th scope="col" className="px-10 py-3">
+                        <span className="">Copy</span>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Delete</span>
@@ -137,8 +140,8 @@ export function determineTableHeader(current_route) {
                     <th scope="col" className="px-6 py-3">
                         Date
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        <span className="sr-only">Edit</span>
+                    <th scope="col" className="px-10 py-3">
+                        <span className="">Copy</span>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Delete</span>
@@ -178,8 +181,8 @@ export function determineTableHeader(current_route) {
                     <th scope="col" className="px-6 py-3">
                         Print Date
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        <span className="sr-only">Edit</span>
+                    <th scope="col" className="px-10 py-3">
+                        <span className="">Copy</span>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Delete</span>

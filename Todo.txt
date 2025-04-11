@@ -386,6 +386,69 @@ Observe issue getting obituary data from collection [Done]
     [Update] - Do not sort if there is only 1 obj, only an issue if collection not populated but consider adding fix
 
 
-Add Edit functionality to record
-    - 
+Add copy functionality to each table record [Done]
+    - User clicks Copy ID
+    - copies ID to clipboard 
+    
+
+Modify create functionality in backend to update if ID already exists. [done]
+    - Tested for GPNews. Create if no matching ID otherwise update.
+
+4/10/25
+Tasks: Apply new create implementation to... [Done]
+- frontend upload components (news [D], heritage[D], civic, mag, rev, obit)
+    - add _id field to object
+    - isupdating state
+    - record id state
+    - fetch input and button
+    - on state change: disable input, show clear button, change publish to update
+    - updated data prep and api call
+
+- update backend 'create' endpoints (news [D], heritage[D], civic[D], mag[D], rev[D], obit[D])
+    - check for _id
+    - do model.findByIdAndUpdate(element._id, obj, { new: true, runValidators: true })
+        - updates record if matching id exists, otherwise create record.
+
+
 Test create functionality in each form
+
+
+
+
+
+
+
+Make a popup utility function that displays an absolute component at the bottom of the screen
+- accepts a message and a message type (success, error, warning)
+- will render a component using tansitions and timers to similate a toast.
+
+    - create an component for it on main route and set it to hidden.
+    - it will utilize a context to change its state.
+        - context updates to true and message and type are both updated,
+        - message will show for 5 sec (determined in component)
+        - the component will set the toast to false.
+
+Toast calls
+    - record submitted!
+    - Record updated!
+    - submission error, <Errmsg from backend>!
+    - Fetch Failed! No such record matches ID:###
+    - Record Deleted!
+
+
+Refresh button for table
+
+
+
+4/11/25
+Remaining Feature Tasks:
+- Toast
+- Delete functionality for table
+- Refresh button for table
+
+Testing/Debugging:
+- Test upload
+- Test delete
+- Test Edits/updates
+- Test Brevity bug
+

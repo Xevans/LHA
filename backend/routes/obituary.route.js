@@ -42,6 +42,27 @@ router.get('/', async (request, response) => {
 });
 
 
+// retrieve record with matching _id
+router.get('/:id', async (request, response) => {
+    try {
+
+        const { id } = request.params;
+
+        const obit = await Obituary.findById(id);
+
+        if (!obit) {
+            return response.status(404).send({message: "This record does not exist."})
+        }
+
+        return response.status(200).json(obit);
+        
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+});
+
+
 // retrieve records with matching last name
 router.get('/last_name', async (request, response) => {
     

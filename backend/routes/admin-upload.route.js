@@ -26,19 +26,24 @@ router.post('/gp_news', async (request, response) => {
 
             
 
-            if (!element.title || !element.fileURL || !element.publishMonth || !element.publishYear || !element.publishDay) {
+            if (!element._id || !element.title || !element.fileURL || !element.publishMonth || !element.publishYear || !element.publishDay) {
                 return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishYear, publishMonth, publishDay).'});
             }
     
-            const new_gp_newspaper = {
+            
+
+            
+            // find by id then update matching record. if no match, then create
+
+            const gp_newspaper = {
                 title: element.title,
                 fileURL: element.fileURL,
                 publishMonth: element.publishMonth,
                 publishYear: element.publishYear,
-                publishDay: element.publishDay,
+                publishDay: element.publishDay
             };
-    
-            const gp_newspaper = await GPnews.create(new_gp_newspaper);
+            
+            const update = await GPnews.findByIdAndUpdate(element._id, gp_newspaper, { new: true, runValidators: true });            
             
         });
 
@@ -63,7 +68,8 @@ router.post('/gp_civic', async (request, response) => {
     try {
 
         data.forEach(async (element) => {
-            if (!element.title || 
+            if (!element._id ||
+                !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear || 
@@ -71,7 +77,7 @@ router.post('/gp_civic', async (request, response) => {
                 return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishMonth...).'});
             }
     
-            const new_gp_civic = {
+            const gp_civic = {
                 title: element.title,
                 fileURL: element.fileURL,
                 publishMonth: element.publishMonth,
@@ -79,7 +85,7 @@ router.post('/gp_civic', async (request, response) => {
                 publishDecade: element.publishDecade,
             };
 
-            const gp_civic = await GPcivic.create(new_gp_civic);
+            const update = await GPcivic.findByIdAndUpdate(element._id, gp_civic, { new: true, runValidators: true }); 
 
         })
 
@@ -102,7 +108,8 @@ router.post('/gp_heritage', async (request, response) => {
 
         data.forEach(async (element) => {
 
-            if (!element.title || 
+            if (!element._id ||
+                !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear ||
@@ -110,7 +117,7 @@ router.post('/gp_heritage', async (request, response) => {
                 return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
             };
     
-            const new_gp_heritage = {
+            const gp_heritage = {
                 title: element.title,
                 fileURL: element.fileURL,
                 publishMonth: element.publishMonth,
@@ -118,7 +125,7 @@ router.post('/gp_heritage', async (request, response) => {
                 publishDecade: element.publishDecade,
             };
     
-            const gp_heritage = await GPheritage.create(new_gp_heritage);
+            const update = await GPheritage.findByIdAndUpdate(element._id, gp_heritage, { new: true, runValidators: true }); 
 
         });
         
@@ -140,7 +147,8 @@ router.post('/gp_magazine', async (request, response) => {
         //for each object in body, validate and create a document in mongodb
         data.forEach(async (element) => {
 
-            if (!element.title || 
+            if (!element._id ||
+                !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear || 
@@ -148,7 +156,7 @@ router.post('/gp_magazine', async (request, response) => {
                 return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishMonth, publishYear).'});
             }
     
-            const new_gp_magazine = {
+            const gp_magazine = {
                 title: element.title,
                 fileURL: element.fileURL,
                 publishMonth: element.publishMonth,
@@ -156,7 +164,8 @@ router.post('/gp_magazine', async (request, response) => {
                 publishDecade: element.publishDecade,
             };
     
-            const gp_magazine = await GPmagazine.create(new_gp_magazine);
+            
+            const update = await GPmagazine.findByIdAndUpdate(element._id, gp_magazine, { new: true, runValidators: true });
             
         });
 
@@ -179,7 +188,8 @@ router.post('/gp_review', async (request, response) => {
 
         data.forEach(async (element) => {
 
-            if (!element.title || 
+            if (!element._id ||
+                !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear || 
@@ -187,15 +197,15 @@ router.post('/gp_review', async (request, response) => {
                 return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
             }
     
-            const new_gp_review = {
+            const gp_review = {
                 title: element.title,
                 fileURL: element.fileURL,
                 publishMonth: element.publishMonth,
                 publishYear: element.publishYear,
                 publishDay: element.publishDay,
             };
-    
-            const gp_review = await GPreview.create(new_gp_review);
+
+            const update = await GPreview.findByIdAndUpdate(element._id, gp_review, { new: true, runValidators: true });
         
         
         });
@@ -218,7 +228,8 @@ router.post('/obituary', async (request, response) => {
 
         data.forEach(async (element) => {
 
-            if (!element.last_name || 
+            if (!element._id ||
+                !element.last_name || 
                 !element.first_name || 
                 !element.middle_name || 
                 !element.death_month || 
@@ -232,7 +243,7 @@ router.post('/obituary', async (request, response) => {
                 return response.status(400).send({message: 'Send all required fields in your request.'});
             }
     
-            const new_obituary = {
+            const obit = {
                 lastName:element.last_name, 
                 firstName:element.first_name, 
                 middleName:element.middle_name, 
@@ -245,11 +256,10 @@ router.post('/obituary', async (request, response) => {
                 publicationName:element.publisher_name,
                 pageNumber:element.page_number
             };
-    
-            const obit = await Obituary.create(new_obituary);
+
+            const update = await Obituary.findByIdAndUpdate(element._id, obit, { new: true, runValidators: true });
         });
         
-
         return response.status(201).send(data); // this is just confirmation of reciept
         
     } catch (error) {

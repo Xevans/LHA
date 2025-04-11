@@ -51,7 +51,17 @@ const DBTable = (props) => {
     //then filter out record from table memory
     //handle edgecases for max and possibly brevity
     async function handleRecordDelete() {
-        
+
+    }
+
+    // copy a record id to the user's clipboard
+    // accepts a string
+    async function handleCopyToClipboard(id) {
+        try {
+            await navigator.clipboard.writeText(id);
+        } catch (error) {
+            console.log(error)
+        }
     }
     
 
@@ -220,11 +230,15 @@ const DBTable = (props) => {
                                                         }
 
                                                         <td className="px-6 py-4 text-right">
-                                                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                            <div className="font-medium cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
+                                                            onClick={() => handleCopyToClipboard(record._id)}>Copy ID</div>
                                                         </td>
 
-                                                        <td className="px-6 py-4 text-right" onClick={() => handleRecordDelete(record._id)}>
-                                                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                                                        <td className="px-6 py-4 text-right">
+                                                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                                            onClick={() => handleRecordDelete(record._id)}>
+                                                            Delete
+                                                            </a>
                                                         </td>
 
                 
@@ -280,7 +294,17 @@ const DBTable = (props) => {
                                                     
 
                                                         <td className="px-6 py-4 text-right">
-                                                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                                            <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                                            onClick={() => handleCopyToClipboard(record._id)}>
+                                                            Copy ID
+                                                            </div>
+                                                        </td>
+
+                                                        <td className="px-6 py-4 text-right">
+                                                            <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                                            onClick={() => handleRecordDelete(record._id)}>
+                                                            Delete
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     
