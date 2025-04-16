@@ -7,6 +7,7 @@ import GPHeritageUploadForm from "../../components/forms/gpheritage/heritage-upl
 import GPReviewUploadForm from "../../components/forms/gpreview/review-upload-form.component";
 import Obituary from "../../components/forms/obituary/obituary-form.component";
 import DBTable from "../../components/data-table/database-table.component";
+import Toast from "../../components/toast/toast.component";
 
 const Upload = () => {
 
@@ -76,8 +77,8 @@ const Upload = () => {
                 <div className="container mx-auto">
 
                     <div className="text-center mt-10">
-                        <h2 className="text-3xl font-semibold"> Publisher Upload</h2>
-                        <span className="font-semibold">Enter details below</span>
+                        <h2 className="text-3xl font-semibold"> LHA: Database Manager</h2>
+                        <span className="font-semibold">Select a route  </span>
                     </div>
 
                     <div className="p-10">
@@ -147,8 +148,12 @@ const Upload = () => {
 
                     </div>
 
-                    
                 </div>
+
+                <div className="fixed bottom-0 w-screen">
+                    <Toast />
+                </div>
+
             </div>
 
             

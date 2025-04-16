@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch.hook";
 import { getCollection } from "../../utils/admin-backend.util";
 import { determineTableHeader } from "./database-table-helper";
+import { ToastContext } from "../../contexts/toast.context";
+import { Status } from "../../enums/toastType.enum";
 
 
 const DBTable = (props) => {
@@ -15,11 +17,15 @@ const DBTable = (props) => {
     // table data
     const [tableData, setTableData] = useState([]);
     const [dataCount, setDataCount] = useState(0);
+    const [isRefreshing, setIsRefreshing] = useState(true);
 
     // table settings
     const [brevity, setBrevity] = useState(50);
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(min+brevity);
+
+
+    const { makeAToast } = useContext(ToastContext);
     
 
     async function getColl(collection_name) {
@@ -28,21 +34,30 @@ const DBTable = (props) => {
             const response = await getCollection(collection_name);
             const {data, count} = response;
             setMin(0);
+
+            // empty data
+            if (data.length < 1) {
+                throw new Error("No records found");
+            }
+
+
             if (count <= 50) {
                 setBrevity(count);
             }
             else {
                 setBrevity(50);
             }
+
             setTableData(data);
             setDataCount(count);
             //console.log(response);
+            makeAToast("Table Data Loaded", Status.SUCCESS);
             
         } catch (error) {
             setDataCount(-1);
+            makeAToast(`${error}`, Status.ERROR)
             console.log.error;
         }
-        
     }
 
 
@@ -59,6 +74,7 @@ const DBTable = (props) => {
     async function handleCopyToClipboard(id) {
         try {
             await navigator.clipboard.writeText(id);
+            makeAToast("Copied To Clipboard", Status.SUCCESS);
         } catch (error) {
             console.log(error)
         }
@@ -96,9 +112,9 @@ const DBTable = (props) => {
             default:
                 break;
         }
-        // call useFetch with enpoint determined.
-        //useFetch(endpoint);
-    }, [current_route]);
+
+        setIsRefreshing(false);
+    }, [current_route, isRefreshing]);
 
 
     useEffect(() => {
@@ -157,34 +173,44 @@ const DBTable = (props) => {
                 tableData.length > 0 &&  
                 
                     <>              
-                        <div>
-                            <div className="flex flex-row">
-                                <h2 className="text-xl flex-1">Row Count: {brevity}</h2>
-                                <h2 className="text-xl flex-1">Showing: {`${min+1} - ${max}`}</h2>
-                                <h2 className="text-xl">Total Records: {dataCount}</h2>
-                            </div>
-
-                            <div className="flex flex-row">
-                                <div className="p-4 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(50)}>
-                                    50
-                                </div>
-                                <div className="ml-2 p-4 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(100)}>
-                                    100
-                                </div>
-                                <div className="ml-2 p-4 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(200)}>
-                                    200
-                                </div>
-                            </div>
-                        </div>
-
-
                         <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg">
                             <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
                                 <caption className="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
-                                    Database View
-                                    <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-                                    Browse and modify entries in the database for the current route.
-                                    </p>
+                                    <div className="flex flex-row">
+                                        <div className="flex-1">
+                                            Database View
+                                            <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                                            Browse and modify records in the database for the current route.<br/>
+                                            To update an entry, copy its ID and enter it in the 'Fetch' text box.
+                                            </p>
+                                        </div>
+                                        <div 
+                                        onClick={() => setIsRefreshing(true)}
+                                        className="cursor-pointer mt-8 p-2 rounded-2xl text-blue-700 transition duration-200 ease-in-out hover:bg-blue-400 hover:text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2">
+                                        <div className="flex flex-row">
+                                            <h2 className="text-lg flex-1">Row Count: {brevity}</h2>
+                                            <h2 className="text-lg flex-1">Showing: {`${min+1} - ${max}`}</h2>
+                                            <h2 className="text-lg">Total Records: {dataCount}</h2>
+                                        </div>
+
+                                        <div className="flex flex-row">
+                                            <div className="p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(50)}>
+                                                50
+                                            </div>
+                                            <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(100)}>
+                                                100
+                                            </div>
+                                            <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(200)}>
+                                                200
+                                            </div>
+                                        </div>
+                                    </div>
                                 </caption>
                                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                                     <tr>

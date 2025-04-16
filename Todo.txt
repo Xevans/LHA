@@ -417,7 +417,7 @@ Test create functionality in each form
 
 
 
-
+Toast:
 Make a popup utility function that displays an absolute component at the bottom of the screen
 - accepts a message and a message type (success, error, warning)
 - will render a component using tansitions and timers to similate a toast.
@@ -431,9 +431,11 @@ Make a popup utility function that displays an absolute component at the bottom 
 Toast calls
     - record submitted!
     - Record updated!
+    - Edit Operation Cancelled
     - submission error, <Errmsg from backend>!
     - Fetch Failed! No such record matches ID:###
     - Record Deleted!
+    - ID copied!
 
 
 Refresh button for table
@@ -442,13 +444,27 @@ Refresh button for table
 
 4/11/25
 Remaining Feature Tasks:
-- Toast
+- Toast [Done]
 - Delete functionality for table
 - Refresh button for table
+- make right side a space for a guide?
 
 Testing/Debugging:
 - Test upload
 - Test delete
 - Test Edits/updates
 - Test Brevity bug
+- Fetching with empty fetch input.
 
+Note to self. do not put state data in a function lest react will assume its a hook.
+
+Next immediate task:
+Finish updating submit and fetch logic in all forms.
+Change Title of LHA upload to LHA Database Manager
+
+Add toast functionality to all forms. Obituary Done.
+
+Bug: when making a new record on obituary, backend complains about setting headers after they are sent
+    if memory serves, this occures when an attempt to add a record with unprecidented properties to a collection occurs
+
+Bug: did not clear id field after update op.

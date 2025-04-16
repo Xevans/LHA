@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import { createDoc, getDocByID } from '../../../utils/admin-backend.util';
-
+import { ToastContext } from '../../../contexts/toast.context';
 
 const GPCivicUploadForm = () => {
 
@@ -18,12 +18,14 @@ const GPCivicUploadForm = () => {
 
     /* state tracking */
     const [formFields, setFormFields] = useState(defaultFormFields); //setting default state// returns the default fields and setformfield logic to the array elements respectively
-    
+
     const [recordID, setRecordID] = useState("");
     const [isUpdating, setIsUpdating] = useState(false);
 
-    const { title, fileURL, publishMonth, publishYear, publishDecade } = formFields // destructure values from json obj for short handing
-    
+    const { fileURL, publishMonth, publishYear, publishDecade } = formFields // destructure values from json obj for short handing
+    const { makeAToast } = useContext(ToastContext);
+
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     }
@@ -53,9 +55,22 @@ const GPCivicUploadForm = () => {
         
         try {
             const collection_name = "gp_civic";
-            await createDoc(collection_name, data);
+            const response = await createDoc(collection_name, data);
+
+            if (response != 201) {
+                throw new Error("Record could not be created.");
+            }
+
+            if (isUpdating) {
+                makeAToast("Record Updated!", Status.SUCCESS);
+            }
+            else {
+                makeAToast("Record Published!", Status.SUCCESS);
+            }
+
         } catch (error) {
             console.error('Error:', error);
+            makeAToast(`Submission Failed: ${error}`, Status.ERROR);
         }
 
         resetFormFields(); // reset states of each field value
@@ -71,6 +86,10 @@ const GPCivicUploadForm = () => {
         try {
             const response = await getDocByID(collection_name, recordID);
             
+            if (!response) {
+                throw new Error("No Matching Record");
+            }
+
             const data = {
                 _id: recordID,
                 title: '',
@@ -82,9 +101,11 @@ const GPCivicUploadForm = () => {
 
             setFormFields(data);
             setIsUpdating(true);
+            makeAToast("Fetch Successful", Status.SUCCESS);
             
         } catch (error) {
             console.log(error);
+            makeAToast(`${error}`, Status.ERROR);
         }
     }
 
@@ -92,6 +113,7 @@ const GPCivicUploadForm = () => {
         setRecordID("");
         resetFormFields();
         setIsUpdating(false);
+        makeAToast("Edit Operation Canceled", Status.CANCELLED);
     }
 
 
@@ -101,13 +123,17 @@ const GPCivicUploadForm = () => {
                 <h2 className='text-lg font-semibold'>Route: Grosse Pointe Civic</h2>
             </div>
 
+            <div className='mt-4'>
+                Fetch a record to update its fields or skip this step and create a new record.
+            </div>
+
             {/* Fetch form */}
             <div className='flex flex-row'>
 
                 <div className='mr-2'>
                     <button type="button"
                     onClick={async () => handleFetchRecord()} 
-                    className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    className="mt-4 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     >
                         Fetch
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
@@ -117,7 +143,7 @@ const GPCivicUploadForm = () => {
                 </div>
 
                 <div className='mr-2'>
-                    <div className="mt-8 w-full max-w-xl min-w-[200px]">
+                    <div className="mt-4 w-full max-w-xl min-w-[200px]">
                         <div className="relative">
                             <label className="block mb-2 text-sm text-slate-600"></label>
                             <input
@@ -142,10 +168,14 @@ const GPCivicUploadForm = () => {
 
             <form onSubmit={handleSubmit}>
 
+                <div className='mt-10 font-semibold'>
+                    Newspaper Details
+                </div>
+
                 <div className="mt-4 w-full max-w-xl min-w-[200px]">
                     <div className="relative">
                         <label className="block mb-2 text-sm text-slate-600">
-                        File URL
+                        Resource URL (Path to the statically served file i.e. newspaper file.)
                         </label>
                         <input
                         className="peer w-full bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
@@ -161,7 +191,7 @@ const GPCivicUploadForm = () => {
 
                 <div className='mt-8'>
                     <label className="block mb-2 text-sm text-slate-600">
-                        Completed File URL 
+                    Completed Resource URL
                     </label>
                     
                     <div className="w-full max-w-2xl min-w-[200px]">

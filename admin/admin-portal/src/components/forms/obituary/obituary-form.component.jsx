@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useContext, useState } from 'react';
 import { createDoc, getDocByID } from '../../../utils/admin-backend.util';
-
+import { Status } from '../../../enums/toastType.enum';
+import { ToastContext } from '../../../contexts/toast.context';
 
 
 const Obituary = () => {
@@ -49,6 +49,12 @@ const Obituary = () => {
         setFormFields(defaultFormFields);
     }
 
+
+    const {
+        makeAToast
+    } = useContext(ToastContext);
+
+
     // update respective state values as user types
     const handleChange = (event) => {
         // update json data field with respective form field as the user types
@@ -61,16 +67,27 @@ const Obituary = () => {
     const handleSubmit = async (event) => {
         // do upload
         event.preventDefault();
-        console.log(formFields);
         let data = [formFields];
 
         
         try {
             const collection_name = "obituary";
-            await createDoc(collection_name, data);
+            const response = await createDoc(collection_name, data);
+
+            if (response != 201) {
+                throw new Error("Record could not be created.");
+            } 
+            
+            if (isUpdating) {
+                makeAToast("Record Updated!", Status.SUCCESS);
+            }
+            else {
+                makeAToast("Record Published!", Status.SUCCESS);
+            }
       
           } catch (error) {
             console.error('Error:', error);
+            makeAToast(`Submission Failed: ${error}`, Status.ERROR);
           }
 
         resetFormFields(); // reset states of each field value
@@ -87,6 +104,10 @@ const Obituary = () => {
         const collection_name = "obituary";
         try {
             const response = await getDocByID(collection_name, recordID);
+
+            if (!response){
+                throw new Error("No Matching Record");
+            }
             
             const data = {
                 _id: recordID,
@@ -105,9 +126,12 @@ const Obituary = () => {
 
             setFormFields(data);
             setIsUpdating(true);
+            makeAToast("Fetch Successful", Status.SUCCESS);
+            
             
         } catch (error) {
             console.log(error);
+            makeAToast(`${error}`, Status.ERROR);
         }
     }
 
@@ -115,7 +139,11 @@ const Obituary = () => {
         setRecordID("");
         resetFormFields();
         setIsUpdating(false);
+        makeAToast("Edit Operation Canceled", Status.CANCELLED);
     }
+
+
+    
 
 
 
@@ -125,6 +153,9 @@ const Obituary = () => {
                 <h2 className='text-lg font-semibold'>Route: Obituary</h2>
             </div>
 
+            <div className='mt-4 '>
+                Fetch a record to update its fields or skip this step and create a new record.
+            </div>
 
             {/* Fetch form */}
             <div className='flex flex-row'>
@@ -132,7 +163,7 @@ const Obituary = () => {
                 <div className='mr-2'>
                     <button type="button"
                     onClick={async () => handleFetchRecord()} 
-                    className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    className="mt-4 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     >
                         Fetch
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
@@ -142,7 +173,7 @@ const Obituary = () => {
                 </div>
 
                 <div className='mr-2'>
-                    <div className="mt-8 w-full max-w-xl min-w-[200px]">
+                    <div className="mt-4 w-full max-w-xl min-w-[200px]">
                         <div className="relative">
                             <label className="block mb-2 text-sm text-slate-600"></label>
                             <input
