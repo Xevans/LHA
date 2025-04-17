@@ -68,13 +68,12 @@ const Obituary = () => {
         // do upload
         event.preventDefault();
         let data = [formFields];
-
         
         try {
             const collection_name = "obituary";
             const response = await createDoc(collection_name, data);
 
-            if (response != 201) {
+            if (response == -1) {
                 throw new Error("Record could not be created.");
             } 
             
@@ -84,13 +83,15 @@ const Obituary = () => {
             else {
                 makeAToast("Record Published!", Status.SUCCESS);
             }
+
+            resetFormFields(); // reset states of each field value
+            setRecordID("");
+            setIsUpdating(false);
       
-          } catch (error) {
+        } catch (error) {
             console.error('Error:', error);
             makeAToast(`Submission Failed: ${error}`, Status.ERROR);
-          }
-
-        resetFormFields(); // reset states of each field value
+        }
     }
 
 
@@ -102,6 +103,11 @@ const Obituary = () => {
 
     async function handleFetchRecord() {
         const collection_name = "obituary";
+
+        if (recordID.length < 1) {
+            throw new Error("Enter something in the fetch field.");
+        }
+
         try {
             const response = await getDocByID(collection_name, recordID);
 
@@ -253,8 +259,8 @@ const Obituary = () => {
                             Month
                         </label>
                         <input
-                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='death_month' name='death_month' required={true} onChange={handleChange} value={death_month}
+                        className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='number' min={0} name='death_month' required={true} onChange={handleChange} value={death_month}
                         />
                         
                     </div>
@@ -264,8 +270,8 @@ const Obituary = () => {
                             Day
                         </label>
                         <input
-                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='death_day' name='death_day' required={true} onChange={handleChange} value={death_day}
+                        className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='number' min={0} name='death_day' required={true} onChange={handleChange} value={death_day}
                         />
                     </div>
 
@@ -275,12 +281,12 @@ const Obituary = () => {
                         </label>
                         <input
                         className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={4} type='death_year' name='death_year' required={true} onChange={handleChange} value={death_year}
+                        maxLength={4} type='number' min={0} name='death_year' required={true} onChange={handleChange} value={death_year}
                         />
                     </div>
 
                 </div>
-                <div className='text-sm'>No leading zeroes. Ex: if January, enter 1.</div>
+                
 
                 
                 <div className='mt-8 font-semibold'>
@@ -294,8 +300,8 @@ const Obituary = () => {
                             Month
                         </label>
                         <input
-                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='printed_month' name='printed_month' required={true} onChange={handleChange} value={printed_month}
+                        className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='number' min={0} name='printed_month' required={true} onChange={handleChange} value={printed_month}
                         />
                         
                     </div>
@@ -305,8 +311,8 @@ const Obituary = () => {
                             Day
                         </label>
                         <input
-                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='printed_day' name='printed_day' required={true} onChange={handleChange} value={printed_day}
+                        className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='number' min={0} name='printed_day' required={true} onChange={handleChange} value={printed_day}
                         />
                     </div>
 
@@ -316,12 +322,12 @@ const Obituary = () => {
                         </label>
                         <input
                         className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={4} type='printed_year' name='printed_year' required={true} onChange={handleChange} value={printed_year}
+                        maxLength={4} type='number' min={0} name='printed_year' required={true} onChange={handleChange} value={printed_year}
                         />
                     </div>
 
                 </div>
-                <div className='text-sm'>No leading zeroes. Ex: if January, enter 1.</div>
+                
 
 
                 <div className="mt-8 w-full max-w-xl min-w-[200px]">

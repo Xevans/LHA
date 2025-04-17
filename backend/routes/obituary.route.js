@@ -15,17 +15,15 @@ router.get('/', async (request, response) => {
         }
 
         if (obits.length > 2) {
-            obits.sort({ deathYear: -1 })
-            .then((docs) => {
-
-                return response.status(200).json(
-                    {
-                        count: obits.length,
-                        data: obits
-                    }
-                ); 
-            });
+            return response.status(200).json(
+                {
+                    count: obits.length,
+                    data: obits
+                }
+            ); 
+            
         }
+
         else {
             return response.status(200).json(
                 {

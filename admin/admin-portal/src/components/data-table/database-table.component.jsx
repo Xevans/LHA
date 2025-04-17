@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import useFetch from "../../hooks/useFetch.hook";
-import { getCollection } from "../../utils/admin-backend.util";
-import { determineTableHeader } from "./database-table-helper";
+import { deleteDoc, getCollection } from "../../utils/admin-backend.util";
+import { determineCollection, determineTableHeader } from "./database-table-helper";
+
 import { ToastContext } from "../../contexts/toast.context";
 import { Status } from "../../enums/toastType.enum";
 
@@ -65,8 +65,32 @@ const DBTable = (props) => {
     //send req
     //then filter out record from table memory
     //handle edgecases for max and possibly brevity
-    async function handleRecordDelete() {
+    async function handleRecordDelete(id) {
 
+        // determine collection
+        const collection_name = determineCollection(current_route);
+
+        // try to make async req
+        try {
+            const response = await deleteDoc(collection_name, id);
+            
+            // if req does not fail, filter table, toast success msg
+
+            if (response == -1) {
+                throw new Error("Delete Operation Failed.");
+            }
+
+            // reset min and brevity
+            // if status not 200, toast fail msg
+            setMin(0)
+            setBrevity(50)
+            makeAToast("Record Deleted!");
+            setIsRefreshing(true); // kick off fetch
+
+        } catch (error) {
+            console.error(error);
+            makeAToast(`${error}`, Status.ERROR);
+        }
     }
 
     // copy a record id to the user's clipboard
@@ -146,8 +170,10 @@ const DBTable = (props) => {
         }
     }
     
-    // needs to be tested again. Renders fine but max's value is still blown up
     function CheckAndUpdateBrevity(amount) {
+        if (amount > brevity && max == dataCount) { // prevent overshoot if displaying last element in table
+            return;
+        }
         if ((min + amount) > dataCount) { // prevent overshoot if at end of list
             // brevity will exceed max data count
             // need to cap/set max to the upper bound (dataCount)

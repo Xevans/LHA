@@ -1,4 +1,26 @@
 
+// accepts a string representing the current outlet
+// returns a string representing the database collection id
+export function determineCollection(current_route) {
+    switch (current_route) {
+        case "news":
+            return "gp_news"
+        case "magazine":
+            return "gp_magazine" 
+        case "heritage":
+            return "gp_heritage"
+        case "civic":
+            return "gp_civic"
+        case "review":
+            return "gp_review"
+        default:
+            return current_route
+
+    }
+}
+
+// accepts a string representing the current outlet
+// returns a table header for the appropriate outlet
 export function determineTableHeader(current_route) {
     switch (current_route) {
         case "news":

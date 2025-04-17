@@ -17,21 +17,12 @@ router.post('/gp_news', async (request, response) => {
 
         const data = request.body;
 
-        //console.log(data);
-
         //validate all of the data
         data.forEach(async (element) => {
 
-           // console.log(element)
-
-            
-
-            if (!element._id || !element.title || !element.fileURL || !element.publishMonth || !element.publishYear || !element.publishDay) {
-                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishYear, publishMonth, publishDay).'});
+            if (!element.title || !element.fileURL || !element.publishMonth || !element.publishYear || !element.publishDay) {
+                throw new Error("Send all required fields in your request.");
             }
-    
-            
-
             
             // find by id then update matching record. if no match, then create
 
@@ -43,15 +34,17 @@ router.post('/gp_news', async (request, response) => {
                 publishDay: element.publishDay
             };
             
-            const update = await GPnews.findByIdAndUpdate(element._id, gp_newspaper, { new: true, runValidators: true });            
+            if (element._id.length > 0) {
+                const update = await GPnews.findByIdAndUpdate(element._id, gp_newspaper, { new: true, runValidators: true });
+            }
+            else {
+                const create = await GPnews.create(gp_newspaper);
+            }       
             
         });
+        console.log("record published")
+        return response.status(201).send("Record Published.");
 
-        // send data to db
-        return response.status(201).send(data);
-
-        
-        
     } catch (error) {
         console.log(error.message);
         response.status(500).send({message: error.message});
@@ -68,13 +61,13 @@ router.post('/gp_civic', async (request, response) => {
     try {
 
         data.forEach(async (element) => {
-            if (!element._id ||
+            if (
                 !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear || 
                 !element.publishDecade) {
-                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishMonth...).'});
+                throw new Error("Send all required fields in your request.");
             }
     
             const gp_civic = {
@@ -85,12 +78,16 @@ router.post('/gp_civic', async (request, response) => {
                 publishDecade: element.publishDecade,
             };
 
-            const update = await GPcivic.findByIdAndUpdate(element._id, gp_civic, { new: true, runValidators: true }); 
+            if (element._id.length > 0) {
+                const update = await GPcivic.findByIdAndUpdate(element._id, gp_civic, { new: true, runValidators: true });
+            }
+            else {
+                const create = await GPcivic.create(gp_civic);
+            }
 
         })
 
-        // sed data to db
-        return response.status(201).send(data);
+        return response.status(201).send("Record Published.");
         
     } catch (error) {
         console.log(error.message);
@@ -108,13 +105,13 @@ router.post('/gp_heritage', async (request, response) => {
 
         data.forEach(async (element) => {
 
-            if (!element._id ||
+            if (
                 !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear ||
                 !element.publishDecade) {
-                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
+                throw new Error("Send all required fields in your request.");
             };
     
             const gp_heritage = {
@@ -125,16 +122,21 @@ router.post('/gp_heritage', async (request, response) => {
                 publishDecade: element.publishDecade,
             };
     
-            const update = await GPheritage.findByIdAndUpdate(element._id, gp_heritage, { new: true, runValidators: true }); 
+            if (element._id.length > 0) {
+                const update = await GPheritage.findByIdAndUpdate(element._id, gp_heritage, { new: true, runValidators: true });
+            }
+            else {
+                const create = await GPheritage.create(gp_heritage);
+            }
 
         });
+
+        return response.status(201).send("Record Published.");
         
     } catch (error) {
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
-
-    return response.status(201).send(data);
 });
 
 
@@ -147,13 +149,13 @@ router.post('/gp_magazine', async (request, response) => {
         //for each object in body, validate and create a document in mongodb
         data.forEach(async (element) => {
 
-            if (!element._id ||
+            if (
                 !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear || 
                 !element.publishDecade) {
-                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL, publishMonth, publishYear).'});
+                    throw new Error("Send all required fields in your request.");
             }
     
             const gp_magazine = {
@@ -165,12 +167,16 @@ router.post('/gp_magazine', async (request, response) => {
             };
     
             
-            const update = await GPmagazine.findByIdAndUpdate(element._id, gp_magazine, { new: true, runValidators: true });
+            if (element._id.length > 0) {
+                const update = await GPmagazine.findByIdAndUpdate(element._id, gp_magazine, { new: true, runValidators: true });
+            }
+            else {
+                const create = await GPmagazine.create(gp_magazine);
+            }
             
         });
 
-        // send data back to client and comfirm reciept
-        return response.status(201).send(data);
+        return response.status(201).send("Record Published");
 
     } catch (error) {
         console.log(error.message);
@@ -188,13 +194,13 @@ router.post('/gp_review', async (request, response) => {
 
         data.forEach(async (element) => {
 
-            if (!element._id ||
+            if (
                 !element.title || 
                 !element.fileURL || 
                 !element.publishMonth || 
                 !element.publishYear || 
                 !element.publishDay) {
-                return response.status(400).send({message: 'Send all required fields in your request (title, fileURL).'});
+                throw new Error("Send all required fields in your request.");
             }
     
             const gp_review = {
@@ -205,13 +211,15 @@ router.post('/gp_review', async (request, response) => {
                 publishDay: element.publishDay,
             };
 
-            const update = await GPreview.findByIdAndUpdate(element._id, gp_review, { new: true, runValidators: true });
-        
-        
+            if (element._id.length > 0) {
+                const update = await GPreview.findByIdAndUpdate(element._id, gp_review, { new: true, runValidators: true });
+            }
+            else {
+                const create = await GPreview.create(gp_review);
+            }
         });
         
-
-        return response.status(201).send(data);
+        return response.status(201).send("Record Published");
         
     } catch (error) {
         console.log(error.message);
@@ -225,10 +233,11 @@ router.post('/obituary', async (request, response) => {
     try {
 
         const data = request.body;
+        console.log(data);
 
         data.forEach(async (element) => {
 
-            if (!element._id ||
+            if (
                 !element.last_name || 
                 !element.first_name || 
                 !element.middle_name || 
@@ -240,7 +249,7 @@ router.post('/obituary', async (request, response) => {
                 !element.printed_year || 
                 !element.publisher_name ||
                 !element.page_number ) {
-                return response.status(400).send({message: 'Send all required fields in your request.'});
+                throw new Error("Send all required fields in your request.");
             }
     
             const obit = {
@@ -257,10 +266,15 @@ router.post('/obituary', async (request, response) => {
                 pageNumber:element.page_number
             };
 
-            const update = await Obituary.findByIdAndUpdate(element._id, obit, { new: true, runValidators: true });
+            if (element._id.length > 0) {
+                const update = await Obituary.findByIdAndUpdate(element._id, obit, { new: true, runValidators: true });
+            }
+            else {
+                const create = await Obituary.create(obit);
+            }
         });
         
-        return response.status(201).send(data); // this is just confirmation of reciept
+        return response.status(201).send("Record Published.");
         
     } catch (error) {
         console.log(error.message);

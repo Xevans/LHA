@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import axios from 'axios';
 import { createDoc, getDocByID } from '../../../utils/admin-backend.util';
 import { ToastContext } from '../../../contexts/toast.context';
-
+import { Status } from '../../../enums/toastType.enum';
 
 const GPReviewUploadForm = () => {
 
@@ -50,7 +50,7 @@ const GPReviewUploadForm = () => {
             const collection_name = "gp_review";
             const response = await createDoc(collection_name, data);
 
-            if (response != 201) {
+            if (response == -1) {
                 throw new Error("Record could not be created.");
             }
 
@@ -60,13 +60,16 @@ const GPReviewUploadForm = () => {
             else {
                 makeAToast("Record Published!", Status.SUCCESS);
             }
+
+            resetFormFields(); // reset states of each field value
+            setRecordID("");
+            setIsUpdating(false);
       
         } catch (error) {
             console.error('Error:', error);
             makeAToast(`Submission Failed: ${error}`, Status.ERROR);
         }
 
-        resetFormFields(); // reset states of each field value
     }
 
 
@@ -77,6 +80,11 @@ const GPReviewUploadForm = () => {
 
     async function handleFetchRecord() {
         const collection_name = "gp_review";
+
+        if (recordID.length < 1) {
+            throw new Error("Enter something in the fetch field.");
+        }
+
         try {
             const response = await getDocByID(collection_name, recordID);
             
@@ -199,8 +207,8 @@ const GPReviewUploadForm = () => {
                             Month
                         </label>
                         <input
-                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='publishMonth' name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
+                        className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='number' min={0} name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
                         />
                         
                     </div>
@@ -210,8 +218,8 @@ const GPReviewUploadForm = () => {
                             Day
                         </label>
                         <input
-                        className="peer w-12 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='publishDay' name='publishDay' required={true} onChange={handleChange} value={publishDay}
+                        className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                        maxLength={2} type='number' min={0} name='publishDay' required={true} onChange={handleChange} value={publishDay}
                         />
                     </div>
 
@@ -221,12 +229,11 @@ const GPReviewUploadForm = () => {
                         </label>
                         <input
                         className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={4} type='publishYear' name='publishYear' required={true} onChange={handleChange} value={publishYear}
+                        maxLength={4} type='number' min={0} name='publishYear' required={true} onChange={handleChange} value={publishYear}
                         />
                     </div>
 
                 </div>
-                <div className='text-sm'>No leading zeroes. Ex: if January, enter 1.</div>
 
                 
                 <button type="submit" 
