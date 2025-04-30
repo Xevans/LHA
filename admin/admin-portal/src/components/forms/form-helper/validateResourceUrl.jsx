@@ -5,7 +5,7 @@ export function validateResourceURL(url) {
         return false;
     }
     // check for extension
-    if (url.slice(-4).toLowerCase() == ".pdf") { // check first 4 char in string
+    if (url.slice(-4).toLowerCase() == ".pdf") { // check last 4 char in string
         return false;
     }
 

@@ -8,6 +8,7 @@ import GPReviewUploadForm from "../../components/forms/gpreview/review-upload-fo
 import Obituary from "../../components/forms/obituary/obituary-form.component";
 import DBTable from "../../components/data-table/database-table.component";
 import Toast from "../../components/toast/toast.component";
+import Help from "../../components/help-menu/help.component";
 
 const Upload = () => {
 
@@ -128,14 +129,14 @@ const Upload = () => {
 
                         <div className="container">
                             <div className="">
-                                <div className="">
+                                <div className="flex flex-row">
 
-                                    <div className="" >
+                                    <div className="flex-1" >
                                         {formSwitch()}
                                     </div>
 
                                     <div className="">
-                                        
+                                        <Help />
                                     </div>
 
                                 </div>

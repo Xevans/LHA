@@ -480,4 +480,36 @@ Bug: did not clear id field after update op.
 
 4/17/25
 Tasks:
-- Help panel (right half of screen next to form will have instructions).
+- Help panel (right half of screen next to form will have instructions). [Done]
+
+
+4/23/25
+- Search for table for record
+    - papers
+        - By ID
+        - By publish date
+    - obits
+        - by last name
+        - by first name
+        - by middle name
+        - by publisher
+        - by death date
+        - by print date
+
+
+create a boolean render on the table component.
+If user clicks filter, set isFiltering to true.
+if isFiltering is true, render child component.
+    Prop drill with filtered data
+
+
+
+Testing:
+leaving an input field year as 0 in obituaries made the backend crash.
+update min value and min length
+update default form control object
+show empty table when no data
+
+Update 4/30/2025
+Added legacy data to database and exported to a json (roughly 4.4k records).
+

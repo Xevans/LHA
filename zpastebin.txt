@@ -40,3 +40,49 @@ return(
                                             </tr>
                                         </>
                                     )
+
+
+old table filter
+<form className="flex flex-row" onSubmit={() => filterYear()}>
+                                                
+                                                <div className="relative pr-3">
+                                                    <input
+                                                    className="mt-1 peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+                                                    maxLength={4} type='number' min={0} name='filterYear' required={true}
+                                                    />
+                                                </div>
+
+                                                <button 
+                                                type="submit"
+                                                className="p-2 bg-blue-400 rounded-2xl text-white cursor-pointer">
+                                                    Filter
+                                                </button>
+                                            </form>
+                                            <div
+                                            className={`ml-4 p-2 bg-red-400 rounded-2xl text-white cursor-pointer`} onClick={() => clearFilter()}>
+                                                Clear
+                                            </div>
+
+
+    // table search
+    function filterYear(event) {
+        event.preventDefault();
+
+        const { name, value } = event.target;
+        
+        const filtered_data = tableData.filter((record) => {
+            if (record.publishYear == year) {
+                return record;
+            }
+        });
+
+        setIsFiltered(true);
+        setBrevity(50);
+        setMin(0);
+        setDataCount(filtered_data.length);
+        setTableData(filtered_data);
+    }
+
+    function clearFilter() {
+        setIsFiltered(false); // trigger useEffect -> trigger fetch (getColl)
+    }

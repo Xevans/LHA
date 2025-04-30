@@ -1,4 +1,5 @@
 import express from "express";
+import bodyParser from "body-parser";
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -14,7 +15,9 @@ import AdminManagementRouter from "./routes/admin-manage.route.js";
 const app = express();
 // middleware for parsing request body
 // i.e. will assist in reading json data from requests bodies 
-app.use(express.json());
+//app.use(express.json());
+app.use(express.json({ limit: '10mb'}));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 dotenv.config(); // access the .env file
 

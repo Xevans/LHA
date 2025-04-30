@@ -23,6 +23,7 @@ const DBTable = (props) => {
     const [brevity, setBrevity] = useState(50);
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(min+brevity);
+    const [isFiltered, setIsFiltered] = useState(false);
 
 
     const { makeAToast } = useContext(ToastContext);
@@ -92,6 +93,50 @@ const DBTable = (props) => {
             makeAToast(`${error}`, Status.ERROR);
         }
     }
+    
+
+    useEffect(() => {
+        // switch case that matches the string enpoint with the matching context
+        //let route = "";
+        if (!isFiltered) {
+            switch (current_route) {
+                case "news":
+                    getColl("gp_news");
+                    break;
+                
+                case "magazine":
+                    getColl("gp_magazine");
+                    break;
+    
+                case "heritage":
+                    getColl("gp_heritage");
+                    break;
+                
+                case "civic":
+                    getColl("gp_civic");
+                    break;
+    
+                case "review":
+                    getColl("gp_review");
+                    break;
+                
+                case "obituary":
+                    getColl("obituary");
+                    break;
+                        
+                default:
+                    break;
+            }
+        }
+
+        setIsRefreshing(false);
+    }, [current_route, isRefreshing]);
+
+
+    useEffect(() => {
+        setMax(min+brevity);
+    }, [brevity, min]);
+
 
     // copy a record id to the user's clipboard
     // accepts a string
@@ -103,50 +148,10 @@ const DBTable = (props) => {
             console.log(error)
         }
     }
-    
-
-    useEffect(() => {
-        // switch case that matches the string enpoint with the matching context
-        //let route = "";
-        switch (current_route) {
-            case "news":
-                getColl("gp_news");
-                break;
-            
-            case "magazine":
-                getColl("gp_magazine");
-                break;
-
-            case "heritage":
-                getColl("gp_heritage");
-                break;
-            
-            case "civic":
-                getColl("gp_civic");
-                break;
-
-            case "review":
-                getColl("gp_review");
-                break;
-            
-            case "obituary":
-                getColl("obituary");
-                break;
-                    
-            default:
-                break;
-        }
-
-        setIsRefreshing(false);
-    }, [current_route, isRefreshing]);
 
 
-    useEffect(() => {
-        setMax(min+brevity);
-    }, [brevity, min])
-
-
-
+    // move to next page in table
+    // checks if how much data there is left to show and shows the next chunk or remainder
     function checkAndIncreaseMin() {
         if (max + brevity > dataCount) {
             // set max to the justifiable difference
@@ -157,6 +162,9 @@ const DBTable = (props) => {
         }
     }
     
+
+    // move to previous page in table
+    // checks if how much data there is left to show and shows the previous chunk or first chunk
     function checkAndDecreaseMin() {
         if (min === 0) {
             // set max to the justifiable difference
@@ -169,7 +177,10 @@ const DBTable = (props) => {
             setMin(min - brevity);
         }
     }
-    
+
+
+    // change the amount of visible rows in table
+    // accepts an ammount to show then validates how much can be shown given current table attributes
     function CheckAndUpdateBrevity(amount) {
         if (amount > brevity && max == dataCount) { // prevent overshoot if displaying last element in table
             return;
@@ -187,13 +198,11 @@ const DBTable = (props) => {
         }
     }
 
-    
 
-
+    // Render
     return (
         <>
-            
-            <div className="ml-10 mt-10">
+            <div className=" mt-10">
 
             { /* Render Table only if data is present */
                 tableData.length > 0 &&  
@@ -226,15 +235,18 @@ const DBTable = (props) => {
                                         </div>
 
                                         <div className="flex flex-row">
-                                            <div className="p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(50)}>
-                                                50
-                                            </div>
-                                            <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(100)}>
-                                                100
-                                            </div>
-                                            <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(200)}>
-                                                200
-                                            </div>
+                                            <div className="flex flex-row flex-1">
+                                                <div className="p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(50)}>
+                                                    50
+                                                </div>
+                                                <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(100)}>
+                                                    100
+                                                </div>
+                                                <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(200)}>
+                                                    200
+                                                </div>
+                                            </div>                                            
+                                            
                                         </div>
                                     </div>
                                 </caption>

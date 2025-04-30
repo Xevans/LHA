@@ -11,9 +11,9 @@ const GPReviewUploadForm = () => {
         _id: '',
         title: '',
         fileURL: '',
-        publishMonth: 0,
-        publishYear: 0,
-        publishDay: 0
+        publishMonth: 1,
+        publishYear: 2000,
+        publishDay: 1
     }
 
 
@@ -208,7 +208,7 @@ const GPReviewUploadForm = () => {
                         </label>
                         <input
                         className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='number' min={0} name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
+                        maxLength={2} type='number' min={1} name='publishMonth' required={true} onChange={handleChange} value={publishMonth}
                         />
                         
                     </div>
@@ -219,7 +219,7 @@ const GPReviewUploadForm = () => {
                         </label>
                         <input
                         className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='number' min={0} name='publishDay' required={true} onChange={handleChange} value={publishDay}
+                        maxLength={2} type='number' min={1} name='publishDay' required={true} onChange={handleChange} value={publishDay}
                         />
                     </div>
 
@@ -229,7 +229,7 @@ const GPReviewUploadForm = () => {
                         </label>
                         <input
                         className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={4} type='number' min={0} name='publishYear' required={true} onChange={handleChange} value={publishYear}
+                        maxLength={4} minLength={4} type='number' min={1} name='publishYear' required={true} onChange={handleChange} value={publishYear}
                         />
                     </div>
 

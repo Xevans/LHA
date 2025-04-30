@@ -12,14 +12,14 @@ const Obituary = () => {
         last_name: '',
         first_name: '',
         middle_name: '',
-        death_month: 0,
-        death_day: 0,
-        death_year: 0,
-        printed_month: 0,
-        printed_day: 0,
-        printed_year: 0,
+        death_month: 1,
+        death_day: 1,
+        death_year: 2000,
+        printed_month: 1,
+        printed_day: 1,
+        printed_year: 2000,
         publisher_name: "",
-        page_number: 1
+        page_number: "1"
         
     }
 
@@ -68,6 +68,7 @@ const Obituary = () => {
         // do upload
         event.preventDefault();
         let data = [formFields];
+
         
         try {
             const collection_name = "obituary";
@@ -260,7 +261,7 @@ const Obituary = () => {
                         </label>
                         <input
                         className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='number' min={0} name='death_month' required={true} onChange={handleChange} value={death_month}
+                        maxLength={2} type='number' min={1} name='death_month' required={true} onChange={handleChange} value={death_month}
                         />
                         
                     </div>
@@ -271,7 +272,7 @@ const Obituary = () => {
                         </label>
                         <input
                         className="peer w-16 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={2} type='number' min={0} name='death_day' required={true} onChange={handleChange} value={death_day}
+                        maxLength={2} type='number' min={1} name='death_day' required={true} onChange={handleChange} value={death_day}
                         />
                     </div>
 
@@ -281,7 +282,7 @@ const Obituary = () => {
                         </label>
                         <input
                         className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={4} type='number' min={0} name='death_year' required={true} onChange={handleChange} value={death_year}
+                        maxLength={4} minLength={4} type='number' min={1} name='death_year' required={true} onChange={handleChange} value={death_year}
                         />
                     </div>
 
@@ -322,7 +323,7 @@ const Obituary = () => {
                         </label>
                         <input
                         className="peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-                        maxLength={4} type='number' min={0} name='printed_year' required={true} onChange={handleChange} value={printed_year}
+                        maxLength={4} minLength={4} type='number' min={0} name='printed_year' required={true} onChange={handleChange} value={printed_year}
                         />
                     </div>
 
