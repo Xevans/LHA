@@ -512,4 +512,20 @@ show empty table when no data
 
 Update 4/30/2025
 Added legacy data to database and exported to a json (roughly 4.4k records).
+    - Used a backend route that is commented out to handle the unsanitized payloads and create records.
+Will add search later
+
+Design Consideration:
+Build backend server for managing the database?
+
+
+Next Task: get this to behave on the production server
+    - Put up maintainance message (point apache to an htlm file with notice).
+    - Turn off auto deployment
+    - Test Merge
+    - Record all changes to environment variables
+    - Locate and make note of deployment paths
+    - Update deployment script (Make comments, notes for each task)
+    - Test with new integration
+
 
