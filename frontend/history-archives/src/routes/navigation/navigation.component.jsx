@@ -1,4 +1,4 @@
-import { Fragment, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Outlet} from "react-router-dom";
 import SideNavigation from "../../components/offcanvas/sideNavigation/sideNavigation.component";
 import NavbarTitle from "../../components/navbarTitle/navbarTitle.component";
@@ -25,17 +25,18 @@ const Navigation = () => {
     }, [currentPublisher, currentYear, currentDecade]);
     
     return(
-        <Fragment>
-            <nav className="navbar bg-body-tertiary fixed-top">
-                <div className="container-fluid">
+        <>
+            <nav className="top-0 left-0 w-full  max-w-screen px-4 py-2 mx-auto bg-white shadow-md">
+                <div className="">
                     <NavbarTitle publisher_code={publisher_code} title_year={title_year} title_decade={title_decade} />
             
                     <SideNavigation />
                     
+                    
                 </div>
             </nav>
             <Outlet /> {/*Tells react to render the nested routes */}
-        </Fragment>
+        </>
     );
 }
 

@@ -522,8 +522,10 @@ Build backend server for managing the database?
 Next Task: get this to behave on the production server
     - Put up maintainance message (point apache to an htlm file with notice).
     - Turn off auto deployment
+    - Add obituaries to history-archives app
+    - Migrate from CRA to Vite, and move from bootstrap to tailwind
     - Test Merge
-    - Record all changes to environment variables
+    - Record all changes to environment variables, IP addresses
     - Locate and make note of deployment paths
     - Update deployment script (Make comments, notes for each task)
     - Test with new integration

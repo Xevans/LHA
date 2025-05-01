@@ -1,6 +1,8 @@
-* {
+@import "tailwindcss";
+
+/** {
   list-style-type: none;
-}
+}*/
 
 body {
   margin: 0;

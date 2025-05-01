@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
-// ADMIN PORTAL
 export default defineConfig({
   plugins: [
     react(),
@@ -10,7 +9,7 @@ export default defineConfig({
   ],
 
   server: {
-    port: 3000,
+    port: 3002,
     host: '127.0.0.1'
   },
   
