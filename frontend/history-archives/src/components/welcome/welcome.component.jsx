@@ -9,12 +9,13 @@ const Welcome = () => {
     const { publisherName } = useContext(PublisherContext);
 
     return (
-        <div className="container mt-20 text-center">
-            <h4>Welcome to The {`${publisherName}`} Archives</h4>
-            <p>Here, you can browse for local news publications by year.<br /> Open the menu in the top-right corner by clicking the button with three lines.
-            
-            </p>
-
+        <div className="mt-40 text-center w-full">
+            <div className="">
+                <h4>Welcome to The {`${publisherName}`} Archives</h4>
+                <p>Here, you can browse for local news publications by year.<br /> 
+                    Open the menu in the top-right corner by clicking the button with three lines.
+                </p>
+            </div>
         </div>
     )
 };

@@ -43,9 +43,12 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
 
     return (
         <li className="nav-item dropdown">
-            <Link className="nav-link dropdown-toggle" to='/' role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <Link className="nav-link dropdown-toggle" 
+            to='/' role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {determineDecade()}s
             </Link>
+
+            
             
             <ul className="dropdown-menu">
                 {

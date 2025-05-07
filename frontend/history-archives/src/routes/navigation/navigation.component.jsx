@@ -26,11 +26,15 @@ const Navigation = () => {
     
     return(
         <>
-            <nav className="top-0 left-0 w-full  max-w-screen px-4 py-2 mx-auto bg-white shadow-md">
-                <div className="">
-                    <NavbarTitle publisher_code={publisher_code} title_year={title_year} title_decade={title_decade} />
+            <nav className="top-0 left-0 w-full  max-w-screen px-4 py-2 mx-auto bg-white dark:bg-gray-800 shadow-md">
+                <div className="flex flex-row">
+                    <div className="flex-1">
+                        <NavbarTitle publisher_code={publisher_code} title_year={title_year} title_decade={title_decade} />
+                    </div>
             
-                    <SideNavigation />
+                    <div>
+                        <SideNavigation />
+                    </div>
                     
                     
                 </div>
