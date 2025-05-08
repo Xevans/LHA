@@ -9,7 +9,7 @@ const GPReviewDropdownItem = (props) => {
 
     return (
         <div>
-            <li onClick={() => updateYear(decade + year_index)} className="dropdown-item">{decade + year_index}</li>
+            <li onClick={() => updateYear(decade + year_index)} className="pl-5 py-1 dark:hover:bg-gray-700 rounded-2xl">{decade + year_index}</li>
         </div>
     )
 }

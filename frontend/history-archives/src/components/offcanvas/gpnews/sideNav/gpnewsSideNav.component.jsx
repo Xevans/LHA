@@ -85,6 +85,8 @@ const GPnewsSideNav = () => {
             else {
                 return (
                     <>
+                        <hr className="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700"></hr>
+                        <h3 className="my-3 font-bold dark:text-white"> Grosse Pointe News</h3>
                         <ul className="dark:text-white">
                             {
                                 /* For loop conditional render. Render a drop down for each decade applicable to this outlet */
@@ -99,8 +101,8 @@ const GPnewsSideNav = () => {
         else {
             return (
                 <>
-                    <div className="alert alert-warning" role="alert">
-                        Unable to reach server. Please check your connection or try again later.
+                    <div className="mt-3 p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-700 dark:text-yellow-300" role="alert">
+                        <span className="font-medium">Warning!</span> Unable to reach server. Please check your connection or try again later.
                     </div>
                 </>
             );

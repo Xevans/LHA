@@ -11,8 +11,8 @@ const SideNavItem = (props) => {
 
 
     return (
-        <li className="nav-item" onClick={() => updateDecade((decade))}>
-            <Link className="nav-link">
+        <li className="pl-5 py-1 dark:hover:bg-gray-700 rounded-2xl" onClick={() => updateDecade((decade))}>
+            <Link className="">
                 {decade}s
             </Link>
         </li>
