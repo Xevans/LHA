@@ -531,3 +531,25 @@ Next Task: get this to behave on the production server
     - Test with new integration
 
 
+
+
+5/9/2025
+Obituary Database for LHA app
+
+- Default sort is most recent to least recent publication to most recent.
+- Sort options
+    - By death date (ascend, descend)
+    - By print date (ascend, descend)
+    - By First name, middle name, and last name (1, 2 or all three options must be present)
+        - routine will handle how to search depending on which fields are non empty
+    
+    - Compound searches (e.g. name + year)?
+
+
+Create a debouncing step when typing into search fields
+For the change handler. Utilize useEffect with a timeout.
+Process the input after a set amount of seconds after handler is called.
+
+
+- Any year or manual option
+- Adjust table increment and brevity logic to acomodate filtering

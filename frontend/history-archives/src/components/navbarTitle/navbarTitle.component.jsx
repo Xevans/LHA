@@ -35,6 +35,10 @@ const NavbarTitle = (props) => {
             case "gpreview":
                 setTitle("Grosse Pointe Review Archival");
                 break;
+
+            case "obituary":
+                setTitle("Obituary Database");
+                break;
         
             default:
                 setTitle("Local History Archives")

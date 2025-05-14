@@ -8,6 +8,7 @@ import './App.css';
 import GPMagazine from './routes/gpmagazine/gpmagazine.component';
 import GPHeritage from './routes/gpheritage/gpheritage.component';
 import GPreview from './routes/gpreview/gpreview.component';
+import Obituary from './routes/obituary/obituary.route';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='gpcivic' element={<GPCivic />} />
         <Route path='gpheritage' element={<GPHeritage />} />
         <Route path='gpreview' element={<GPreview />} />
+        <Route path='obituary' element={<Obituary />} />
 
       </Route>
     </Routes>

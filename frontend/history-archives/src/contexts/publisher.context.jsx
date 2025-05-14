@@ -24,6 +24,9 @@ const updatePublisherName = (publisher_code) => {
 
         case "gpreview":
             return "Grosse Pointe Review";
+        
+        case "obituary":
+            return "Obituary Database";
     
         default:
             return ""

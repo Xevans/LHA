@@ -74,7 +74,7 @@ const Dropdown = (props) => {
             </div>
             
             {/* child list of years for the decade dropdown component */}
-            <ul className={`${isShowing ? 'border rounded-2xl p4' : ''}`}>
+            <ul className='p4'>
                 {
                     /* For loop conditional render */
                     // if checkCurrentDecade is true, render a set amount of dropdownitems
