@@ -551,5 +551,14 @@ For the change handler. Utilize useEffect with a timeout.
 Process the input after a set amount of seconds after handler is called.
 
 
-- Any year or manual option
+- Any year or manual option [Done]
 - Adjust table increment and brevity logic to acomodate filtering
+- if any year is true but all other fields empty, return all records (the argued array).
+- run filter routine when all years changes.
+- add a button for exact string
+    Ex: input ran (shows ran not Fran)
+    Make a derivative function that does this
+
+    -Consider wrapper functionality in table search helper:
+        make a function that accepts the requirements + options
+        determine which function to call based on options
