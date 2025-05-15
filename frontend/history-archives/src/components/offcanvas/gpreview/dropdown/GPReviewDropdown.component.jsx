@@ -51,7 +51,7 @@ const Dropdown = (props) => {
     }
 
     return (
-        <li className="">
+        <li className={`${isShowing ? 'border-b border-gray-400 dark:border-gray-300' : ''}`}>
             <div className="flex flex-row mt-3" onClick={() => toggleYearsList()}>
                 {/*toggle between showing > and v when drop down is active. 
                 

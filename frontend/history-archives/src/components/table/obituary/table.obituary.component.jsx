@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getCollection } from "../../../utils/fetch.util";
 import { sortByYearDescending } from "./helperObitTable.component";
 import { filterObits } from "./helperObitSearchbar.component";
+import TableButton from "../../buttons/table_button/table_button.component";
 
 const ObituaryTable = () => {
 
@@ -215,13 +216,13 @@ const ObituaryTable = () => {
 
     return (
         <>
-            <div className=" mt-10">
+            <div className="mt-10 min-h-screen">
             
                 { /* Render Table only if data is present */
                     tableData.length > 0 &&  
                     
                         <>              
-                            <div className="mx-10">
+                            <div className="mx-10 dark:text-white">
                                 <div className='my-4 text-xl font-semibold'>
                                     Name Search
                                 </div>                                 
@@ -230,7 +231,7 @@ const ObituaryTable = () => {
 
                                         <div className="mx-3 w-full max-w-lg min-w-[200px]">
                                             <div className="relative">
-                                                <label className="block mb-2 text-sm text-slate-600">
+                                                <label className="block mb-2 text-sm text-slate-600 dark:text-white">
                                                     First Name
                                                 </label>
                                                 <input
@@ -243,7 +244,7 @@ const ObituaryTable = () => {
 
                                         <div className="mx-3 w-full max-w-lg min-w-[200px]">
                                             <div className="relative">
-                                                <label className="block mb-2 text-sm text-slate-600">
+                                                <label className="block mb-2 text-sm text-slate-600 dark:text-white">
                                                     Middle Name
                                                 </label>
                                                 <input
@@ -255,7 +256,7 @@ const ObituaryTable = () => {
 
                                         <div className=" mx-3 w-full max-w-lg min-w-[200px]">
                                             <div className="relative">
-                                                <label className="block mb-2 text-sm text-slate-600">
+                                                <label className="block mb-2 text-sm text-slate-600 dark:text-white">
                                                     Last Name
                                                 </label>
                                                 <input
@@ -266,7 +267,7 @@ const ObituaryTable = () => {
                                         </div>
 
                                         <div className="mx-3 relative pr-3">
-                                            <label className="block mb-2 text-sm text-slate-600">
+                                            <label className="block mb-2 text-sm text-slate-600 dark:text-white">
                                                 Death Year
                                             </label>
                                             <input
@@ -280,7 +281,7 @@ const ObituaryTable = () => {
                                             
                                             <div className="flex items-center ">
                                                 <input type="checkbox" value={anyYearSelection} onChange={handleAnyYearChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
-                                                <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 ">
+                                                <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-white">
                                                     Search All Years
                                                 </label>
                                             </div>
@@ -291,15 +292,15 @@ const ObituaryTable = () => {
                                 </div>                               
                             </div>
 
-                            <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-lg">
+                            <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-2xl mt-5">
                                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
                                     <caption className="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
                                         <div className="flex flex-row">
                                             <div className="flex-1">
-                                                Database View
+                                                Table View
                                                 <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                Browse and modify records in the database for the current route.<br/>
-                                                To update an entry, copy its ID and enter it in the 'Fetch' text box.
+                                                Browse and review obituary records from this table.<br/>
+                                                Use the fields above to narrow down your search.
                                                 </p>
                                             </div>
                                             <div 
@@ -318,7 +319,7 @@ const ObituaryTable = () => {
                                             </div>
     
                                             <div className="flex flex-row">
-                                                <div className="flex flex-row flex-1">
+                                                <div className="flex flex-row flex-1 text-sm">
                                                     <div className="p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(50)}>
                                                         50
                                                     </div>
@@ -382,19 +383,19 @@ const ObituaryTable = () => {
                                                         </td>
 
                                                         <td className="px-6 py-4">
-                                                            {`${record.deathMonth}/${record.deathDay}/${record.deathYear}`}
+                                                            {`${record.deathYear == 209999 ? 'unknown' : `${record.deathMonth}/${record.deathDay}/${record.deathYear}` }`}
                                                         </td>
 
                                                         <td className="px-6 py-4">
-                                                            {`${record.publicationName}`}
+                                                            {`${record.publicationName.length < 1 ? 'unknown' : `${record.publicationName}`}`}
                                                         </td>
 
                                                         <td className="px-6 py-4">
-                                                            {`${record.pageNumber}`}
+                                                            {`${record.pageNumber.length < 1 ? 'unknown' : `${record.pageNumber}`}`}
                                                         </td>
 
                                                         <td className="px-6 py-4">
-                                                            {`${record.printMonth}/${record.printDay}/${record.printYear}`}
+                                                            {`${record.printYear == 209999 ? 'unknown' : `${record.printMonth}/${record.printDay}/${record.printYear}`}`}
                                                         </td>
                                                     </tr>
                                                     
@@ -421,7 +422,7 @@ const ObituaryTable = () => {
                                                         </td>
 
                                                         <td className="px-6 py-4">
-                                                            {`${record.deathMonth}/${record.deathDay}/${record.deathYear}`}
+                                                            {`${record.deathYear == 209999 ? 'unknown' : `${record.deathMonth}/${record.deathDay}/${record.deathYear}` }`}
                                                         </td>
 
                                                         <td className="px-6 py-4">
@@ -433,7 +434,7 @@ const ObituaryTable = () => {
                                                         </td>
 
                                                         <td className="px-6 py-4">
-                                                            {`${record.printMonth}/${record.printDay}/${record.printYear}`}
+                                                            {`${record.printYear == 209999 ? 'unknown' : `${record.printMonth}/${record.printDay}/${record.printYear}`}`}
                                                         </td>
                                                     </tr>
                                                     
@@ -446,24 +447,19 @@ const ObituaryTable = () => {
                             </div>
                             
                             
-                            <div className="flex flex-row ml-2 mr-2 mb-2">
+                            <div className="flex flex-row ml-2 mr-2 pb-2">
                                         
                                     <div className="flex-1">
-                                        <button type="button" 
-                                        className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                        onClick={() => checkAndDecreaseMin()}
-                                        >
-                                            Previous Page
-                                        </button>
+                                        <div onClick={() => checkAndDecreaseMin()}>
+                                            <TableButton  destination="Previous Page" />
+                                        </div>
+                                        
                                     </div>
     
                                     <div className="flex">
-                                        <button type="button" 
-                                        className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                        onClick={() => checkAndIncreaseMin()}
-                                        >
-                                            Next Page
-                                        </button>
+                                        <div onClick={() => checkAndIncreaseMin()}>
+                                            <TableButton destination="Next Page" />
+                                        </div>
                                     </div>
     
                             </div>

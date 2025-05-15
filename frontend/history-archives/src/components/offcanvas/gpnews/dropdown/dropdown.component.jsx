@@ -54,24 +54,25 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
     }
 
     return (
-        <li className="">
+        <li className={`${isShowing ? 'border-b border-gray-400 dark:border-gray-300' : ''}`}>
             <div className="flex flex-row mt-3" onClick={() => toggleYearsList()}>
                 {/*toggle between showing > and v when drop down is active. 
                 
                     Indent list, add dividers*/
                     isShowing &&
-                    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-gray-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" viewBox="0 0 24 24">
                         <path fillRule="evenodd" d="M18.425 10.271C19.499 8.967 18.57 7 16.88 7H7.12c-1.69 0-2.618 1.967-1.544 3.271l4.881 5.927a2 2 0 0 0 3.088 0l4.88-5.927Z" clipRule="evenodd"/>
                     </svg>
                 }
                 {
                     !isShowing &&
-                    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-gray-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" viewBox="0 0 24 24">
                         <path fillRule="evenodd" d="M10.271 5.575C8.967 4.501 7 5.43 7 7.12v9.762c0 1.69 1.967 2.618 3.271 1.544l5.927-4.881a2 2 0 0 0 0-3.088l-5.927-4.88Z" clipRule="evenodd"/>
                     </svg>
 
                 }
-                <div className="font-semibold text-lg">
+
+                <div className="font-semibold text-lg text-gray-700 dark:text-white">
                     {determineDecade()}s
                 </div>
             </div>

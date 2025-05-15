@@ -66,14 +66,14 @@ const GPReviewTable = () => {
 
         if (newspapers.length > 0) {
             return (
-                <div className="relative overflow-x-auto mt-20 mb-10 mx-10">
+                <div className="relative overflow-x-auto mt-20 mb-10 mx-10 min-h-screen">
                     {/* Build a table here to test, then make it into a reusable component. */}
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <tbody>
                             {//Render only iff there is something to render (i.e. if nothing pulled, dont render row)
                                 newspapers.filter((item) => item.publishMonth === 1).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         January
                                     </th>
@@ -90,7 +90,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 2).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         February
                                     </th>
@@ -107,7 +107,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 3).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         March
                                     </th>
@@ -124,7 +124,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 4).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         April
                                     </th>
@@ -141,7 +141,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 5).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         May
                                     </th>
@@ -158,7 +158,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 6).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         June
                                     </th>
@@ -175,7 +175,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 7).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         July
                                     </th>
@@ -192,7 +192,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 8).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         August
                                     </th>
@@ -209,7 +209,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 9).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         September
                                     </th>
@@ -226,7 +226,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 10).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         October
                                     </th>
@@ -243,7 +243,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 11).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         November
                                     </th>
@@ -260,7 +260,7 @@ const GPReviewTable = () => {
                             {
                                 newspapers.filter((item) => item.publishMonth === 12).length > 0 &&
         
-                                <tr className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200'>
+                                <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
                                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         December
                                     </th>

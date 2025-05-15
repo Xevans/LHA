@@ -551,10 +551,17 @@ For the change handler. Utilize useEffect with a timeout.
 Process the input after a set amount of seconds after handler is called.
 
 
+Table and Search:
 - Any year or manual option [Done]
+- If publisher name or page number is empty, show unknown [Done]
+- If death year is 209999 show unknown [Done]
+- If print year is 209999 show unknown [Done]
+- Show no flicker when changing table page
 - Adjust table increment and brevity logic to acomodate filtering
 - if any year is true but all other fields empty, return all records (the argued array).
-- run filter routine when all years changes.
+- run filter routine when all years selection changes.
+- refresh button should trigger field defaults
+
 - add a button for exact string
     Ex: input ran (shows ran not Fran)
     Make a derivative function that does this

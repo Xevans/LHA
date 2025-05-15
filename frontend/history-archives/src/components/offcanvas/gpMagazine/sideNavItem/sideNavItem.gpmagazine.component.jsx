@@ -10,11 +10,13 @@ const SideNavItem = (props) => {
     const { updateDecade } = useContext(DecadeContext);
 
     return (
-        <li className="pl-5 py-1 dark:hover:bg-gray-700 rounded-2xl" onClick={() => updateDecade((decade))}>
-            <Link className="">
-                {decade}s
-            </Link>
-        </li>
+        <div>
+            <li className="pl-5 py-1 my-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-2xl" onClick={() => updateDecade((decade))}>
+                <Link className="">
+                    {decade}s
+                </Link>
+            </li>
+        </div>
     )
 
 }

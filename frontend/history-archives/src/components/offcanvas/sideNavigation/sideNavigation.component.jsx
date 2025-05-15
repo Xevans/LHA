@@ -139,7 +139,10 @@ const SideNavigation = () => {
                             </Link>
                         </li>
                     </ul>
-                    {renderSwitch()}
+                    
+                    <div id="year-list">
+                        {renderSwitch()}
+                    </div>
                 </div>
             </div>
 
