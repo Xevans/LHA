@@ -292,7 +292,7 @@ const ObituaryTable = () => {
                                 </div>                               
                             </div>
 
-                            <div className="relative overflow-x-auto overflow-y-auto shadow-md sm:rounded-2xl mt-5">
+                            <div className="relative overflow-x-auto overflow-y-auto shadow-md rounded-2xl mt-5">
                                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
                                     <caption className="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
                                         <div className="flex flex-row">
@@ -305,14 +305,14 @@ const ObituaryTable = () => {
                                             </div>
                                             <div 
                                             onClick={() => setIsRefreshing(true)}
-                                            className="cursor-pointer mt-8 p-2 rounded-2xl text-blue-700 transition duration-200 ease-in-out hover:bg-blue-400 hover:text-white">
+                                            className="cursor-pointer p-2 rounded-2xl  text-blue-700 transition duration-200 ease-in-out hover:bg-blue-400 hover:text-white">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                                                 </svg>
                                             </div>
                                         </div>
                                         <div className="mt-2">
-                                            <div className="flex flex-row">
+                                            <div className="flex flex-col sm:flex-row ">
                                                 <h2 className="text-lg flex-1">Row Count: {brevity}</h2>
                                                 <h2 className="text-lg flex-1">Showing: {`${min+1} - ${max}`}</h2>
                                                 <h2 className="text-lg">Total Records: {`${isFiltered ? filteredDataCount : dataCount}`}</h2>
@@ -334,114 +334,116 @@ const ObituaryTable = () => {
                                             </div>
                                         </div>
                                     </caption>
-                                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
-                                        <tr>
-                                            <th scope="col" className="px-6 py-3">
-                                                First
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Middle
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Last
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Date of Death
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Publisher
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Page #
-                                            </th>
-                                            <th scope="col" className="px-6 py-3">
-                                                Print Date
-                                            </th>
+                                    <div className="">
+                                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
+                                            <tr>
+                                                <th scope="col" className="px-6 py-3">
+                                                    First
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Middle
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Last
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Date of Death
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Publisher
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Page #
+                                                </th>
+                                                <th scope="col" className="px-6 py-3">
+                                                    Print Date
+                                                </th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
                                             
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                        <>
-                                            { !isFiltered &&
-                                                tableData.slice(min, max).map((record, key) => {
-                                                
-                                                return(
+                                            <>
+                                                { !isFiltered &&
+                                                    tableData.slice(min, max).map((record, key) => {
                                                     
-                                                    <tr key={key} className="bg-white border-b  border-gray-200">
-                                                            
-                                                        <td className="px-6 py-4">
-                                                            {`${record.firstName}`}
-                                                        </td>
+                                                    return(
+                                                        
+                                                        <tr key={key} className="bg-white border-b  border-gray-200">
+                                                                
+                                                            <td className="px-6 py-4">
+                                                                {`${record.firstName}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.middleName}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.middleName}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.lastName}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.lastName}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.deathYear == 209999 ? 'unknown' : `${record.deathMonth}/${record.deathDay}/${record.deathYear}` }`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.deathYear == 209999 ? 'unknown' : `${record.deathMonth}/${record.deathDay}/${record.deathYear}` }`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.publicationName.length < 1 ? 'unknown' : `${record.publicationName}`}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.publicationName.length < 1 ? 'unknown' : `${record.publicationName}`}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.pageNumber.length < 1 ? 'unknown' : `${record.pageNumber}`}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.pageNumber.length < 1 ? 'unknown' : `${record.pageNumber}`}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.printYear == 209999 ? 'unknown' : `${record.printMonth}/${record.printDay}/${record.printYear}`}`}
-                                                        </td>
-                                                    </tr>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.printYear == 209999 ? 'unknown' : `${record.printMonth}/${record.printDay}/${record.printYear}`}`}
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                    )
+                                                })}
+
+                                                { isFiltered &&
+                                                    filteredTableData.slice(min, max).map((record, key) => {
                                                     
-                                                )
-                                            })}
+                                                    return(
+                                                        
+                                                        <tr key={key} className="bg-white border-b  border-gray-200">
+                                                                
+                                                            <td className="px-6 py-4">
+                                                                {`${record.firstName}`}
+                                                            </td>
 
-                                            { isFiltered &&
-                                                filteredTableData.slice(min, max).map((record, key) => {
-                                                
-                                                return(
-                                                    
-                                                    <tr key={key} className="bg-white border-b  border-gray-200">
-                                                            
-                                                        <td className="px-6 py-4">
-                                                            {`${record.firstName}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.middleName}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.middleName}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.lastName}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.lastName}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.deathYear == 209999 ? 'unknown' : `${record.deathMonth}/${record.deathDay}/${record.deathYear}` }`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.deathYear == 209999 ? 'unknown' : `${record.deathMonth}/${record.deathDay}/${record.deathYear}` }`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.publicationName}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.publicationName}`}
-                                                        </td>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.pageNumber}`}
+                                                            </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.pageNumber}`}
-                                                        </td>
-
-                                                        <td className="px-6 py-4">
-                                                            {`${record.printYear == 209999 ? 'unknown' : `${record.printMonth}/${record.printDay}/${record.printYear}`}`}
-                                                        </td>
-                                                    </tr>
-                                                    
-                                                )
-                                            })}
-                                        </>
-                                    </tbody>
+                                                            <td className="px-6 py-4">
+                                                                {`${record.printYear == 209999 ? 'unknown' : `${record.printMonth}/${record.printDay}/${record.printYear}`}`}
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                    )
+                                                })}
+                                            </>
+                                        </tbody>
+                                    </div>
                                 </table>
                                 
                             </div>
