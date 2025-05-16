@@ -556,11 +556,11 @@ Table and Search:
 - If publisher name or page number is empty, show unknown [Done]
 - If death year is 209999 show unknown [Done]
 - If print year is 209999 show unknown [Done]
-- Show no flicker when changing table page
-- Adjust table increment and brevity logic to acomodate filtering
-- if any year is true but all other fields empty, return all records (the argued array).
-- run filter routine when all years selection changes.
-- refresh button should trigger field defaults
+- Show no flicker when changing table page [backlogged]
+- Adjust table increment and brevity logic to acomodate filtering [Done]
+- if any year is true but all other fields empty, return all records (the argued array). [done]
+- run filter routine when all years selection changes. [Done]
+- refresh button should trigger field defaults and initial table state [Done]
 
 - add a button for exact string
     Ex: input ran (shows ran not Fran)

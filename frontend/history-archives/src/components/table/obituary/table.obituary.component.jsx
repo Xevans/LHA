@@ -6,8 +6,6 @@ import TableButton from "../../buttons/table_button/table_button.component";
 
 const ObituaryTable = () => {
 
-    {/* Address dependencies, add search, add utility for special searches. */}
-
     // table data
     const [tableData, setTableData] = useState([]);
     const [filteredTableData, setFileteredTableData] = useState([]);
@@ -26,19 +24,19 @@ const ObituaryTable = () => {
         first_name: "",
         middle_name: "",
         last_name: "",
-        search_year: 0
+        search_year: 2011
     }
 
     // search bar settings
     const [searchFields, setSearchFields] = useState(defaultSearchObject);
     const [anyYearSelection, setAnyYearSelection] = useState(false);
+    const [exactStringSelection, setExactStringSelection] = useState(false);
     const {first_name, middle_name, last_name, search_year} = searchFields;
 
 
 
     async function getColl(collection_name) {
         try {
-
             const response = await getCollection(collection_name);
             const {data, count} = response;
             setMin(0);
@@ -91,18 +89,21 @@ const ObituaryTable = () => {
     }, [brevity, min]);
 
 
-    //
+    // debouncing table rerender when user updates search fields.
     useEffect(() => {
         if (first_name.length > 0 || middle_name.length > 0 || last_name.length > 0 || search_year > 2000) { // criteria to run search? "isSearching?"
 
             const timer = setTimeout(() => {
 
-                const filtered_data = filterObits(anyYearSelection, search_year, first_name, middle_name, last_name, tableData);
+                const filtered_data = filterObits(exactStringSelection, anyYearSelection, search_year, first_name, middle_name, last_name, tableData);
                 setFilteredDataCount(filtered_data.length);
                 setMin(0);
                 
-                if (filteredDataCount < 50) {
+                if (filtered_data.length < 50) {
                     setBrevity(filtered_data.length);
+                }
+                else {
+                    setBrevity(50);
                 }
 
                 if (filtered_data.length > 0) {
@@ -116,7 +117,7 @@ const ObituaryTable = () => {
 
         }
 
-    }, [searchFields]);
+    }, [searchFields, anyYearSelection, exactStringSelection]);
 
 
     // move to next page in table
@@ -212,6 +213,15 @@ const ObituaryTable = () => {
         }
     }
 
+    function handleExactStringChange() {
+        if (exactStringSelection) {
+            setExactStringSelection(false);
+        }
+        else {
+            setExactStringSelection(true);
+        }
+    }
+
     
 
     return (
@@ -224,7 +234,7 @@ const ObituaryTable = () => {
                         <>              
                             <div className="mx-10 dark:text-white">
                                 <div className='my-4 text-xl font-semibold'>
-                                    Name Search
+                                    Person Search
                                 </div>                                 
                                 <div className="mx-auto">
                                     <div className="flex flex-col md:flex-row ">
@@ -288,20 +298,27 @@ const ObituaryTable = () => {
 
                                         </div>
 
+                                        <div className="mx-3 relative pr-3 mt-3">
+                                            
+                                            <div className="flex items-center ">
+                                                <input type="checkbox" value={exactStringSelection} onChange={handleExactStringChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
+                                                <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                    Exact String
+                                                </label>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                 </div>                               
                             </div>
+                            {/*overflow-x-auto overflow-y-auto max-w-screen sm:min-w-auto */}
 
-                            <div className="relative overflow-x-auto overflow-y-auto shadow-md rounded-2xl mt-5">
-                                <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
-                                    <caption className="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
+                            <div className="mt-5">
+                                <div className="rounded-t-2xl max-w-screen sm:min-w-auto p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white ">
                                         <div className="flex flex-row">
                                             <div className="flex-1">
                                                 Table View
-                                                <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                Browse and review obituary records from this table.<br/>
-                                                Use the fields above to narrow down your search.
-                                                </p>
                                             </div>
                                             <div 
                                             onClick={() => setIsRefreshing(true)}
@@ -311,15 +328,21 @@ const ObituaryTable = () => {
                                                 </svg>
                                             </div>
                                         </div>
+                                        <div>
+                                            <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+                                                Browse and review obituary records from this table.<br/>
+                                                Use the fields above to narrow down your search.
+                                            </p>
+                                        </div>
                                         <div className="mt-2">
                                             <div className="flex flex-col sm:flex-row ">
-                                                <h2 className="text-lg flex-1">Row Count: {brevity}</h2>
-                                                <h2 className="text-lg flex-1">Showing: {`${min+1} - ${max}`}</h2>
-                                                <h2 className="text-lg">Total Records: {`${isFiltered ? filteredDataCount : dataCount}`}</h2>
+                                                <h2 className="font-normal text-md md:text-lg flex-1">Row Count: {brevity}</h2>
+                                                <h2 className="font-normal text-md md:text-lg flex-1">Showing: {`${min+1} - ${max}`}</h2>
+                                                <h2 className="font-normal text-md md:text-lg">Total Records: {`${isFiltered ? filteredDataCount : dataCount}`}</h2>
                                             </div>
     
                                             <div className="flex flex-row">
-                                                <div className="flex flex-row flex-1 text-sm">
+                                                <div className="flex flex-row flex-1 text-sm mt-7">
                                                     <div className="p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(50)}>
                                                         50
                                                     </div>
@@ -329,12 +352,37 @@ const ObituaryTable = () => {
                                                     <div className="ml-2 p-2 border rounded-xl cursor-pointer" onClick={() => CheckAndUpdateBrevity(200)}>
                                                         200
                                                     </div>
-                                                </div>                                            
+                                                </div> 
+
+                                                <div className="flex flex-row">
+                                                    <button type="button" onClick={() => checkAndDecreaseMin()}
+                                                        className="scale-x-[-1] mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-2 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                                        >                                                            
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
+                                                                <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                                                            </svg>
+                                                    </button>
+
+                                                    <button type="button" onClick={() => checkAndIncreaseMin()}
+                                                        className="ml-3 mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-2 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                                        > 
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 ml-1.5">
+                                                                <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                                                            </svg>
+                                                    </button>
+
+                                                </div>                                           
                                                 
                                             </div>
                                         </div>
-                                    </caption>
-                                    <div className="">
+                                    </div>
+                            </div>
+
+                            <div className="rounded-b-2xl overflow-x-auto overflow-y-auto max-w-screen  shadow-md">
+                                <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+                                    
+                                    
+                                    
                                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 ">
                                             <tr>
                                                 <th scope="col" className="px-6 py-3">
@@ -443,7 +491,7 @@ const ObituaryTable = () => {
                                                 })}
                                             </>
                                         </tbody>
-                                    </div>
+                                    
                                 </table>
                                 
                             </div>
@@ -472,13 +520,6 @@ const ObituaryTable = () => {
                         
                         <div>
                             <h2 className="text-2xl font-bold text-center p-4 bg-red-400 text-white rounded-xl shadow-xl">Cannot connect to database!</h2>
-                        </div>
-                    }
-    
-                    {dataCount === 0 &&
-                        
-                        <div>
-                            <h2 className="text-2xl font-bold text-center p-4 bg-red-400 text-white rounded-xl shadow-xl">No Records Found!</h2>
                         </div>
                     }
             </div>

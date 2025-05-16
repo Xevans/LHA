@@ -79,7 +79,7 @@ const TableGPnews = () => {
         else {
 
             return (
-                <div className="relative overflow-x-auto mt-20 mb-10 mx-10 min-h-screen">
+                <div className="relative overflow-x-auto mt-20 pb-10 mx-10 min-h-screen">
                     {/* Build a table here to test, then make it into a reusable component. */}
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <tbody>
