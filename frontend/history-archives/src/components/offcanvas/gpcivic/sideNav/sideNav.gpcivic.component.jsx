@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SideNavItem from "../sideNavItem/sideNavItem.component";
+import SideNavItem from "./sideNavItem/sideNavItem.component";
 import axios from "axios";
 
 const GPCivicSideNav = () => {

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+
 import DropdownItem from "../dropdownItem/dropdownItem.component";
 import { useState } from "react";
 
@@ -72,7 +72,7 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
 
                 }
 
-                <div className="font-semibold text-lg text-gray-700 dark:text-white">
+                <div className="cursor-pointer font-semibold text-lg text-gray-700 dark:text-white">
                     {determineDecade()}s
                 </div>
             </div>

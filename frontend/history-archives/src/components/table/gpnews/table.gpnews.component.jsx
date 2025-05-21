@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext, Fragment } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { YearContext } from '../../../contexts/yearContext.context';
-import './table.gpnews.styles.scss'
 import axios from 'axios'
 import TableButton from '../../buttons/table_button/table_button.component';
 

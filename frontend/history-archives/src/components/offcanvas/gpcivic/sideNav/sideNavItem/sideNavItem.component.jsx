@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { DecadeContext } from "../../../../contexts/decadeContext.context";
+import { DecadeContext } from "../../../../../contexts/decadeContext.context";
 
 const SideNavItem = (props) => {
 
@@ -13,7 +13,7 @@ const SideNavItem = (props) => {
     }
 
     return (
-        <li className="pl-5 py-1 my-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-2xl" onClick={() => handleClick()}> {/*Onclick code here */}
+        <li className="cursor-pointer pl-5 py-1 my-2 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-2xl" onClick={() => handleClick()}> {/*Onclick code here */}
             <Link className="">
                 {decade}s
             </Link>

@@ -1,5 +1,5 @@
 import { PublisherContext } from "../../../contexts/publisher.context";
-import { Fragment, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import GPnewsSideNav from "../gpnews/sideNav/gpnewsSideNav.component";
 import GPMagazineSideNav from "../gpMagazine/sideNav/sideNav.gpmagazine.component";

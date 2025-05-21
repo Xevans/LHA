@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
 
-import './welcome.component.scss'
 
 const Welcome = () => {
 

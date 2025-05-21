@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import DropdownItem from "../dropDownItem/GPReviewDropdownItem.component";
 import { useState } from "react";
 
@@ -68,7 +68,7 @@ const Dropdown = (props) => {
                     </svg>
 
                 }
-                <div className="font-semibold text-lg">
+                <div className="cursor-pointer font-semibold text-lg">
                     {determineDecade()}s
                 </div>
             </div>

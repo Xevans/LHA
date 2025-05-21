@@ -1,5 +1,4 @@
 
-import './button.styles.scss';
 
 const TableButton = (props) => {
 
