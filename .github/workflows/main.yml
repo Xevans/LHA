@@ -1,59 +1,59 @@
-# name: Deploy to On-Prem Server
+ name: Deploy to On-Prem Server
 
-# on:
-#   push:
-#     branches:
-#       - main
+ on:
+   push:
+     branches:
+       - main
 
-# env:
-#   CI: false
+ env:
+   CI: false
 #   MONGO_DB_URL: ${{ secrets.MONGO_DB_URL }}
 #   PORT: ${{ secrets.PORT }}
 #   INTERNAL_SERVER: ${{ secrets.INTERNAL_SERVER }}
 #   EXPRESS_SERVER: ${{ secrets.REACT_APP_EXPRESS_SERVER }}
 
-# jobs:
-#   build-and-deploy:
-#     runs-on: self-hosted  
+ jobs:
+   build-and-deploy:
+     runs-on: self-hosted  
 
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v3
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v3
 
-#     - name: Set up Node.js
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: 18
+     - name: Set up Node.js
+       uses: actions/setup-node@v3
+       with:
+         node-version: 18
 
-#     - name: Copy FE Secrets
-#       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env.production /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives
+     - name: Copy LHA User App Secrets
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/lha_user_app/.env.production /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives
 
-#     - name: Build Frontend
-#       run: |
-#         npm run install-client
-#         npm run build-client
+     - name: Build LHA User App
+       run: |
+         npm run install-client
+         npm run build-client
     
-#     - name: Copy FE Build Files
-#       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html
+     - name: Copy LHA User App Build Files
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html
 
-#     - name: Copy Portal Secrets
-#       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/admin/.env.production /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal
+     - name: Copy Admin Portal Secrets
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/admin/.env.production /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal
 
-#     - name: Build Admin Portal
-#       run: |
-#         npm run install-portal
-#         npm run setup-admin-portal
+     - name: Build Admin Portal
+       run: |
+         npm run install-portal
+         npm run setup-admin-portal
 
-#     - name: Copy Admin Build Files
-#       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal/build/ /var/www/admin
+     - name: Copy Admin Build Files
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal/build/ /var/www/admin
     
-#     - name: Copy Server Secrets
-#       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/.env /home/administrator/actions-runner/_work/LHA/LHA/backend
+     - name: Copy Backend Secrets
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/lha_backend_app/.env /home/administrator/actions-runner/_work/LHA/LHA/backend
 
-#     - name: Deploy Backend
-#       run: |
-#         npm run install-server
-#         npm run deploy-server
+     - name: Deploy Backend
+       run: |
+         npm run install-server
+         npm run deploy-server
         
           
         

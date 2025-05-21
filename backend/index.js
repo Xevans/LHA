@@ -27,7 +27,7 @@ dotenv.config(); // access the .env file
 
 // Method 1: allow all origins with default of cors(*)
 
-const options = [process.env.USER_APP_WEB_SERVER, process.env.ADM_APP]
+const options = [process.env.USER_APP, process.env.ADM_APP]
 
 const corsOptions = {
 origin: options, // until front end has domain name, local host is used.// set to 3000 for testing
