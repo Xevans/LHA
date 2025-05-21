@@ -279,11 +279,11 @@ const GPReviewTable = () => {
                     <div>
                         {/*Handle lowerbound: 1940 and upper bound: current Real time year */}
                         <div className='flex flex-row'>
-                            <div className='flex-1 hover:cursor-pointer' onClick={() => handleClick(determineButtonRenderPrev())}>
-                                <TableButton destination={determineButtonRenderPrev()} />
+                            <div className='flex-1'>
+                                <TableButton onClick={() => handleClick(determineButtonRenderPrev())} destination={determineButtonRenderPrev()} />
                             </div>
-                            <div className='hover:cursor-pointer' onClick={() => handleClick(determineButtonRenderNext())}>
-                                <TableButton destination={determineButtonRenderNext()} />
+                            <div className=''>
+                                <TableButton onClick={() => handleClick(determineButtonRenderNext())} destination={determineButtonRenderNext()} />
                             </div>
                         </div>
                     </div>

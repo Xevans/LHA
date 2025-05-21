@@ -500,15 +500,15 @@ const ObituaryTable = () => {
                             <div className="flex flex-row ml-2 mr-2 pb-2">
                                         
                                     <div className="flex-1">
-                                        <div onClick={() => checkAndDecreaseMin()}>
-                                            <TableButton  destination="Previous Page" />
+                                        <div>
+                                            <TableButton onClick={() => checkAndDecreaseMin()} destination="Previous Page" />
                                         </div>
                                         
                                     </div>
     
                                     <div className="flex">
-                                        <div onClick={() => checkAndIncreaseMin()}>
-                                            <TableButton destination="Next Page" />
+                                        <div>
+                                            <TableButton onClick={() => checkAndIncreaseMin()} destination="Next Page" />
                                         </div>
                                     </div>
     

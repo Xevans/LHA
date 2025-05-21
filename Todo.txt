@@ -551,7 +551,7 @@ For the change handler. Utilize useEffect with a timeout.
 Process the input after a set amount of seconds after handler is called.
 
 
-Table and Search:
+Table and Filter Search:
 - Any year or manual option [Done]
 - If publisher name or page number is empty, show unknown [Done]
 - If death year is 209999 show unknown [Done]
@@ -562,10 +562,23 @@ Table and Search:
 - run filter routine when all years selection changes. [Done]
 - refresh button should trigger field defaults and initial table state [Done]
 
-- add a button for exact string
+- add a button for exact string [Done]
     Ex: input ran (shows ran not Fran)
     Make a derivative function that does this
-
     -Consider wrapper functionality in table search helper:
         make a function that accepts the requirements + options
         determine which function to call based on options
+
+
+- Considerations (sorting)
+    - last name, first name
+    - death date (default)
+    - print date
+
+
+5/16/25
+Todos:
+- prepare project for deployment.
+- deploy app and post-deploy testing.
+- Seperate backend for admin.
+- repeast first two todo
