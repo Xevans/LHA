@@ -104,7 +104,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 2).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         February
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 2)
@@ -121,7 +121,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 3).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         March
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 3)
@@ -138,7 +138,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 4).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         April
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 4)
@@ -155,7 +155,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 5).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         May
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 5)
@@ -172,7 +172,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 6).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         June
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 6)
@@ -189,7 +189,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 7).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         July
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 7)
@@ -206,7 +206,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 8).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         August
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 8)
@@ -223,7 +223,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 9).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         September
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 9)
@@ -240,7 +240,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 10).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         October
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 10)
@@ -257,7 +257,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 11).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         November
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 11)
@@ -274,7 +274,7 @@ const TableGPnews = () => {
                                 newspapers.filter((item) => item.publishMonth === 12).length > 0 &&
 
                                 <tr className='bg-white border-b dark:bg-slate-700 dark:text-white dark:border-gray-500 border-gray-200'>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         December
                                     </th>
                                     {newspapers.filter((item) => item.publishMonth === 12)

@@ -29,7 +29,7 @@ const ObituaryTable = () => {
 
     // search bar settings
     const [searchFields, setSearchFields] = useState(defaultSearchObject);
-    const [anyYearSelection, setAnyYearSelection] = useState(false);
+    const [anyYearSelection, setAnyYearSelection] = useState(true);
     const [exactStringSelection, setExactStringSelection] = useState(false);
     const {first_name, middle_name, last_name, search_year} = searchFields;
 
@@ -110,7 +110,7 @@ const ObituaryTable = () => {
                     setFileteredTableData(filtered_data);
                     setIsFiltered(true);
                 }
-                console.log(filtered_data);
+                
             }, 500);
 
             return () => clearTimeout(timer);
@@ -290,7 +290,7 @@ const ObituaryTable = () => {
                                         <div className="mx-3 relative pr-3 mt-3">
                                             
                                             <div className="flex items-center ">
-                                                <input type="checkbox" value={anyYearSelection} onChange={handleAnyYearChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
+                                                <input type="checkbox" defaultChecked value={anyYearSelection} onChange={handleAnyYearChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
                                                 <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-white">
                                                     Search All Years
                                                 </label>
