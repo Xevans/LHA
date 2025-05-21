@@ -34,7 +34,7 @@
          npm run build-client
     
      - name: Copy LHA User App Build Files
-       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/build/ /var/www/html
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/frontend/history-archives/dist/ /var/www/html
 
      - name: Copy Admin Portal Secrets
        run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/admin/.env.production /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal
@@ -45,7 +45,7 @@
          npm run setup-admin-portal
 
      - name: Copy Admin Build Files
-       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal/build/ /var/www/admin
+       run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /home/administrator/actions-runner/_work/LHA/LHA/admin/admin-portal/dist/ /var/www/admin
     
      - name: Copy Backend Secrets
        run: echo ${{ secrets.SELF_HOSTED_PW }} | sudo -S cp -r /secrets/lha_backend_app/.env /home/administrator/actions-runner/_work/LHA/LHA/backend
