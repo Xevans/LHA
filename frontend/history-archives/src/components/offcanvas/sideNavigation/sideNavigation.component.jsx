@@ -1,11 +1,13 @@
 import { PublisherContext } from "../../../contexts/publisher.context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import GPnewsSideNav from "../gpnews/sideNav/gpnewsSideNav.component";
 import GPMagazineSideNav from "../gpMagazine/sideNav/sideNav.gpmagazine.component";
 import GPCivicSideNav from "../gpcivic/sideNav/sideNav.gpcivic.component";
 import GPHeritageSideNav from "../gpheritage/sideNav/sideNav.gpheritage.component";
 import GPReviewSideNav from "../gpreview/sideNav/GPReviewSideNav.component";
+
+import { initFlowbite } from 'flowbite';
 
 const SideNavigation = () => {
 
@@ -14,6 +16,11 @@ const SideNavigation = () => {
     // whenever currentPublisher changes, determine what component to render in the side nav
     // "" = home page side nav
     // "gpnews" = grosse pointe news side nav... 
+
+
+    useEffect(() => {
+        initFlowbite();
+    }, []);
     
     const renderSwitch = () => {
         switch (currentPublisher) {
@@ -36,6 +43,7 @@ const SideNavigation = () => {
                 break;
         }
     }
+
 
     return (
         <>
