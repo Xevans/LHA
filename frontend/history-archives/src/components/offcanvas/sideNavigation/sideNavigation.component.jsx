@@ -98,17 +98,17 @@ const SideNavigation = () => {
                                 </svg>
                             </button>
                             <ul id="news-outlet-dropdown" className="hidden py-2 space-y-2">
-                                <li data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
+                                <li>
                                     <Link to='/gpnews' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                         Grosse Pointe News
                                     </Link>
                                 </li>
-                                <li data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
+                                <li>
                                     <Link to='/gpreview' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                         Grosse Pointe Review
                                     </Link>
                                 </li>
-                                <li data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
+                                <li >
                                     <Link to='/gpcivic' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                         Grosse Pointe Civic
                                     </Link>
@@ -126,12 +126,12 @@ const SideNavigation = () => {
                                 </svg>
                             </button>
                             <ul id="magazine-outlet-dropdown" className="hidden py-2 space-y-2">
-                                <li data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
+                                <li>
                                     <Link to='gpmagazine' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                         Grosse Pointe Magazine
                                     </Link>
                                 </li>
-                                <li data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation">
+                                <li>
                                     <Link to='/gpheritage' className="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                         Grosse Pointe Heritage
                                     </Link>
