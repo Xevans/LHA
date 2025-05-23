@@ -1,4 +1,3 @@
-import './home.styles.scss'
 import { useContext, useEffect } from "react";
 import { PublisherContext } from "../../contexts/publisher.context";
 import Welcome from '../../components/welcome/welcome.component';
@@ -13,7 +12,6 @@ const Home = () => {
         updatePublisher("1");
     }, [updatePublisher]);
 
-    console.log(currentPublisher);
 
     return (
         <Welcome/>

@@ -4,7 +4,6 @@ import { YearContext } from "../../contexts/yearContext.context";
 import TableGPnews from "../../components/table/gpnews/table.gpnews.component";
 import Welcome from "../../components/welcome/welcome.component";
 
-import './gpnews.styles.scss';
 
 const GPnews = () => {
 

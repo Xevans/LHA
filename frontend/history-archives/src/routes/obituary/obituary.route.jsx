@@ -9,8 +9,6 @@ const Obituary = () => {
         useEffect(() => {
             updatePublisher("obituary");
         }, [updatePublisher]);
-    
-        console.log(currentPublisher);
 
     return (
         <>
