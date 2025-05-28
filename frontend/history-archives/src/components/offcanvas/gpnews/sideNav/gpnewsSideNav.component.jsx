@@ -84,7 +84,7 @@ const GPnewsSideNav = () => {
             }
             else {
                 return (
-                    <>
+                    <div className="pb-30">
                         <hr className="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700"></hr>
                         <h3 className="my-3 font-bold dark:text-white"> Grosse Pointe News</h3>
                         <ul className="dark:text-white">
@@ -94,7 +94,7 @@ const GPnewsSideNav = () => {
                             }
     
                         </ul>
-                    </>
+                    </div>
                 )
             }
         }
