@@ -52,7 +52,7 @@ const Dropdown = (props) => {
 
     return (
         <li className={`${isShowing ? 'border-b border-gray-400 dark:border-gray-300' : ''}`}>
-            <div className="flex flex-row mt-3" onClick={() => toggleYearsList()}>
+            <div className="cursor-pointer flex flex-row mt-3" onClick={() => toggleYearsList()}>
                 {/*toggle between showing > and v when drop down is active. 
                 
                     Indent list, add dividers*/
@@ -68,7 +68,7 @@ const Dropdown = (props) => {
                     </svg>
 
                 }
-                <div className="cursor-pointer font-semibold text-lg">
+                <div className="font-semibold text-lg">
                     {determineDecade()}s
                 </div>
             </div>

@@ -55,7 +55,7 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
 
     return (
         <li className={`${isShowing ? 'border-b border-gray-400 dark:border-gray-300' : ''}`}>
-            <div className="flex flex-row mt-3" onClick={() => toggleYearsList()}>
+            <div className="cursor-pointer flex flex-row mt-3" onClick={() => toggleYearsList()}>
                 {/*toggle between showing > and v when drop down is active. 
                 
                     Indent list, add dividers*/
@@ -72,7 +72,7 @@ const Dropdown = (props) => { // i you pass an object, add curly braces, otherwi
 
                 }
 
-                <div className="cursor-pointer font-semibold text-lg text-gray-700 dark:text-white">
+                <div className="font-semibold text-lg text-gray-700 dark:text-white">
                     {determineDecade()}s
                 </div>
             </div>
