@@ -65,9 +65,9 @@ const NavbarTitle = (props) => {
     
     return (
         <div>
-            <Link className="font-semibold text-xl dark:text-white"> 
+            <div className="font-semibold text-xl dark:text-white"> 
                 {`${title}`} <b> {`${year}`}{`${decade}`}</b> 
-            </Link>
+            </div>
         </div>
     )
 }
