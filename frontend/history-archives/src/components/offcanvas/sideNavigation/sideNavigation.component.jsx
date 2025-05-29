@@ -7,7 +7,7 @@ import GPCivicSideNav from "../gpcivic/sideNav/sideNav.gpcivic.component";
 import GPHeritageSideNav from "../gpheritage/sideNav/sideNav.gpheritage.component";
 import GPReviewSideNav from "../gpreview/sideNav/GPReviewSideNav.component";
 
-//import { initFlowbite } from 'flowbite';
+import { initFlowbite } from 'flowbite';
 
 const SideNavigation = () => {
 
@@ -18,9 +18,9 @@ const SideNavigation = () => {
     // "gpnews" = grosse pointe news side nav... 
 
 
-    /*useEffect(() => {
+    useEffect(() => {
         initFlowbite();
-    }, []);*/
+    }, []);
     
     const renderSwitch = () => {
         switch (currentPublisher) {
