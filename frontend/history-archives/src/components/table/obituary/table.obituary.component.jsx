@@ -4,7 +4,7 @@ import { sortByYearDescending } from "./helperObitTable.component";
 import { filterObits } from "./helperObitSearchbar.component";
 import TableButton from "../../buttons/table_button/table_button.component";
 
-import { initFlowbite } from 'flowbite';
+//import { initFlowbite } from 'flowbite';
 
 const ObituaryTable = () => {
 
@@ -69,9 +69,9 @@ const ObituaryTable = () => {
         }
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         initFlowbite();
-    }, []);
+    }, []);*/
 
     // on refresh run the fetch code block
     useEffect(() => {

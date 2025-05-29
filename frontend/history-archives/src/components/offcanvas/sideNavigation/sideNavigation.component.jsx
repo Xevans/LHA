@@ -7,7 +7,7 @@ import GPCivicSideNav from "../gpcivic/sideNav/sideNav.gpcivic.component";
 import GPHeritageSideNav from "../gpheritage/sideNav/sideNav.gpheritage.component";
 import GPReviewSideNav from "../gpreview/sideNav/GPReviewSideNav.component";
 
-import { initFlowbite } from 'flowbite';
+//import { initFlowbite } from 'flowbite';
 
 const SideNavigation = () => {
 
@@ -18,9 +18,9 @@ const SideNavigation = () => {
     // "gpnews" = grosse pointe news side nav... 
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         initFlowbite();
-    }, []);
+    }, []);*/
     
     const renderSwitch = () => {
         switch (currentPublisher) {
@@ -55,12 +55,13 @@ const SideNavigation = () => {
             {/*Side nav button */}
             <div className="text-center">
                 <button className="hover:cursor-pointer dark:hover:bg-gray-500 duration-200 rounded-2xl" 
-                type="button" data-drawer-backdrop="false" data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example" data-drawer-placement="right" aria-controls="drawer-right-example">
+                    type="button"  data-drawer-target="drawer-right-example" data-drawer-show="drawer-right-example" data-drawer-placement="right" aria-controls="drawer-right-example">
                     <svg className="w-8 h-8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M5 7h14M5 12h14M5 17h14"/>
                     </svg>
                 </button>
             </div>
+
 
             {/*Side nav component */}
             <div id="drawer-right-example" className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-slate-100 w-80 dark:bg-gray-800" tabIndex="-1" aria-labelledby="drawer-right-label">
