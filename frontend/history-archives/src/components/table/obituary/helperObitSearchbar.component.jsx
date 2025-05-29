@@ -1,5 +1,7 @@
 
 // Filter table data while treating orginal data as immutable
+
+//Partial string
 function filterObitsPartialString(any_year_selection, death_year, first_name, middle_name, last_name, obit_records) {
 
     // determine filter year; assume year exist
@@ -47,7 +49,7 @@ function filterObitsPartialString(any_year_selection, death_year, first_name, mi
 
 
 
-
+//Exact String
 export function filterObitsExactString(any_year_selection, death_year, first_name, middle_name, last_name, obit_records) {
 
     // determine filter year; assume year exist

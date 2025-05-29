@@ -213,7 +213,7 @@ const GPMagazineUploadForm = () => {
                         type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}
                         />
                         <div className='flex flex-row'>
-                            <div className='flex-1 text-sm text-'>Example: 2010-2014/2012/2012/April-May</div>
+                            <div className='flex-1 text-sm text-'>Example: 2010-2014/2012/2012_April-May</div>
                             <div className='text-sm'>Do not add extention.</div>
                         </div>
                     </div>

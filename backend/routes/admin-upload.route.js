@@ -292,6 +292,7 @@ router.post('/obituary/dev', async (request, response) => {
         //console.log(data);
 
         data.forEach(async (element) => {
+            console.log(element);
 
             if (
                 !element.last_name || 
@@ -311,24 +312,30 @@ router.post('/obituary/dev', async (request, response) => {
             // store the mm dd and yyyy as numbers for each
 
             const death_date_split = element.death_date.split("/");
-            const death_month = Number(death_date_split[0]);
-            const death_day = Number(death_date_split[1]);
-            const death_year = Number("20" + death_date_split[2]);
+            let death_month = Number(death_date_split[0]);
+            let death_day = Number(death_date_split[1]);
+            let death_year = Number("20" + death_date_split[2]);
 
             if (!death_month || !death_day || !death_year) {
                 console.log("Test", element.last_name, element.first_name);
-                throw new Error("Missing death date");
+                //throw new Error("Missing death date");
+                death_month = 99
+                death_day = 99
+                death_year = 209999
                 
             }
 
             const print_date_split = element.print_date.split("/");
-            const printed_month = Number(print_date_split[0]);
-            const printed_day = Number(print_date_split[1]);
-            const printed_year = Number("20" + print_date_split[2]);
+            let printed_month = Number(print_date_split[0]);
+            let printed_day = Number(print_date_split[1]);
+            let printed_year = Number("20" + print_date_split[2]);
 
             if (!printed_month || !printed_day || !printed_year) {
                 console.log(element.last_name, element.first_name);
-                throw new Error("Missing print date");
+                //throw new Error("Missing print date");
+                printed_month = 99
+                printed_day = 99
+                printed_year = 209999
             }
 
             
