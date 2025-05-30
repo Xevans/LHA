@@ -78,9 +78,10 @@ const TableGPnews = () => {
         else {
 
             return (
-                <div className="relative overflow-x-auto mt-20 pb-10 mx-10 min-h-screen">
+                <div className="relative overflow-x-auto mt-10 md:mx-10 min-h-screen">
                     {/* Build a table here to test, then make it into a reusable component. */}
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        
                         <tbody>
                             {//Render only iff there is something to render (i.e. if nothing pulled, dont render row)
                                 newspapers.filter((item) => item.publishMonth === 1).length > 0 &&
@@ -93,7 +94,7 @@ const TableGPnews = () => {
                                     .sort((a, b) => a.publishDay > b.publishDay ? 1 : -1)
                                     .map( (issue, key) => {
                                         return (
-                                            <td key={key}> <a href={issue.fileURL} rel="noreferrer" target="_blank">{issue.title}</a> </td>
+                                            <td className='' key={key}> <a href={issue.fileURL} rel="noreferrer" target="_blank">{issue.title}</a> </td>
                                         )
                                     })}       
                                 </tr>
@@ -288,7 +289,7 @@ const TableGPnews = () => {
                         </tbody>
                     </table>
 
-                    <div className=''>
+                    <div className='mx-5'>
                         {/*Handle lowerbound: 1940 and upper bound: current Real time year */}
                         <div className='flex flex-box'>
                             <div className='flex-1 ' >

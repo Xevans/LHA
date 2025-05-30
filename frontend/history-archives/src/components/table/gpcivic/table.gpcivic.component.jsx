@@ -29,8 +29,9 @@ const TableGPCivic = () => {
 
 
     return (
-        <div className="relative overflow-x-auto mt-20 pb-10 mx-10 min-h-screen">
+        <div className="relative overflow-x-auto mt-10 pb-10 md:mx-10 min-h-screen">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                
                 <tbody>
                     {//Render only iff there is something to render (i.e. if nothing pulled, dont render row)
                         newspapers.filter((item) => item.publishYear === currentDecade).length > 0 &&
@@ -61,7 +62,7 @@ const TableGPCivic = () => {
                             .sort((a, b) => a.publishMonth > b.publishMonth ? 1 : -1)
                             .map( (issue, key) => {
                                 return (
-                                    <td key={key}> <a href={issue.fileURL} rel="noreferrer" target="_blank">{issue.title}</a> </td>
+                                    <td className="" key={key}> <a href={issue.fileURL} rel="noreferrer" target="_blank">{issue.title}</a> </td>
                                 )
                             })}       
                         </tr>

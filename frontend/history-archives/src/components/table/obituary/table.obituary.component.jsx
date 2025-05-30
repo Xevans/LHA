@@ -247,7 +247,7 @@ const ObituaryTable = () => {
                                         Person Search
                                     </div>                                 
                                     <div className="mx-auto">
-                                        <div className="flex flex-col md:flex-row ">
+                                        <div className="flex flex-col lg:flex-row ">
 
                                             <div className="mx-3 w-full max-w-lg min-w-[200px]">
                                                 <div className="relative">

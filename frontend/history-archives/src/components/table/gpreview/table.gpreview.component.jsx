@@ -66,7 +66,7 @@ const GPReviewTable = () => {
 
         if (newspapers.length > 0) {
             return (
-                <div className="relative overflow-x-auto mt-20 pb-10 mx-10 min-h-screen">
+                <div className="relative overflow-x-auto mt-10 pb-10 md:mx-10 min-h-screen">
                     {/* Build a table here to test, then make it into a reusable component. */}
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                         <tbody>
@@ -276,7 +276,7 @@ const GPReviewTable = () => {
                         </tbody>
                     </table>
         
-                    <div>
+                    <div className='mx-5 '>
                         {/*Handle lowerbound: 1940 and upper bound: current Real time year */}
                         <div className='flex flex-row'>
                             <div className='flex-1'>
