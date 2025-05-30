@@ -183,10 +183,19 @@ const GPReviewUploadForm = () => {
                         type='fileURL' name='fileURL' required={true} onChange={handleChange} value={fileURL}
                         />
                         <div className='flex flex-row'>
-                            <div className='flex-1 text-sm text-'>Example: 2020s/2024/pdf/2024-01-04</div>
+                            <div className='flex-1 text-sm text-'>Example: 1950-54/52/1952-05-01</div>
                             <div className='text-sm'>Do not add extention.</div>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <a href={`https://digitize.gp.lib.mi.us/history/newspapers/gpreview/${fileURL}.pdf`} target='_blank'>
+                        <button type='button'
+                        className="mt-8 cursor-pointer flex items-center rounded-md border border-slate-300 py-2 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+                            Test URL
+                        </button>
+                    </a>
                 </div>
 
                 <div className='mt-8'>
