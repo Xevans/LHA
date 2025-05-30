@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { deleteDoc, getCollection } from "../../utils/admin-backend.util";
 import { determineCollection, determineTableHeader } from "./database-table-helper";
-
+import { filterByYear } from "./search-helper";
 import { ToastContext } from "../../contexts/toast.context";
 import { Status } from "../../enums/toastType.enum";
 
@@ -19,11 +19,20 @@ const DBTable = (props) => {
     const [dataCount, setDataCount] = useState(0);
     const [isRefreshing, setIsRefreshing] = useState(true);
 
+    const [filteredTableData, setFilteredTableData] = useState([]);
+
+
     // table settings
     const [brevity, setBrevity] = useState(50);
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(min+brevity);
     const [isFiltered, setIsFiltered] = useState(false);
+    const [filteredDataCount, setFilteredDataCount] = useState(0);
+    
+
+    // search settings
+    const [searchYear, setSearchYear] = useState(2000);
+    const [anyYearSelection, setAnyYearSelection] = useState(true);
 
 
     const { makeAToast } = useContext(ToastContext);
@@ -98,36 +107,36 @@ const DBTable = (props) => {
     useEffect(() => {
         // switch case that matches the string enpoint with the matching context
         //let route = "";
-        if (!isFiltered) {
-            switch (current_route) {
-                case "news":
-                    getColl("gp_news");
-                    break;
-                
-                case "magazine":
-                    getColl("gp_magazine");
-                    break;
-    
-                case "heritage":
-                    getColl("gp_heritage");
-                    break;
-                
-                case "civic":
-                    getColl("gp_civic");
-                    break;
-    
-                case "review":
-                    getColl("gp_review");
-                    break;
-                
-                case "obituary":
-                    getColl("obituary");
-                    break;
-                        
-                default:
-                    break;
-            }
+        
+        switch (current_route) {
+            case "news":
+                getColl("gp_news");
+                break;
+            
+            case "magazine":
+                getColl("gp_magazine");
+                break;
+
+            case "heritage":
+                getColl("gp_heritage");
+                break;
+            
+            case "civic":
+                getColl("gp_civic");
+                break;
+
+            case "review":
+                getColl("gp_review");
+                break;
+            
+            case "obituary":
+                getColl("obituary");
+                break;
+                    
+            default:
+                break;
         }
+        
 
         setIsRefreshing(false);
     }, [current_route, isRefreshing]);
@@ -199,6 +208,54 @@ const DBTable = (props) => {
     }
 
 
+    function handleChange(event) {
+        const {value} = event.target;
+        setSearchYear(value);
+    }
+
+
+    // debouncing table rerender when user updates search fields.
+    //Fire off search
+    useEffect(() => {
+        if (searchYear > 1900) { // criteria to run search? "isSearching?"
+
+            const timer = setTimeout(() => {
+
+                const filtered_data = filterByYear(anyYearSelection, searchYear, tableData);
+                setFilteredDataCount(filtered_data.length);
+                setMin(0);
+                
+                if (filtered_data.length < 50) {
+                    setBrevity(filtered_data.length);
+                }
+                else {
+                    setBrevity(50);
+                }
+
+                if (filtered_data.length > 0) {
+                    setFileteredTableData(filtered_data);
+                    setIsFiltered(true);
+                }
+                
+            }, 500);
+
+            return () => clearTimeout(timer);
+
+        }
+
+    }, [searchYear, anyYearSelection]);
+
+
+    function handleAnyYearChange() {
+        if (anyYearSelection) {
+            setAnyYearSelection(false);
+        }
+        else {
+            setAnyYearSelection(true);
+        }
+    }
+
+
     // Render
     return (
         <>
@@ -231,7 +288,32 @@ const DBTable = (props) => {
                                         <div className="flex flex-row">
                                             <h2 className="text-lg flex-1">Row Count: {brevity}</h2>
                                             <h2 className="text-lg flex-1">Showing: {`${min+1} - ${max}`}</h2>
-                                            <h2 className="text-lg">Total Records: {dataCount}</h2>
+                                            <h2 className="text-lg flex-1">Total Records: {dataCount}</h2>
+
+                                            <div>
+                                                <div className="mx-3 relative pr-3">
+                                                    <label className="block mb-2 text-sm text-slate-600 dark:text-white">
+                                                        Death Year
+                                                    </label>
+                                                    <input
+                                                    className={`${anyYearSelection ? 'cursor-not-allowed':'cursor-text'} peer w-18 bg-transparent placeholder:text-slate-400 text-grey-500 text-sm border border-slate-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow`}
+                                                    maxLength={4} minLength={4} type='number' min={0} name='searchYear' onChange={handleChange} value={searchYear}
+                                                    disabled={anyYearSelection}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="mx-3 relative pr-3 mt-3">
+                                                
+                                                <div className="flex items-center ">
+                                                    <input type="checkbox" defaultChecked value={anyYearSelection} onChange={handleAnyYearChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
+                                                    <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                        Search All Years
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
                                         </div>
 
                                         <div className="flex flex-row">
@@ -260,122 +342,251 @@ const DBTable = (props) => {
                                 </thead>
                                 <tbody>
                                     
-                                    {current_route !== "obituary" &&
+                                    {
+                                        !isFiltered &&
                                         <>
+                                            {current_route !== "obituary" &&
+                                            <>
 
-                                            {tableData.slice(min, max).map((record, key) => {
-                                                
-                                                return(
+                                                {tableData.slice(min, max).map((record, key) => {
                                                     
-                                                    <tr key={key} className="bg-white border-b  border-gray-200">
-                                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                            {min+key+1}
-                                                        </th>
-                                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900">
-                                                            {record._id}
-                                                        </th>
+                                                    return(
+                                                        
+                                                        <tr key={key} className="bg-white border-b  border-gray-200">
+                                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                                {min+key+1}
+                                                            </th>
+                                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900">
+                                                                {record._id}
+                                                            </th>
 
-                                                        <td className="px-6 py-4">
-                                                            {record.title}
-                                                        </td>
-                                                    
-                                                        <td className="px-6 py-4">
-                                                            {record.fileURL}
-                                                        </td>
-                                    
-                                                        <td className="px-6 py-4">
-                                                            {record.publishMonth}/{record.publishDay && `${record.publishDay}/`}{record.publishYear && record.publishYear}
-                                                        </td>
-
-                                                        {   record.publishDecade &&                                                        
                                                             <td className="px-6 py-4">
-                                                                {`${record.publishDecade}s`}
+                                                                {record.title}
                                                             </td>
-                                                        }
+                                                        
+                                                            <td className="px-6 py-4">
+                                                                {record.fileURL}
+                                                            </td>
+                                        
+                                                            <td className="px-6 py-4">
+                                                                {record.publishMonth}/{record.publishDay && `${record.publishDay}/`}{record.publishYear && record.publishYear}
+                                                            </td>
 
-                                                        <td className="px-6 py-4 text-right">
-                                                            <div className="font-medium cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
-                                                            onClick={() => handleCopyToClipboard(record._id)}>Copy ID</div>
-                                                        </td>
+                                                            {   record.publishDecade &&                                                        
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.publishDecade}s`}
+                                                                </td>
+                                                            }
 
-                                                        <td className="px-6 py-4 text-right">
-                                                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
-                                                            onClick={() => handleRecordDelete(record._id)}>
-                                                            Delete
-                                                            </a>
-                                                        </td>
+                                                            <td className="px-6 py-4 text-right">
+                                                                <div className="font-medium cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
+                                                                onClick={() => handleCopyToClipboard(record._id)}>Copy ID</div>
+                                                            </td>
 
-                
-                                                    </tr>
+                                                            <td className="px-6 py-4 text-right">
+                                                                <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                                                onClick={() => handleRecordDelete(record._id)}>
+                                                                Delete
+                                                                </a>
+                                                            </td>
+
+                    
+                                                        </tr>
+                                                        
+                                                    )
+                                                })}
+                                            </>
+                                        }
+
+                                        { current_route === "obituary" &&
+
+                                            <>
+                                                {tableData.slice(min, max).map((record, key) => {
                                                     
-                                                )
-                                            })}
+                                                    return(
+                                                        
+                                                        <tr key={key} className="bg-white border-b  border-gray-200">
+                                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                                {min+key+1}
+                                                            </th>
+                                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900">
+                                                                {record._id}
+                                                            </th>
+                                                                
+                                                            <td className="px-6 py-4">
+                                                                {`${record.firstName}`}
+                                                            </td>
+
+                                                            <td className="px-6 py-4">
+                                                                {`${record.middleName}`}
+                                                            </td>
+
+                                                            <td className="px-6 py-4">
+                                                                {`${record.lastName}`}
+                                                            </td>
+
+                                                            <td className="px-6 py-4">
+                                                                {`${record.deathMonth}/${record.deathDay}/${record.deathYear}`}
+                                                            </td>
+
+                                                            <td className="px-6 py-4">
+                                                                {`${record.publicationName}`}
+                                                            </td>
+
+                                                            <td className="px-6 py-4">
+                                                                {`${record.pageNumber}`}
+                                                            </td>
+
+                                                            <td className="px-6 py-4">
+                                                                {`${record.printMonth}/${record.printDay}/${record.printYear}`}
+                                                            </td>
+                                                        
+
+                                                            <td className="px-6 py-4 text-right">
+                                                                <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                                                onClick={() => handleCopyToClipboard(record._id)}>
+                                                                Copy ID
+                                                                </div>
+                                                            </td>
+
+                                                            <td className="px-6 py-4 text-right">
+                                                                <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                                                onClick={() => handleRecordDelete(record._id)}>
+                                                                Delete
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                    )
+                                                })}
+                                            </>
+
+                                        }
                                         </>
                                     }
 
-                                    { current_route === "obituary" &&
+                                    {
+                                        isFiltered &&
 
                                         <>
-                                            {tableData.slice(min, max).map((record, key) => {
-                                                
-                                                return(
-                                                    
-                                                    <tr key={key} className="bg-white border-b  border-gray-200">
-                                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                            {min+key+1}
-                                                        </th>
-                                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900">
-                                                            {record._id}
-                                                        </th>
+                                            {current_route !== "obituary" &&
+                                                <>
+
+                                                    {filteredTableData.slice(min, max).map((record, key) => {
+                                                        
+                                                        return(
                                                             
-                                                        <td className="px-6 py-4">
-                                                            {`${record.firstName}`}
-                                                        </td>
+                                                            <tr key={key} className="bg-white border-b  border-gray-200">
+                                                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                                    {min+key+1}
+                                                                </th>
+                                                                <th scope="row" className="px-6 py-4 font-medium text-gray-900">
+                                                                    {record._id}
+                                                                </th>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.middleName}`}
-                                                        </td>
+                                                                <td className="px-6 py-4">
+                                                                    {record.title}
+                                                                </td>
+                                                            
+                                                                <td className="px-6 py-4">
+                                                                    {record.fileURL}
+                                                                </td>
+                                            
+                                                                <td className="px-6 py-4">
+                                                                    {record.publishMonth}/{record.publishDay && `${record.publishDay}/`}{record.publishYear && record.publishYear}
+                                                                </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.lastName}`}
-                                                        </td>
+                                                                {   record.publishDecade &&                                                        
+                                                                    <td className="px-6 py-4">
+                                                                        {`${record.publishDecade}s`}
+                                                                    </td>
+                                                                }
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.deathMonth}/${record.deathDay}/${record.deathYear}`}
-                                                        </td>
+                                                                <td className="px-6 py-4 text-right">
+                                                                    <div className="font-medium cursor-pointer text-blue-600 dark:text-blue-500 hover:underline"
+                                                                    onClick={() => handleCopyToClipboard(record._id)}>Copy ID</div>
+                                                                </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.publicationName}`}
-                                                        </td>
+                                                                <td className="px-6 py-4 text-right">
+                                                                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                                                    onClick={() => handleRecordDelete(record._id)}>
+                                                                    Delete
+                                                                    </a>
+                                                                </td>
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.pageNumber}`}
-                                                        </td>
+                        
+                                                            </tr>
+                                                            
+                                                        )
+                                                    })}
+                                                </>
+                                            }
 
-                                                        <td className="px-6 py-4">
-                                                            {`${record.printMonth}/${record.printDay}/${record.printYear}`}
-                                                        </td>
-                                                    
+                                            { current_route === "obituary" &&
 
-                                                        <td className="px-6 py-4 text-right">
-                                                            <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                                                            onClick={() => handleCopyToClipboard(record._id)}>
-                                                            Copy ID
-                                                            </div>
-                                                        </td>
+                                                <>
+                                                    {filteredTableData.slice(min, max).map((record, key) => {
+                                                        
+                                                        return(
+                                                            
+                                                            <tr key={key} className="bg-white border-b  border-gray-200">
+                                                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                                    {min+key+1}
+                                                                </th>
+                                                                <th scope="row" className="px-6 py-4 font-medium text-gray-900">
+                                                                    {record._id}
+                                                                </th>
+                                                                    
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.firstName}`}
+                                                                </td>
 
-                                                        <td className="px-6 py-4 text-right">
-                                                            <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline" 
-                                                            onClick={() => handleRecordDelete(record._id)}>
-                                                            Delete
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    
-                                                )
-                                            })}
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.middleName}`}
+                                                                </td>
+
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.lastName}`}
+                                                                </td>
+
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.deathMonth}/${record.deathDay}/${record.deathYear}`}
+                                                                </td>
+
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.publicationName}`}
+                                                                </td>
+
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.pageNumber}`}
+                                                                </td>
+
+                                                                <td className="px-6 py-4">
+                                                                    {`${record.printMonth}/${record.printDay}/${record.printYear}`}
+                                                                </td>
+                                                            
+
+                                                                <td className="px-6 py-4 text-right">
+                                                                    <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                                                    onClick={() => handleCopyToClipboard(record._id)}>
+                                                                    Copy ID
+                                                                    </div>
+                                                                </td>
+
+                                                                <td className="px-6 py-4 text-right">
+                                                                    <div className="cursor-pointer font-medium text-blue-600 dark:text-blue-500 hover:underline" 
+                                                                    onClick={() => handleRecordDelete(record._id)}>
+                                                                    Delete
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                        )
+                                                    })}
+                                                </>
+
+                                            }
                                         </>
-
                                     }
                                         
                                         
