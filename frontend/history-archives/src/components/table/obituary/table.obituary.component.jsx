@@ -84,6 +84,7 @@ const ObituaryTable = () => {
         else {
             setSearchFields(defaultSearchObject);
             setAnyYearSelection(true);
+            setExactStringSelection(false);
             getColl("obituary");
             setIsFiltered(false);
         }

@@ -305,9 +305,9 @@ const DBTable = (props) => {
 
                                             <div className="mx-3 relative pr-3 mt-3">
                                                 
-                                                <div className="flex items-center ">
-                                                    <input type="checkbox" defaultChecked value={anyYearSelection} onChange={handleAnyYearChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
-                                                    <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                <div className="mt-5 flex items-center ">
+                                                    <input type="checkbox" defaultChecked value={anyYearSelection} onChange={handleAnyYearChange} className=" w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 "/>
+                                                    <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900">
                                                         Search All Years
                                                     </label>
                                                 </div>
@@ -365,7 +365,7 @@ const DBTable = (props) => {
                                                             </td>
                                                         
                                                             <td className="px-6 py-4">
-                                                                {record.fileURL}
+                                                                <a href={record.fileURL} target="_blank" className=" text-blue-700 hover:text-blue-500">{record.fileURL}</a>
                                                             </td>
                                         
                                                             <td className="px-6 py-4">
